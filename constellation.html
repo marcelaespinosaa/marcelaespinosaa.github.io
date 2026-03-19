@@ -24,7 +24,7 @@ nav {
 .nav-logo { font-size: 0.9rem; font-weight: 600; color: var(--ink); text-decoration: none; font-family: var(--sans); letter-spacing: 0.01em; }
 .cs-hero { padding: 9rem 16vw 5.5rem; background: var(--white); border-bottom: 1px solid var(--border-light); }
 .cs-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-.cs-tag { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.85rem; }
+.cs-tag { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.85rem; border-radius: 4px; }
 .cs-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 2.5rem; }
 .cs-title em { font-style: italic; color: var(--accent); font-weight: 400; }
 .cs-subtitle { font-size: 1.1rem; color: #3D3A35; font-weight: 400; line-height: 1.75; }
@@ -67,6 +67,9 @@ h3.cs-h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; co
 .cs-prev:hover { color: var(--accent); }
 footer { background: var(--ink); padding: 1.75rem 16vw; display: flex; justify-content: space-between; align-items: center; }
 footer p { font-size: 0.75rem; color: #555; }
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a { font-size: 0.75rem; color: #555; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
 .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 @media (max-width: 768px) {
@@ -228,6 +231,11 @@ footer p { font-size: 0.75rem; color: #555; }
 
 <footer>
   <p>© 2026 Marcela. All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">Dribbble</a></li>
+    <li><a href="#">Resume ↓</a></li>
+  </ul>
 </footer>
 
 <script>

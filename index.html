@@ -38,7 +38,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--ink); overf
 .sidebar-bio { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
 .sidebar-section-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); font-weight: 600; margin-bottom: 0.75rem; }
 .sidebar-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.sidebar-skill { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--muted); background: var(--white); border: 1px solid var(--border); padding: 0.28rem 0.7rem; }
+.sidebar-skill { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--muted); background: var(--white); border: 1px solid var(--border); padding: 0.28rem 0.7rem; border-radius: 4px; }
 .sidebar-links { display: flex; flex-direction: column; gap: 0.5rem; }
 .sidebar-link { font-size: 0.8rem; color: var(--muted); text-decoration: none; font-weight: 400; transition: color 0.2s; }
 .sidebar-link:hover { color: var(--ink); }
@@ -49,14 +49,14 @@ body { font-family: var(--sans); background: var(--bg); color: var(--ink); overf
 .main-tab.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 600; }
 .main-tab:hover { color: var(--ink); }
 .main-subheading { font-size: 0.95rem; color: var(--ink); margin-bottom: 1.5rem; font-weight: 500; }
-.cs-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-.cs-card { background: var(--white); display: grid; grid-template-columns: 20px 1fr; text-decoration: none; color: inherit; transition: background 0.15s; }
-.cs-card:hover { background: #FAFAF8; }
+.cs-list { display: flex; flex-direction: column; gap: 12px; background: transparent; border: none; }
+.cs-card { background: var(--white); display: grid; grid-template-columns: 20px 1fr; text-decoration: none; color: inherit; transition: background 0.15s; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(17,17,17,0.03); }
+.cs-card:hover { background: #FAFAF8; box-shadow: 0 4px 14px rgba(17,17,17,0.05); }
 .cs-card-strip { width: 100%; height: 100%; min-height: 90px; }
 .cs-card-body { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0; }
 .cs-card-top-row { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.65rem; }
 .cs-card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; flex: 1; }
-.cs-card-tag { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding: 0.2rem 0.55rem; }
+.cs-card-tag { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding: 0.2rem 0.55rem; border-radius: 4px; }
 .cs-card-arrow { font-size: 1rem; color: var(--soft); flex-shrink: 0; transition: transform 0.2s; }
 .cs-card:hover .cs-card-arrow { transform: translateX(3px); }
 .cs-card-title { font-family: var(--display); font-size: 1rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.55rem; }
