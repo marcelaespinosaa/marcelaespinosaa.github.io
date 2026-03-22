@@ -316,7 +316,7 @@ footer p { font-size: 0.75rem; color: #555; }
           <img src="images/tprm/Settings_wireframes.png" alt="Settings wireframes showing configurable autonomy controls — organizations can tune how much responsibility the agent takes on within the workflow" loading="lazy">
           <span class="cs-image-hint" aria-hidden="true">click to expand</span>
         </div>
-        <p class="cs-image-caption">Organizations can tune how much responsibility the agent takes on within the workflow.</p>
+        <p class="cs-image-caption">Settings wireframes — organizations can tune how much responsibility the agent takes on within the workflow.</p>
       </div>
 
       <p class="cs-body">As part of this initiative, I partnered with the AI Director, AI PM, and TPRM designer to define Drata's AI design principles and personality model (levels of presence and autonomy) from the ground up. We synthesized themes from working sessions into a cohesive framework, which I later refined and translated into final language. These principles now guide AI feature development across the platform.</p>
@@ -328,7 +328,7 @@ footer p { font-size: 0.75rem; color: #555; }
         <div class="cs-image-wrap" role="img" aria-label="Six AI design principles: 1. User first, 2. Transparency and trust, 3. Progressive autonomy, 4. Always learning, 5. Set up for success, 6. Reliable and safe by design">
           <img src="images/tprm/Design_principles.png" alt="Six AI design principles established for Drata: User first, Transparency and trust, Progressive autonomy, Always learning, Set up for success, Reliable and safe by design" loading="lazy">
         </div>
-        <p class="cs-image-caption">AI design principles — synthesized from cross-team working sessions, now applied across all AI features at Drata</p>
+        <p class="cs-image-caption">4 of 6 AI design principles — synthesized from cross-team working sessions, now applied across all AI features at Drata</p>
       </div>
 
       <h3 class="cs-h3" id="personalities-heading">Personalities</h3>
@@ -528,7 +528,7 @@ footer p { font-size: 0.75rem; color: #555; }
     <section id="section-outcomes" class="cs-section fade-up" aria-labelledby="kicker-outcomes">
       <span class="section-kicker" id="kicker-outcomes">Outcomes</span>
       <ul class="outcomes-list" aria-label="Project outcomes">
-        <li><strong>Strong validation from enterprise design partners</strong> — All 6 Agent design partners were converted into TPRM Standalone design partners, indicating those design partners are also being used to shape the broader TPRM platform</li>
+        <li><strong>Strong validation from enterprise design partners</strong> — All 6 Agent design partners were converted into TPRM Standalone design partners, indicating they would participate in shaping the broader TPRM platform</li>
         <li>
           <strong>Positive qualitative feedback and adoption signals</strong> — Design partners highlighted that the agent aligns closely with how their teams already operate, with feedback reinforcing its value in reducing manual effort and improving consistency
           <blockquote class="cs-blockquote">"Third-party risk is one of the most pressing challenges for every CISO. Drata's Agentic TPRM Assessment will fundamentally change how organizations operationalize third-party risk management — bringing rigor, consistency, and scale. Using Agentic AI, security teams can run assessments in minutes, achieve a more accurate risk posture across the supply chain, and operate at AI speed."
@@ -574,6 +574,7 @@ footer p { font-size: 0.75rem; color: #555; }
 </footer>
 
 <script>
+  // ── FADE-UP ON SCROLL ────────────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -581,6 +582,7 @@ footer p { font-size: 0.75rem; color: #555; }
   }, { threshold: 0.05 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+  // ── ANCHOR NAV ACTIVE STATE ──────────────────────────────────────────
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.cs-anchor-nav a');
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -594,6 +596,31 @@ footer p { font-size: 0.75rem; color: #555; }
   }, { rootMargin: '-30% 0px -60% 0px' });
   sections.forEach(s => sectionObserver.observe(s));
 
+  // ── PLAY VIDEOS ONLY WHEN VISIBLE ───────────────────────────────────
+  // Each video is paused and reset when off-screen, played from the
+  // beginning when it scrolls into view. threshold: 0.25 means the video
+  // needs to be at least 25% visible before it starts — feels intentional
+  // rather than triggering on a single pixel.
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const video = e.target;
+      if (e.isIntersecting) {
+        video.currentTime = 0;
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, { threshold: 0.25 });
+
+  document.querySelectorAll('.cs-video-wrap video').forEach(video => {
+    // Remove autoplay so the browser doesn't start it on load
+    video.removeAttribute('autoplay');
+    videoObserver.observe(video);
+  });
+
+  // ── LIGHTBOX ─────────────────────────────────────────────────────────
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   function openLightbox(wrap) {
