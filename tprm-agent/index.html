@@ -32,6 +32,7 @@
   --display: 'Lora', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
   --nav-h: 3.4rem;
   --gap: 3rem;
+  --nav-col: calc(16vw + 180px);
 }
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow-x: hidden; width: 100%; }
@@ -50,7 +51,8 @@ nav {
 .cs-tag { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.85rem; border-radius: 4px; }
 .cs-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 2.5rem; }
 .cs-title .accent { color: var(--accent); }
-.cs-subtitle { font-size: 1.1rem; color: #3D3A35; font-weight: 400; line-height: 1.75; max-width: 680px; }
+/* #1: max-width increased 680px → 860px so subtitle doesn't wrap prematurely */
+.cs-subtitle { font-size: 1.1rem; color: #3D3A35; font-weight: 400; line-height: 1.75; max-width: 860px; }
 
 /* ── META BAR ────────────────────────────────────────────────────────── */
 .cs-meta {
@@ -66,7 +68,7 @@ nav {
 /* ── PAGE LAYOUT ─────────────────────────────────────────────────────── */
 .cs-layout {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: var(--nav-col) 1fr;
   gap: 0;
   align-items: start;
   padding-top: var(--gap);
@@ -76,7 +78,7 @@ nav {
 .cs-anchor-nav {
   position: sticky;
   top: calc(var(--nav-h) + var(--gap));
-  padding: 0 0 0 16vw;
+  padding: 0 2rem 0 16vw;
   align-self: start;
   z-index: 50;
 }
@@ -95,7 +97,7 @@ nav {
 .cs-anchor-nav li a.active { color: var(--accent); border-left-color: var(--accent); }
 
 /* ── CONTENT SHELL ───────────────────────────────────────────────────── */
-.cs-content { padding: 0 16vw 8rem 6rem; }
+.cs-content { padding: 0 16vw 8rem 3rem; }
 .cs-section { margin-bottom: 5.5rem; }
 section[id] { scroll-margin-top: calc(var(--nav-h) + var(--gap)); }
 
@@ -214,13 +216,16 @@ footer p { font-size: 0.75rem; color: #555; }
 .fade-up.visible { opacity: 1; transform: none; }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+/* #2: hero and meta bar padding match content at narrow viewports */
 @media (max-width: 1200px) {
   .cs-layout { grid-template-columns: 1fr; padding-top: 0; }
   .cs-anchor-nav { display: none; }
   .cs-content { padding: 2rem 5vw 8rem; }
+  .cs-hero { padding: 4rem 5vw 3rem; }
+  .cs-meta { padding: 0.75rem 5vw; }
 }
 @media (max-width: 900px) {
-  nav, .cs-hero, .cs-meta, .cs-next, footer { padding-left: 5vw; padding-right: 5vw; }
+  nav, .cs-next, footer { padding-left: 5vw; padding-right: 5vw; }
   .cs-meta { column-gap: 1.5rem; }
 }
 </style>
@@ -263,7 +268,7 @@ footer p { font-size: 0.75rem; color: #555; }
       <li><a href="#section-impact">Ownership &amp; impact</a></li>
       <li><a href="#section-role">Defining AI's role</a></li>
       <li><a href="#section-interaction">Interaction model</a></li>
-      <li><a href="#section-research">Research</a></li>
+      <li><a href="#section-research">3 months of refinement</a></li>
       <li><a href="#section-decisions">Key decisions &amp; tradeoffs</a></li>
       <li><a href="#section-outcomes">Outcomes</a></li>
       <li><a href="#section-reflection">Reflection</a></li>
@@ -316,7 +321,7 @@ footer p { font-size: 0.75rem; color: #555; }
           <img src="../images/tprm/Settings_wireframes.png" alt="Settings wireframes showing configurable autonomy controls — organizations can tune how much responsibility the agent takes on within the workflow" loading="lazy">
           <span class="cs-image-hint" aria-hidden="true">click to expand</span>
         </div>
-        <p class="cs-image-caption">Settings wireframes — organizations can tune how much responsibility the agent takes on within the workflow.</p>
+        <p class="cs-image-caption">Organizations can tune how much responsibility the agent takes on within the workflow.</p>
       </div>
 
       <p class="cs-body">As part of this initiative, I partnered with the AI Director, AI PM, and TPRM designer to define Drata's AI design principles and personality model (levels of presence and autonomy) from the ground up. We synthesized themes from working sessions into a cohesive framework, which I later refined and translated into final language. These principles now guide AI feature development across the platform.</p>
@@ -328,7 +333,7 @@ footer p { font-size: 0.75rem; color: #555; }
         <div class="cs-image-wrap" role="img" aria-label="Six AI design principles: 1. User first, 2. Transparency and trust, 3. Progressive autonomy, 4. Always learning, 5. Set up for success, 6. Reliable and safe by design">
           <img src="../images/tprm/Design_principles.png" alt="Six AI design principles established for Drata: User first, Transparency and trust, Progressive autonomy, Always learning, Set up for success, Reliable and safe by design" loading="lazy">
         </div>
-        <p class="cs-image-caption">4 of 6 AI design principles — synthesized from cross-team working sessions, now applied across all AI features at Drata</p>
+        <p class="cs-image-caption">AI design principles — synthesized from cross-team working sessions, now applied across all AI features at Drata</p>
       </div>
 
       <h3 class="cs-h3" id="personalities-heading">Personalities</h3>
@@ -357,7 +362,7 @@ footer p { font-size: 0.75rem; color: #555; }
       </div>
       <div class="cs-video-block fade-up">
         <div class="cs-video-wrap">
-          <video autoplay loop muted playsinline aria-label="Criteria creation: user uploads a vendor questionnaire and the agent parses it into structured evaluation criteria">
+          <video loop muted playsinline aria-label="Criteria creation: user uploads a vendor questionnaire and the agent parses it into structured evaluation criteria">
             <source src="../images/tprm/Criteria_creation.mp4" type="video/mp4">
             This video shows the criteria creation step.
           </video>
@@ -398,7 +403,7 @@ footer p { font-size: 0.75rem; color: #555; }
       </div>
       <div class="cs-video-block fade-up">
         <div class="cs-video-wrap">
-          <video autoplay loop muted playsinline aria-label="Guided experience: manual evidence collection and AI assessment with high user involvement for vendors without a Trust Center">
+          <video loop muted playsinline aria-label="Guided experience: manual evidence collection and AI assessment with high user involvement for vendors without a Trust Center">
             <source src="../images/tprm/Assessment_notTC.mp4" type="video/mp4">
             This video shows manual evidence collection and AI assessment for vendors without a Trust Center.
           </video>
@@ -407,7 +412,7 @@ footer p { font-size: 0.75rem; color: #555; }
       </div>
       <div class="cs-video-block fade-up">
         <div class="cs-video-wrap">
-          <video autoplay loop muted playsinline aria-label="Autonomous experience: automated evidence collection and AI assessment for vendors with a Drata Trust Center">
+          <video loop muted playsinline aria-label="Autonomous experience: automated evidence collection and AI assessment for vendors with a Drata Trust Center">
             <source src="../images/tprm/Assessment_TC.mp4" type="video/mp4">
             This video shows automated evidence collection and AI assessment for Trust Center vendors.
           </video>
@@ -439,7 +444,7 @@ footer p { font-size: 0.75rem; color: #555; }
       </div>
       <div class="cs-video-block fade-up">
         <div class="cs-video-wrap">
-          <video autoplay loop muted playsinline aria-label="Risk creation and report generation: observations are flagged as risks and the agent generates a structured PDF assessment report">
+          <video loop muted playsinline aria-label="Risk creation and report generation: observations are flagged as risks and the agent generates a structured PDF assessment report">
             <source src="../images/tprm/Finalize_reporting.mp4" type="video/mp4">
             This video shows the risk creation and report generation step.
           </video>
@@ -476,9 +481,9 @@ footer p { font-size: 0.75rem; color: #555; }
       <p class="cs-body">These behaviors were designed as foundational to the interaction model — not as secondary features — ensuring the agent supports decision-making without removing accountability.</p>
     </section>
 
-    <!-- RESEARCH -->
+    <!-- 3 MONTHS OF REFINEMENT -->
     <section id="section-research" class="cs-section fade-up" aria-labelledby="kicker-research">
-      <span class="section-kicker" id="kicker-research">Research</span>
+      <span class="section-kicker" id="kicker-research">3 months of refinement that sharpened the design</span>
       <p class="cs-body">The research process was structured in two phases. The goal of the first phase was to understand whether this workflow could be trusted and adopted in a real vendor review process. The goal of the second phase was to calibrate our product.</p>
 
       <h3 class="cs-h3 phase-label" id="phase1-heading">Phase 1: Concept validation (5 moderated sessions)</h3>
@@ -528,7 +533,7 @@ footer p { font-size: 0.75rem; color: #555; }
     <section id="section-outcomes" class="cs-section fade-up" aria-labelledby="kicker-outcomes">
       <span class="section-kicker" id="kicker-outcomes">Outcomes</span>
       <ul class="outcomes-list" aria-label="Project outcomes">
-        <li><strong>Strong validation from enterprise design partners</strong> — All 6 Agent design partners were converted into TPRM Standalone design partners, indicating they would participate in shaping the broader TPRM platform</li>
+        <li><strong>Strong validation from enterprise design partners</strong> — All 6 Agent design partners were converted into TPRM Standalone design partners, indicating those design partners are also being used to shape the broader TPRM platform</li>
         <li>
           <strong>Positive qualitative feedback and adoption signals</strong> — Design partners highlighted that the agent aligns closely with how their teams already operate, with feedback reinforcing its value in reducing manual effort and improving consistency
           <blockquote class="cs-blockquote">"Third-party risk is one of the most pressing challenges for every CISO. Drata's Agentic TPRM Assessment will fundamentally change how organizations operationalize third-party risk management — bringing rigor, consistency, and scale. Using Agentic AI, security teams can run assessments in minutes, achieve a more accurate risk posture across the supply chain, and operate at AI speed."
@@ -597,10 +602,6 @@ footer p { font-size: 0.75rem; color: #555; }
   sections.forEach(s => sectionObserver.observe(s));
 
   // ── PLAY VIDEOS ONLY WHEN VISIBLE ───────────────────────────────────
-  // Each video is paused and reset when off-screen, played from the
-  // beginning when it scrolls into view. threshold: 0.25 means the video
-  // needs to be at least 25% visible before it starts — feels intentional
-  // rather than triggering on a single pixel.
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       const video = e.target;
@@ -615,8 +616,6 @@ footer p { font-size: 0.75rem; color: #555; }
   }, { threshold: 0.25 });
 
   document.querySelectorAll('.cs-video-wrap video').forEach(video => {
-    // Remove autoplay so the browser doesn't start it on load
-    video.removeAttribute('autoplay');
     videoObserver.observe(video);
   });
 
