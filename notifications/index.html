@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO META TAGS ══════════════════════════════════════════════════ -->
+<title>Notifications — Marcela Espinosa, Senior Product Designer</title>
+<meta name="description" content="Turning fragmented notification behaviors into a product requirements model that shaped Drata's next notification infrastructure — research synthesis, workflow mapping, and a platform migration decision.">
+<meta name="author" content="Marcela Espinosa">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="notification systems, UX strategy, enterprise product design, senior product designer, Drata, platform design, systems thinking, infrastructure decision, user research, compliance platform, product requirements">
+<link rel="canonical" href="https://marcelaespinosaa.github.io/notifications/">
+<meta property="og:title" content="Notifications — Marcela Espinosa, Senior Product Designer">
+<meta property="og:description" content="Turning fragmented notification behaviors into a product requirements model — research synthesis, workflow mapping, and an infrastructure decision that shapes Drata's next phase of growth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marcelaespinosaa.github.io/notifications/">
+<meta property="og:image" content="https://marcelaespinosaa.github.io/images/notifications/Research_synthesis_board.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notifications — Marcela Espinosa">
+<meta name="twitter:description" content="Turning fragmented notification behaviors into a product requirements model that shaped Drata's next notification infrastructure.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F4F2EE; --white: #FFFFFF; --border-light: #C5CAE9;
+  --ink: #111111; --muted: #636058; --soft: #9A948A;
+  --accent: #3949AB; --accent-pale: #E8EAF6; --border: #3949AB;
+  --display: 'Lora', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
+  --nav-h: 3.4rem;
+  --gap: 3rem;
+  --nav-col: calc(16vw + 180px);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow-x: hidden; width: 100%; }
+
+/* ── NAV ─────────────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 16vw; background: var(--bg); border-bottom: 1px solid var(--border-light);
+}
+.nav-logo { font-size: 0.9rem; font-weight: 600; color: var(--ink); text-decoration: none; font-family: var(--sans); letter-spacing: 0.01em; }
+
+/* ── HERO ────────────────────────────────────────────────────────────── */
+.cs-hero { padding: 5.75rem 16vw 4.125rem; background: var(--white); border-bottom: 1px solid var(--border-light); }
+.cs-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.cs-tag { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.85rem; border-radius: 4px; }
+.cs-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+.cs-title .accent { color: var(--accent); }
+.cs-subtitle { font-size: 1.1rem; color: #3D3A35; font-weight: 400; line-height: 1.75; max-width: 860px; }
+
+/* ── META BAR ────────────────────────────────────────────────────────── */
+.cs-meta {
+  display: flex; flex-wrap: wrap;
+  column-gap: 3rem; row-gap: 0;
+  padding: 0.75rem 16vw;
+  background: var(--white); border-bottom: 1.5px solid var(--border);
+}
+.cs-meta-item { padding: 0.5rem 0; }
+.cs-meta-item label { display: block; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; font-weight: 500; }
+.cs-meta-item span { font-size: 0.9rem; color: var(--ink); font-weight: 400; }
+
+/* ── PAGE LAYOUT ─────────────────────────────────────────────────────── */
+.cs-layout {
+  display: grid;
+  grid-template-columns: var(--nav-col) 1fr;
+  gap: 0;
+  align-items: start;
+  padding-top: var(--gap);
+}
+
+/* ── ANCHOR NAV ──────────────────────────────────────────────────────── */
+.cs-anchor-nav {
+  position: sticky;
+  top: calc(var(--nav-h) + var(--gap));
+  padding: 0 2rem 0 16vw;
+  align-self: start;
+  z-index: 50;
+}
+.cs-anchor-nav-label {
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #7A7670; margin-bottom: 0.75rem; padding-left: 0.75rem; display: block;
+}
+.cs-anchor-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.cs-anchor-nav li a {
+  display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted);
+  text-decoration: none; padding: 0.45rem 0.75rem; border-left: 2px solid var(--border-light);
+  transition: color 0.2s, border-color 0.2s; line-height: 1.4; letter-spacing: 0.01em;
+}
+.cs-anchor-nav li a:hover,
+.cs-anchor-nav li a.active { color: var(--accent); border-left-color: var(--accent); }
+
+/* ── CONTENT SHELL ───────────────────────────────────────────────────── */
+.cs-content { padding: 0 16vw 8rem 3rem; }
+.cs-section { margin-bottom: 5.5rem; }
+section[id] { scroll-margin-top: calc(var(--nav-h) + var(--gap)); }
+
+/* H2 — section kicker */
+.section-kicker {
+  display: inline-block; font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.85rem;
+}
+
+/* H3 — subsection headings */
+h3.cs-h3 {
+  font-family: var(--sans); font-size: 1.05rem; font-weight: 700;
+  color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-top: 3.5rem; margin-bottom: 1rem;
+}
+/* When h3 immediately follows the section kicker, reduce the top gap */
+.section-kicker + h3.cs-h3 {
+  margin-top: 1.25rem;
+}
+
+.cs-body { font-size: 1rem; color: #3D3A35; font-weight: 400; line-height: 1.85; margin-bottom: 1.25rem; }
+.cs-body strong { color: var(--ink); font-weight: 600; }
+
+/* ── PULL QUOTE ──────────────────────────────────────────────────────── */
+.cs-pullquote { font-size: 1rem; color: var(--ink); font-weight: 400; padding: 1rem 1.5rem; border-left: 3px solid var(--accent); margin: 1.25rem 0; line-height: 1.75; font-style: italic; }
+
+/* ── LISTS ───────────────────────────────────────────────────────────── */
+.cs-list, .outcomes-list {
+  list-style: none; margin: 0.75rem 0 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;
+}
+.cs-list li, .outcomes-list li {
+  font-size: 1rem; color: #3D3A35; padding-left: 1.25rem; position: relative; line-height: 1.8;
+}
+.cs-list li::before, .outcomes-list li::before {
+  content: ''; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+}
+.cs-list li strong, .outcomes-list li strong { color: var(--ink); font-weight: 600; }
+
+/* ── IMAGES ──────────────────────────────────────────────────────────── */
+.cs-image-block { margin: 2.5rem 0; }
+.cs-image-wrap { position: relative; overflow: hidden; }
+.cs-image-wrap img { width: 100%; height: auto; display: block; transition: opacity 0.15s; }
+.cs-image-wrap.expandable { cursor: zoom-in; }
+.cs-image-wrap.expandable:hover img { opacity: 0.95; }
+.cs-image-hint {
+  position: absolute; bottom: 0.65rem; right: 0.65rem;
+  background: rgba(17,17,17,0.65); color: #F4F2EE;
+  font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.25rem 0.6rem; border-radius: 3px;
+  pointer-events: none; opacity: 0; transition: opacity 0.2s;
+}
+.cs-image-wrap.expandable:hover .cs-image-hint { opacity: 1; }
+.cs-image-caption { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
+
+/* ── LIGHTBOX ────────────────────────────────────────────────────────── */
+.lightbox-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(17,17,17,0.9); align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-overlay img { max-width: 92vw; max-height: 92vh; object-fit: contain; display: block; }
+.lightbox-close {
+  position: absolute; top: 1.25rem; right: 1.5rem;
+  color: #fff; font-size: 1.5rem; cursor: pointer;
+  background: none; border: none; line-height: 1; opacity: 0.7; transition: opacity 0.2s;
+}
+.lightbox-close:hover { opacity: 1; }
+
+/* ── NEXT / FOOTER ───────────────────────────────────────────────────── */
+.cs-next { border-top: 1.5px solid var(--border); padding: 3rem 16vw; display: flex; justify-content: space-between; align-items: center; background: var(--white); position: static; }
+.cs-next-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
+.cs-next-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; transition: color 0.2s; }
+.cs-next-title:hover { color: var(--accent); }
+footer { background: var(--ink); padding: 1.75rem 16vw; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 0.75rem; color: #555; }
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a { font-size: 0.75rem; color: #555; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: #999; }
+
+/* ── FADE-UP — visible by default, JS enables animation ─────────────── */
+.fade-up { opacity: 1; transform: none; }
+.fade-up.js-ready { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .cs-layout { grid-template-columns: 1fr; padding-top: 0; }
+  .cs-anchor-nav { display: none; }
+  .cs-content { padding: 2rem 5vw 8rem; }
+  .cs-hero { padding: 4rem 5vw 3rem; }
+  .cs-meta { padding: 0.75rem 5vw; }
+}
+@media (max-width: 900px) {
+  nav, .cs-next, footer { padding-left: 5vw; padding-right: 5vw; }
+  .cs-meta { column-gap: 1.5rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ── NAVIGATION ───────────────────────────────────────────────────── -->
+<nav role="navigation" aria-label="Site navigation">
+  <a href="../index.html" class="nav-logo" aria-label="Marcela Espinosa — back to home">Marcela Espinosa</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────── -->
+<header class="cs-hero">
+  <div class="cs-tags" role="list" aria-label="Project tags">
+    <span class="cs-tag" role="listitem">UX Strategy</span>
+    <span class="cs-tag" role="listitem">Systems Thinking</span>
+    <span class="cs-tag" role="listitem">Platform Design</span>
+  </div>
+  <h1 class="cs-title"><span class="accent">Notifications</span></h1>
+  <p class="cs-subtitle">Turning fragmented notification behaviors into a product requirements model that shaped Drata's next notification infrastructure</p>
+</header>
+
+<!-- ── META BAR ─────────────────────────────────────────────────────── -->
+<div class="cs-meta" role="complementary" aria-label="Project details">
+  <div class="cs-meta-item"><label>Role</label><span>Senior Product Designer</span></div>
+  <div class="cs-meta-item"><label>Team</label><span>Group Product Manager, Staff Engineer</span></div>
+</div>
+
+<!-- ── LAYOUT WRAPPER ────────────────────────────────────────────────── -->
+<div class="cs-layout">
+
+  <!-- ANCHOR NAV ──────────────────────────────────────────────────── -->
+  <aside class="cs-anchor-nav" aria-label="Page sections">
+    <span class="cs-anchor-nav-label" aria-hidden="true">Page content</span>
+    <ul>
+      <li><a href="#section-opportunity">The opportunity</a></li>
+      <li><a href="#section-impact">Ownership &amp; impact</a></li>
+      <li><a href="#section-defining">Defining the notification system</a></li>
+      <li><a href="#section-evaluation">Infrastructure evaluation</a></li>
+      <li><a href="#section-outcomes">Outcomes</a></li>
+      <li><a href="#section-reflection">Reflection</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT ────────────────────────────────────────────────── -->
+  <main id="main-content" class="cs-content">
+
+    <!-- THE OPPORTUNITY -->
+    <section id="section-opportunity" class="cs-section fade-up" aria-labelledby="kicker-opportunity">
+      <span class="section-kicker" id="kicker-opportunity">The opportunity</span>
+      <p class="cs-body">Notifications were embedded across nearly every major workflow in Drata's product: compliance tasks, system alerts, vendor reviews, Trust Center requests, and collaboration activity.</p>
+      <p class="cs-body">As the platform expanded, notification behavior had been implemented with a rigid, one-size-fits-all approach. Most notifications were triggered by predefined system events and delivered primarily via email, with limited flexibility for customization. Users had little control over how notifications were configured or delivered.</p>
+      <p class="cs-body">At the same time, upcoming initiatives were expected to increase both the volume and complexity of notifications across the platform.</p>
+      <p class="cs-body">This created a broader product problem: Drata needed a more flexible and scalable model for how notifications should behave across the platform.</p>
+    </section>
+
+    <!-- OWNERSHIP & IMPACT -->
+    <section id="section-impact" class="cs-section fade-up" aria-labelledby="kicker-impact">
+      <span class="section-kicker" id="kicker-impact">Ownership &amp; impact</span>
+      <p class="cs-body">I led the product and UX side of this initiative in close partnership with the Group Product Manager and Staff Engineer, helping turn an ambiguous infrastructure question into a clear set of product requirements.</p>
+      <ul class="cs-list" aria-label="Key contributions and impact">
+        <li><strong>Translated fragmented insights into a product requirements model</strong> — Synthesized customer feedback and internal signals into a clear definition of how notifications should behave across workflows</li>
+        <li><strong>Defined the workflows the infrastructure needed to support</strong> — Mapped representative scenarios across compliance, Trust Center, and collaboration experiences to make platform gaps visible and concrete.</li>
+        <li><strong>Extended the problem beyond delivery channels</strong> — Identified that notifications were also a collaboration and context issue, not just a transport issue, which expanded the requirements for the infrastructure decision.</li>
+        <li><strong>Helped drive a platform migration decision</strong> — The work informed the recommendation to move Drata's notification infrastructure to a new provider better aligned with product requirements and long-term scale.</li>
+      </ul>
+    </section>
+
+    <!-- DEFINING THE NOTIFICATION SYSTEM -->
+    <section id="section-defining" class="cs-section fade-up" aria-labelledby="kicker-defining">
+      <span class="section-kicker" id="kicker-defining">Defining the notification system</span>
+
+      <!-- System limitations -->
+      <h3 class="cs-h3" id="section-breakdown">System limitations</h3>
+      <p class="cs-body">Notifications were triggered through a small set of predefined system events (for example, a control changing state), with limited ability to customize behavior beyond basic toggles.</p>
+      <p class="cs-body">This created several challenges:</p>
+      <ul class="cs-list" aria-label="Challenges with the existing notification system">
+        <li><strong>Lack of flexibility</strong> — Users could not tailor notifications based on urgency, task type, or internal workflows</li>
+        <li><strong>No escalation model</strong> — There was no way to route notifications to different stakeholders or escalate when tasks were not completed</li>
+        <li><strong>Limited channel control</strong> — Notifications were primarily delivered via email, with minimal support for preferred tools like Slack or Teams</li>
+        <li><strong>No contextual differentiation</strong> — Critical alerts and routine updates were treated similarly, making it harder to prioritize work</li>
+      </ul>
+      <p class="cs-body">As a result, notifications did not adapt to how organizations actually operate. Instead, users had to adapt their workflows to the system, making it hard to scale future workflows that would satisfy our customers' needs.</p>
+
+      <!-- Requirements model -->
+      <h3 class="cs-h3" id="section-requirements">Requirements model</h3>
+      <p class="cs-body">The first step was making the problem legible.</p>
+      <p class="cs-body">I synthesized feedback gathered over several months from Productboard, prior research conversations, and internal product and support discussions. I organized them into themes that exposed where the platform was failing users and where future needs were likely to grow.</p>
+      <p class="cs-body">That synthesis became the basis for a requirements model: a product-level view of what notification infrastructure would need to support.</p>
+      <p class="cs-body">Representative customer feedback included:</p>
+      <p class="cs-pullquote">"Would be nice to have ability to customize notification behavior... Every moment must be clear who is the owner and have some SLAs for progress."</p>
+      <p class="cs-pullquote">"Combining Slack integration with different notification customization... based on the type of task and how far in advance we receive the notification."</p>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Research synthesis board showing thematic clusters of customer feedback and internal product insights organized to expose where the notification system was failing users and where future needs were likely to grow" onclick="openLightbox(this)">
+          <img src="../images/notifications/Research_synthesis_board.png" alt="Research synthesis board: thematic clusters organizing months of Productboard feedback, research conversations, and internal discussions into actionable patterns — exposing notification system failures and future growth areas" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Research synthesis board — thematic clusters of customer feedback and internal product insights</p>
+      </div>
+
+      <!-- Representative workflows -->
+      <h3 class="cs-h3" id="section-workflows">Representative workflows</h3>
+      <p class="cs-body">To move from insight to decision-making, I worked with the Group Product Manager to define representative workflows that expressed the kinds of notification behaviors the platform needed to support.</p>
+      <p class="cs-body">We defined a set of representative workflows to capture the range of notification behaviors the system needed to support. These included core notification scenarios, as well as an extended case that introduced collaboration patterns.</p>
+      <p class="cs-body">These workflows covered:</p>
+      <ul class="cs-list" aria-label="Representative workflow scenarios">
+        <li>Core notification scenarios
+          <ul style="list-style:none; margin-top:0.4rem; display:flex; flex-direction:column; gap:0.4rem;">
+            <li style="padding-left:1.25rem; position:relative; color:#3D3A35; line-height:1.8;"><span style="position:absolute;left:0;top:0.72em;width:4px;height:4px;background:var(--border-light);border-radius:50%;display:block;"></span>Task assignment within compliance workflows</li>
+            <li style="padding-left:1.25rem; position:relative; color:#3D3A35; line-height:1.8;"><span style="position:absolute;left:0;top:0.72em;width:4px;height:4px;background:var(--border-light);border-radius:50%;display:block;"></span>Critical test failures requiring immediate attention</li>
+            <li style="padding-left:1.25rem; position:relative; color:#3D3A35; line-height:1.8;"><span style="position:absolute;left:0;top:0.72em;width:4px;height:4px;background:var(--border-light);border-radius:50%;display:block;"></span>Trust Center access requests from external stakeholders</li>
+          </ul>
+        </li>
+        <li>Extended scenario (notifications + collaboration)
+          <ul style="list-style:none; margin-top:0.4rem; display:flex; flex-direction:column; gap:0.4rem;">
+            <li style="padding-left:1.25rem; position:relative; color:#3D3A35; line-height:1.8;"><span style="position:absolute;left:0;top:0.72em;width:4px;height:4px;background:var(--border-light);border-radius:50%;display:block;"></span>Task assignment with in-app collaboration, including comments, mentions, and shared context</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Notification workflow diagram for custom task assignment showing trigger conditions, channels, and recipient sequence" onclick="openLightbox(this)">
+          <img src="../images/notifications/Notification_workflow-Custom_task_assignment.png" alt="Notification workflow for custom task assignment: trigger conditions, notification channels, recipient roles, and the full sequence from task creation to user notification delivery" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">User gets assigned a custom task</p>
+      </div>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Notification workflow diagram for critical test failure showing how a relevant user gets notified with escalation paths and urgency routing" onclick="openLightbox(this)">
+          <img src="../images/notifications/Notification_workflow-Critical_test_failure.png" alt="Notification workflow for critical test failure: how a failed compliance control triggers high-priority notifications to relevant stakeholders with escalation paths and urgency differentiation" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Relevant user gets notified of a critical failing test</p>
+      </div>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Notification workflow diagram for Trust Center request showing how an admin gets notified of an incoming access request from an external stakeholder" onclick="openLightbox(this)">
+          <img src="../images/notifications/Notification_workflow-TrustCenter_request.png" alt="Notification workflow for Trust Center access request: the notification path from an external stakeholder's request through to the admin alert and response flow" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Admin gets notified of a Trust Center request</p>
+      </div>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Extended workflow diagram for custom task assignment with collaboration showing how in-app comments, mentions, and shared context extend the base notification workflow" onclick="openLightbox(this)">
+          <img src="../images/notifications/Extended_workflow-Custom_task_assignment_with_collaboration.png" alt="Extended notification workflow for custom task assignment with collaboration: @mentions, threaded replies, and shared context extend the base workflow, highlighting additional infrastructure requirements beyond basic notification delivery" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">This scenario extends the core task assignment workflow by introducing in-app collaboration (comments, mentions, shared context), highlighting additional requirements beyond notification delivery.</p>
+      </div>
+
+      <p class="cs-body">This work helped the team evaluate notification behavior as a system rather than as a set of disconnected edge cases.</p>
+      <p class="cs-body">These workflows also became a key tool in vendor evaluation. We used them directly in conversations with infrastructure providers to communicate the types of behaviors, interactions, and flexibility the system needed to support.</p>
+      <p class="cs-body">Rather than discussing features in isolation, these scenarios grounded the conversation in real product needs — making it easier to assess how each platform would handle complex, real-world workflows.</p>
+
+      <!-- Collaboration requirements -->
+      <h3 class="cs-h3" id="section-collaboration">Collaboration requirements</h3>
+      <p class="cs-body">As the flows were mapped, another layer of the problem became clear: notifications were increasingly intertwined with collaboration behavior.</p>
+      <p class="cs-body">We explored patterns such as:</p>
+      <ul class="cs-list" aria-label="Collaboration patterns explored">
+        <li>internal notes and comments</li>
+        <li>user mentions</li>
+        <li>threaded communication</li>
+        <li>shared context between users working on the same workstream</li>
+      </ul>
+      <p class="cs-body">This mattered because future notification infrastructure would need to support more than system-generated alerts. It also needed to support evolving communication patterns inside the product.</p>
+      <p class="cs-body">This insight expanded the evaluation criteria beyond notification delivery, requiring the system to support richer interaction patterns and evolving collaboration behaviors across the platform.</p>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Collaboration exploration showing interaction design concepts for internal notes, user mentions, threaded communication, and shared task context" onclick="openLightbox(this)">
+          <img src="../images/notifications/Collaboration_exploration.png" alt="Collaboration exploration: interaction design concepts for internal notes, @mentions, threaded comments, and shared task context — evaluating how these collaboration patterns intersect with and expand the notification system requirements beyond basic delivery" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Collaboration exploration — interaction patterns and their intersection with notification requirements</p>
+      </div>
+
+    </section><!-- /.section-defining -->
+
+    <!-- INFRASTRUCTURE EVALUATION -->
+    <section id="section-evaluation" class="cs-section fade-up" aria-labelledby="kicker-evaluation">
+      <span class="section-kicker" id="kicker-evaluation">Infrastructure evaluation</span>
+      <p class="cs-body">With requirements and workflows defined, the Group Product Manager, Staff Engineer, and I moved into a structured evaluation process.</p>
+      <p class="cs-body">We began with exploratory calls across multiple notification infrastructure providers to understand the landscape and narrow down options. From there, we focused on two providers — the existing solution and a potential replacement — and conducted a series of weekly working sessions to evaluate both platforms in depth.</p>
+      <p class="cs-body">The evaluation process included:</p>
+      <ul class="cs-list" aria-label="Evaluation process steps">
+        <li>Reviewing platform capabilities against our defined workflows and requirements</li>
+        <li>Testing UI/UX and configuration flexibility from a product and design perspective</li>
+        <li>Engineering validation using existing templates and triggers</li>
+        <li>Customer reference calls to understand real-world usage</li>
+      </ul>
+      <p class="cs-body">We not only assessed current functionality, but we evaluated how well each platform could evolve with Drata's product over time.</p>
+      <p class="cs-body">The evaluation focused on:</p>
+      <ul class="cs-list" aria-label="Evaluation criteria">
+        <li>Multi-channel delivery (email, Slack, Teams, future channels)</li>
+        <li>In-app collaboration</li>
+        <li>Scalability as notification volume increases and different digest capabilities</li>
+        <li>Flexibility for engineering teams to configure complex logic</li>
+        <li>Support for white-labeled experiences aligned with customer branding</li>
+      </ul>
+      <p class="cs-body">The result was a recommendation to transition to a new notification provider better aligned with Drata's product and engineering needs. Because the existing implementation used only a small portion of the current platform's capabilities, the migration effort was considered manageable relative to the long-term benefits.</p>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section id="section-outcomes" class="cs-section fade-up" aria-labelledby="kicker-outcomes">
+      <span class="section-kicker" id="kicker-outcomes">Outcomes</span>
+      <p class="cs-body">This work did not produce a customer-facing feature on its own. It produced something more foundational: the decision framework that guided Drata's next notification infrastructure.</p>
+      <ul class="outcomes-list" aria-label="Project outcomes">
+        <li>Converted fragmented insights into a structured requirements model for platform decision-making</li>
+        <li>Clarified how notifications should behave across multiple product surfaces, not just individual features</li>
+        <li>Expanded the definition of the problem to include collaboration patterns and white-labeled experiences</li>
+        <li>Helped drive the decision to migrate to a new provider better suited to Drata's future notification needs</li>
+      </ul>
+    </section>
+
+    <!-- REFLECTION -->
+    <section id="section-reflection" class="cs-section fade-up" aria-labelledby="kicker-reflection">
+      <span class="section-kicker" id="kicker-reflection">Reflection</span>
+      <p class="cs-body">This project pushed me into a different kind of design work — one where the challenge wasn't designing a complex interface, but making sense of a fragmented system and helping define how it should scale.</p>
+      <p class="cs-body">One of the hardest parts was consolidating insights. Customer feedback around notifications existed across multiple sources — Productboard, research transcripts, internal discussions — but wasn't structured in a way that made it easy to reason about. A significant part of my work involved going back to raw inputs, piecing together patterns, and turning scattered signals into something the team could act on.</p>
+      <p class="cs-body">This project also gave me deeper exposure to how product, engineering, and vendor relationships intersect. I worked closely with the PM and Staff Engineer to evaluate infrastructure providers, joining calls where vendors presented their capabilities and early implementations. My role was to assess how those systems could support the product experience we were defining — from flexibility and customization to how well they could integrate into Drata's existing workflows, and fit our customers mental models.</p>
+      <p class="cs-body">Being part of a decision that would lead to migrating notification infrastructure across the platform made the impact of this work very tangible. It reinforced how much influence product and design can have on technical direction when grounded in clear requirements and user needs.</p>
+      <p class="cs-body">More broadly, this project shifted how I think about infrastructure decisions. Notifications are not just a delivery mechanism — they shape how users understand responsibility, urgency, and collaboration across the product. Defining those behaviors upfront proved just as important as the technology used to implement them.</p>
+    </section>
+
+  </main>
+</div><!-- /.cs-layout -->
+
+<!-- ── LIGHTBOX ──────────────────────────────────────────────────────── -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded image view" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close expanded image">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ── NEXT CASE STUDY ───────────────────────────────────────────────── -->
+<nav class="cs-next" aria-label="Case study navigation">
+  <div>
+    <p class="cs-next-label">Previous case study</p>
+    <a href="../evidence-library/" class="cs-next-title" aria-label="Previous: Evidence Library case study">← Evidence Library</a>
+  </div>
+  <div>
+    <p class="cs-next-label">Next case study</p>
+    <a href="../trust-center.html" class="cs-next-title" aria-label="Next: Trust Center case study">Trust Center →</a>
+  </div>
+</nav>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <p>© 2026 Marcela Espinosa</p>
+  <ul class="footer-links" aria-label="Contact links">
+    <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" aria-label="Email Marcela Espinosa">Email</a></li>
+    <li><a href="https://www.linkedin.com/in/marcelaespinosaallende/" target="_blank" rel="noopener noreferrer" aria-label="Marcela Espinosa on LinkedIn (opens in new tab)">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+  document.querySelectorAll('.fade-up').forEach(el => el.classList.add('js-ready'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.cs-anchor-nav a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.cs-anchor-nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  function openLightbox(wrap) {
+    const img = wrap.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
