@@ -194,6 +194,8 @@ footer p { font-size: 0.75rem; color: #555; }
 @media (max-width: 900px) {
   nav, .cs-next, footer { padding-left: 5vw; padding-right: 5vw; }
   .cs-meta { column-gap: 1.5rem; }
+ .cs-image-wrap.half-width { width: 100%; }
+  .cs-image-wrap.half-width { width: 70%; }
 }
 </style>
 </head>
@@ -453,6 +455,7 @@ footer p { font-size: 0.75rem; color: #555; }
 <script>
   document.querySelectorAll('.fade-up').forEach(el => el.classList.add('js-ready'));
 
+  // Fade-up on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -460,6 +463,7 @@ footer p { font-size: 0.75rem; color: #555; }
   }, { threshold: 0.05 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+  // Anchor nav active state
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.cs-anchor-nav a');
   const sectionObserver = new IntersectionObserver((entries) => {

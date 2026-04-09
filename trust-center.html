@@ -57,13 +57,13 @@ h3.cs-h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; co
 .cs-image-wrap:hover .cs-image-hint { opacity: 1; }
 .cs-image-wrap.zoomed .cs-image-hint { opacity: 0; }
 .cs-image-caption { font-size: 0.8rem; color: var(--muted); margin-top: 0.75rem; font-style: italic; }
-.cs-next { border-top: 1.5px solid var(--border); padding: 3rem 16vw; display: flex; justify-content: space-between; align-items: center; background: var(--white); }
+.cs-next { border-top: 1.5px solid var(--border); padding: 3rem 16vw; display: flex; justify-content: space-between; align-items: center; background: var(--white); position: static; }
 .cs-next-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
 .cs-next-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; transition: color 0.2s; font-style: italic; }
 .cs-next-title:hover { color: var(--accent); }
 .cs-prev { font-size: 0.85rem; color: var(--muted); text-decoration: none; font-weight: 400; transition: color 0.2s; }
 .cs-prev:hover { color: var(--accent); }
-footer { background: var(--ink); padding: 1.75rem 16vw; display: flex; justify-content: space-between; align-items: center; }
+footer { background: var(--ink); padding: 1.75rem 16vw; display: flex; justify-content: space-between; align-items: center; position: static; }
 footer p { font-size: 0.75rem; color: #555; }
 .footer-links { display: flex; gap: 1.5rem; list-style: none; }
 .footer-links a { font-size: 0.75rem; color: #555; text-decoration: none; transition: color 0.2s; }
@@ -264,12 +264,12 @@ footer p { font-size: 0.75rem; color: #555; }
 </nav>
 
 
-<footer>
-  <p>© 2026 Marcela. All rights reserved.</p>
-  <ul class="footer-links">
-    <li><a href="#">LinkedIn</a></li>
-    <li><a href="#">Dribbble</a></li>
-    <li><a href="#">Resume ↓</a></li>
+<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <p>© 2026 Marcela Espinosa</p>
+  <ul class="footer-links" aria-label="Contact links">
+    <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" aria-label="Email Marcela Espinosa">Email</a></li>
+    <li><a href="https://www.linkedin.com/in/marcelaespinosaallende/" target="_blank" rel="noopener noreferrer" aria-label="Marcela Espinosa on LinkedIn (opens in new tab)">LinkedIn</a></li>
   </ul>
 </footer>
 
