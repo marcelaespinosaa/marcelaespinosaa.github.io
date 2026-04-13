@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ═══ SEO META TAGS ══════════════════════════════════════════════════ -->
 <title>Constellation — Marcela Espinosa, Senior Product Designer</title>
 <meta name="description" content="Applying and validating a design system across Drata's platform — resolving design debt, pressure-testing system patterns against real enterprise workflows, and enabling rollout to 8,000+ customers.">
 <meta name="author" content="Marcela Espinosa">
@@ -27,201 +25,85 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #F4F2EE; --white: #FFFFFF; --border-light: #C9D0DD;
-  --ink: #111111; --muted: #636058; --soft: #9A948A;
-  --accent: #3D5A80; --accent-pale: #E8EDF4; --border: #3D5A80;
+  --bg: #F4F2EE; --white: #FFFFFF; --border: #D9CBBB; --border-light: #C7B5A9;
+  --ink: #111111; --muted: #636058; --accent: #8B6F5C; --accent-pale: #F0E8E0;
   --display: 'Lora', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
-  --nav-h: 3.4rem;
-  --gap: 3rem;
-  --nav-col: calc(16vw + 180px);
+  --nav-h: 3.4rem; --gap: 3rem; --nav-col: calc(16vw + 180px);
 }
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow-x: hidden; width: 100%; }
 
-/* ── NAV ─────────────────────────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.1rem 16vw; background: var(--bg); border-bottom: 1px solid var(--border-light);
-}
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 16vw; background: var(--bg); border-bottom: 0.5px solid var(--border); }
 .nav-logo { font-size: 0.9rem; font-weight: 600; color: var(--ink); text-decoration: none; font-family: var(--sans); letter-spacing: 0.01em; }
 
-/* ── HERO ────────────────────────────────────────────────────────────── */
 .cs-hero { padding: 5.75rem 16vw 4.125rem; background: var(--white); border-bottom: 1px solid var(--border-light); }
 .cs-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-.cs-tag { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.85rem; border-radius: 4px; }
-.cs-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+.cs-tag { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.85rem; border-radius: 4px; }
+.cs-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 2.5rem; }
 .cs-title .accent { color: var(--accent); }
-.cs-subtitle { font-size: 1.1rem; color: #3D3A35; font-weight: 400; line-height: 1.75; max-width: 860px; }
+.cs-subtitle { font-size: 1rem; color: var(--muted); font-weight: 400; line-height: 1.75; max-width: 860px; }
 
-/* ── META BAR ────────────────────────────────────────────────────────── */
-.cs-meta {
-  display: flex; flex-wrap: wrap;
-  column-gap: 3rem; row-gap: 0;
-  padding: 0.75rem 16vw;
-  background: var(--white); border-bottom: 1.5px solid var(--border);
-}
+.cs-meta { display: flex; flex-wrap: wrap; column-gap: 3rem; row-gap: 0; padding: 0.75rem 16vw; background: var(--white); border-bottom: 1.5px solid var(--border); }
 .cs-meta-item { padding: 0.5rem 0; }
 .cs-meta-item label { display: block; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; font-weight: 500; }
 .cs-meta-item span { font-size: 0.9rem; color: var(--ink); font-weight: 400; }
 
-/* ── PAGE LAYOUT ─────────────────────────────────────────────────────── */
-.cs-layout {
-  display: grid;
-  grid-template-columns: var(--nav-col) 1fr;
-  gap: 0;
-  align-items: start;
-  padding-top: var(--gap);
-}
+.cs-layout { display: grid; grid-template-columns: var(--nav-col) 1fr; gap: 0; align-items: start; padding-top: var(--gap); }
 
-/* ── ANCHOR NAV ──────────────────────────────────────────────────────── */
-.cs-anchor-nav {
-  position: sticky;
-  top: calc(var(--nav-h) + var(--gap));
-  padding: 0 2rem 0 16vw;
-  align-self: start;
-  z-index: 50;
-}
-.cs-anchor-nav-label {
-  font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  color: #7A7670; margin-bottom: 0.75rem; padding-left: 0.75rem; display: block;
-}
+.cs-anchor-nav { position: sticky; top: calc(var(--nav-h) + var(--gap)); padding: 0 2rem 0 16vw; align-self: start; z-index: 50; }
+.cs-anchor-nav-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; padding-left: 0.75rem; display: block; }
 .cs-anchor-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
-.cs-anchor-nav li a {
-  display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted);
-  text-decoration: none; padding: 0.45rem 0.75rem; border-left: 2px solid var(--border-light);
-  transition: color 0.2s, border-color 0.2s; line-height: 1.4; letter-spacing: 0.01em;
-}
-.cs-anchor-nav li a:hover,
-.cs-anchor-nav li a.active { color: var(--accent); border-left-color: var(--accent); }
+.cs-anchor-nav li a { display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.45rem 0.75rem; border-left: 2px solid var(--border-light); transition: color 0.2s, border-color 0.2s; line-height: 1.4; letter-spacing: 0.01em; }
+.cs-anchor-nav li a:hover, .cs-anchor-nav li a.active { color: var(--accent); border-left-color: var(--accent); }
 
-/* ── CONTENT SHELL ───────────────────────────────────────────────────── */
 .cs-content { padding: 0 16vw 8rem 3rem; }
 .cs-section { margin-bottom: 5.5rem; }
 section[id] { scroll-margin-top: calc(var(--nav-h) + var(--gap)); }
 
-/* H2 — section kicker */
-.section-kicker {
-  display: inline-block; font-size: 0.95rem; font-weight: 700;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 0.85rem;
-}
-.cs-body { font-size: 1rem; color: #3D3A35; font-weight: 400; line-height: 1.85; margin-bottom: 1.25rem; }
-.cs-body strong { color: var(--ink); font-weight: 600; }
+.section-kicker { display: inline-block; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; }
 
-/* ── LISTS ───────────────────────────────────────────────────────────── */
-.cs-list, .outcomes-list {
-  list-style: none; margin: 0.75rem 0 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;
-}
-.cs-list li, .outcomes-list li {
-  font-size: 1rem; color: #3D3A35; padding-left: 1.25rem; position: relative; line-height: 1.8;
-}
-.cs-list li::before, .outcomes-list li::before {
-  content: ''; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
-}
-.cs-list li strong, .outcomes-list li strong { color: var(--ink); font-weight: 600; }
+h3.cs-h3 { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3.5rem; margin-bottom: 1rem; }
+.section-kicker + h3.cs-h3 { margin-top: 1.25rem; }
 
-/* ── IMAGES ──────────────────────────────────────────────────────────── */
+.cs-body { font-size: 0.9rem; color: var(--muted); font-weight: 400; line-height: 1.85; margin-bottom: 1.25rem; }
+.cs-body strong { color: var(--ink); font-weight: 500; }
+
+.cs-list, .outcomes-list { list-style: none; margin: 0.75rem 0 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.cs-list li, .outcomes-list li { font-size: 0.9rem; color: var(--muted); padding-left: 1.25rem; position: relative; line-height: 1.8; }
+.cs-list li::before, .outcomes-list li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+.cs-list li strong, .outcomes-list li strong { color: var(--ink); font-weight: 500; }
+
 .cs-image-block { margin: 2.5rem 0; }
 .cs-image-wrap { position: relative; overflow: hidden; }
 .cs-image-wrap img { width: 100%; height: auto; display: block; transition: opacity 0.15s; }
 .cs-image-wrap.expandable { cursor: zoom-in; }
 .cs-image-wrap.expandable:hover img { opacity: 0.95; }
-.cs-image-hint {
-  position: absolute; bottom: 0.65rem; right: 0.65rem;
-  background: rgba(17,17,17,0.65); color: #F4F2EE;
-  font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 0.25rem 0.6rem; border-radius: 3px;
-  pointer-events: none; opacity: 0; transition: opacity 0.2s;
-}
+.cs-image-hint { position: absolute; bottom: 0.65rem; right: 0.65rem; background: rgba(17,17,17,0.65); color: #F4F2EE; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 3px; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
 .cs-image-wrap.expandable:hover .cs-image-hint { opacity: 1; }
 .cs-image-caption { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
 
-/* ── LIGHTBOX ────────────────────────────────────────────────────────── */
-.lightbox-overlay {
-  display: none; position: fixed; inset: 0; z-index: 1000;
-  background: rgba(17,17,17,0.9); align-items: center; justify-content: center;
-  cursor: zoom-out;
-}
+.lightbox-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(17,17,17,0.9); align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox-overlay.open { display: flex; }
 .lightbox-overlay img { max-width: 92vw; max-height: 92vh; object-fit: contain; display: block; }
-.lightbox-close {
-  position: absolute; top: 1.25rem; right: 1.5rem;
-  color: #fff; font-size: 1.5rem; cursor: pointer;
-  background: none; border: none; line-height: 1; opacity: 0.7; transition: opacity 0.2s;
-}
+.lightbox-close { position: absolute; top: 1.25rem; right: 1.5rem; color: #fff; font-size: 1.5rem; cursor: pointer; background: none; border: none; line-height: 1; opacity: 0.7; transition: opacity 0.2s; }
 .lightbox-close:hover { opacity: 1; }
 
 /* ── BEFORE / AFTER SLIDER ───────────────────────────────────────────── */
-.cs-compare {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  user-select: none;
-  cursor: col-resize;
-  /* height set by JS based on loaded image */
-}
-.cs-compare img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
-/* "after" image sits full width underneath */
+.cs-compare { position: relative; width: 100%; overflow: hidden; user-select: none; cursor: col-resize; }
+.cs-compare img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 .cs-compare .img-after { position: absolute; inset: 0; }
-/* "before" image is clipped to the left portion */
-.cs-compare .img-before-wrap {
-  position: absolute;
-  top: 0; left: 0; bottom: 0;
-  width: 50%; /* starts at 50% — JS updates this */
-  overflow: hidden;
-}
+.cs-compare .img-before-wrap { position: absolute; top: 0; left: 0; bottom: 0; width: 50%; overflow: hidden; }
 .cs-compare .img-before-wrap img { width: auto; height: 100%; min-width: 100%; max-width: none; }
-/* Divider line */
-.cs-compare .cs-compare-line {
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 50%; /* JS updates */
-  width: 1px;
-  background: #645F5F;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-/* Drag handle */
-.cs-compare-handle {
-  position: absolute;
-  top: 50%;
-  left: 50%; /* JS updates */
-  transform: translate(-50%, -50%);
-  width: 2.75rem; height: 2.75rem;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  display: flex; align-items: center; justify-content: center;
-  cursor: col-resize;
-  z-index: 10;
-  transition: box-shadow 0.15s;
-}
-.cs-compare-handle:hover,
-.cs-compare-handle:focus { box-shadow: 0 3px 14px rgba(0,0,0,0.35); outline: 2px solid var(--accent); outline-offset: 2px; }
+.cs-compare .cs-compare-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: #645F5F; transform: translateX(-50%); pointer-events: none; }
+.cs-compare-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2.75rem; height: 2.75rem; background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; cursor: col-resize; z-index: 10; transition: box-shadow 0.15s; }
+.cs-compare-handle:hover, .cs-compare-handle:focus { box-shadow: 0 3px 14px rgba(0,0,0,0.35); outline: 2px solid var(--accent); outline-offset: 2px; }
 .cs-compare-handle svg { pointer-events: none; }
-/* Before / After labels */
-.cs-compare-label {
-  position: absolute;
-  top: 0.75rem;
-  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-  background: rgba(17,17,17,0.6); color: #fff;
-  padding: 0.25rem 0.65rem; border-radius: 3px;
-  pointer-events: none;
-}
+.cs-compare-label { position: absolute; top: 0.75rem; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(17,17,17,0.6); color: #fff; padding: 0.25rem 0.65rem; border-radius: 3px; pointer-events: none; }
 .cs-compare-label.label-before { left: 0.75rem; }
 .cs-compare-label.label-after  { right: 0.75rem; }
 
-/* ── NEXT / FOOTER ───────────────────────────────────────────────────── */
 .cs-next { border-top: 1.5px solid var(--border); padding: 3rem 16vw; display: flex; justify-content: space-between; align-items: center; background: var(--white); position: static; }
-.cs-next-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
+.cs-next-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
 .cs-next-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; transition: color 0.2s; }
 .cs-next-title:hover { color: var(--accent); }
 footer { background: var(--ink); padding: 1.75rem 16vw; display: flex; justify-content: space-between; align-items: center; }
@@ -230,12 +112,10 @@ footer p { font-size: 0.75rem; color: #555; }
 .footer-links a { font-size: 0.75rem; color: #555; text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: #999; }
 
-/* ── FADE-UP ─────────────────────────────────────────────────────────── */
 .fade-up { opacity: 1; transform: none; }
 .fade-up.js-ready { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .fade-up.visible { opacity: 1; transform: none; }
 
-/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
 @media (max-width: 1200px) {
   .cs-layout { grid-template-columns: 1fr; padding-top: 0; }
   .cs-anchor-nav { display: none; }
@@ -249,15 +129,12 @@ footer p { font-size: 0.75rem; color: #555; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- ── NAVIGATION ───────────────────────────────────────────────────── -->
 <nav role="navigation" aria-label="Site navigation">
   <a href="../index.html" class="nav-logo" aria-label="Marcela Espinosa — back to home">Marcela Espinosa</a>
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────────────────────────── -->
 <header class="cs-hero">
   <div class="cs-tags" role="list" aria-label="Project tags">
     <span class="cs-tag" role="listitem">Design Systems</span>
@@ -268,16 +145,12 @@ footer p { font-size: 0.75rem; color: #555; }
   <p class="cs-subtitle">Applying and validating a design system across Drata's platform</p>
 </header>
 
-<!-- ── META BAR ─────────────────────────────────────────────────────── -->
 <div class="cs-meta" role="complementary" aria-label="Project details">
   <div class="cs-meta-item"><label>Role</label><span>Senior Product Designer</span></div>
   <div class="cs-meta-item"><label>Team</label><span>4 designers, Design system team, Engineering, Product</span></div>
 </div>
 
-<!-- ── LAYOUT WRAPPER ────────────────────────────────────────────────── -->
 <div class="cs-layout">
-
-  <!-- ANCHOR NAV ──────────────────────────────────────────────────── -->
   <aside class="cs-anchor-nav" aria-label="Page sections">
     <span class="cs-anchor-nav-label" aria-hidden="true">Page content</span>
     <ul>
@@ -291,10 +164,8 @@ footer p { font-size: 0.75rem; color: #555; }
     </ul>
   </aside>
 
-  <!-- MAIN CONTENT ────────────────────────────────────────────────── -->
   <main id="main-content" class="cs-content">
 
-    <!-- THE OPPORTUNITY -->
     <section id="section-opportunity" class="cs-section fade-up" aria-labelledby="kicker-opportunity">
       <span class="section-kicker" id="kicker-opportunity">The opportunity</span>
       <p class="cs-body">Constellation was a platform-wide initiative to apply Drata's newly developed design system across the product.</p>
@@ -308,7 +179,6 @@ footer p { font-size: 0.75rem; color: #555; }
       <p class="cs-body">Successful implementation required reducing accumulated design and technical debt, strengthening the design system so it could be reliably used by engineering, and enabling teams to design, build, and ship features more efficiently.</p>
     </section>
 
-    <!-- OWNERSHIP & IMPACT -->
     <section id="section-impact" class="cs-section fade-up" aria-labelledby="kicker-impact">
       <span class="section-kicker" id="kicker-impact">Ownership &amp; impact</span>
       <p class="cs-body">I was one of four designers responsible for applying the system across the platform, with a focus on identifying inconsistencies, resolving design debt, and ensuring the system could support real workflows.</p>
@@ -322,7 +192,6 @@ footer p { font-size: 0.75rem; color: #555; }
       </ul>
     </section>
 
-    <!-- THE APPROACH -->
     <section id="section-approach" class="cs-section fade-up" aria-labelledby="kicker-approach">
       <span class="section-kicker" id="kicker-approach">The approach</span>
       <p class="cs-body">Applying the design system across the platform was not a direct translation exercise.</p>
@@ -341,69 +210,27 @@ footer p { font-size: 0.75rem; color: #555; }
       </ul>
       <p class="cs-body">This included working in areas I wasn't previously familiar with, requiring close collaboration with engineers to understand existing logic and ensure accurate redesigns.</p>
 
-      <!-- Navigation before/after slider -->
       <div class="cs-image-block fade-up">
-        <div
-          class="cs-compare"
-          role="img"
-          aria-label="Before and after comparison of the navigation redesign. Left side shows the legacy navigation pattern; right side shows the redesigned navigation using the Constellation design system. Drag the handle to compare."
-          data-before="../images/constellation/Navigation_before.png"
-          data-after="../images/constellation/Navigation_after.png"
-          data-before-alt="Legacy navigation pattern before the Constellation redesign — showing inconsistent layout, navigation structure, and interaction patterns that accumulated over time"
-          data-after-alt="Redesigned navigation after applying the Constellation design system — showing consistent layout, updated navigation structure, and unified interaction patterns"
-        ></div>
+        <div class="cs-compare" role="img" aria-label="Before and after comparison of the navigation redesign. Drag the handle to compare." data-before="../images/constellation/Navigation_before.png" data-after="../images/constellation/Navigation_after.png" data-before-alt="Legacy navigation pattern before the Constellation redesign — showing inconsistent layout, navigation structure, and interaction patterns" data-after-alt="Redesigned navigation after applying the Constellation design system — showing consistent layout, updated navigation structure, and unified interaction patterns"></div>
         <p class="cs-image-caption">Navigation — before and after applying the Constellation design system</p>
       </div>
 
-
-      <!-- Typography&layout before/after slider -->
       <div class="cs-image-block fade-up">
-       <div
-  class="cs-compare"
-  role="img"
-  aria-label="Before and after comparison of the typography and layout redesign. Left side shows the legacy type and layout patterns; right side shows the redesigned version using the Constellation design system. Drag the handle to compare."
-  data-before="../images/constellation/Typography&layout_before.png"
-  data-after="../images/constellation/Typography&layout_after.png"
-  data-before-alt="Legacy typography and layout before the Constellation redesign — showing inconsistent type scales, spacing, and layout patterns that accumulated across product areas over time"
-  data-after-alt="Redesigned typography and layout after applying the Constellation design system — showing unified type hierarchy, consistent spacing, and standardized layout patterns across the platform"
-></div>
+        <div class="cs-compare" role="img" aria-label="Before and after comparison of the typography and layout redesign. Drag the handle to compare." data-before="../images/constellation/Typography&layout_before.png" data-after="../images/constellation/Typography&layout_after.png" data-before-alt="Legacy typography and layout before the Constellation redesign — inconsistent type scales, spacing, and layout patterns" data-after-alt="Redesigned typography and layout after applying the Constellation design system — unified type hierarchy, consistent spacing, standardized layout patterns"></div>
         <p class="cs-image-caption">Typography & layout — before and after applying the Constellation design system</p>
       </div>
 
-
-<!-- Table before/after slider -->
       <div class="cs-image-block fade-up">
-<div
-  class="cs-compare"
-  role="img"
-  aria-label="Before and after comparison of the table and filtering redesign. Left side shows the legacy table pattern; right side shows the redesigned version using the Constellation design system. Drag the handle to compare."
-  data-before="../images/constellation/Table_before.png"
-  data-after="../images/constellation/Table_after.png"
-  data-before-alt="Legacy table and filtering pattern before the Constellation redesign — showing inconsistent column structure, filter controls, and data density that varied across product areas"
-  data-after-alt="Redesigned table and filtering after applying the Constellation design system — showing unified column structure, consistent filter controls, standardized data density, and improved scannability"
-></div>
- <p class="cs-image-caption">Table filtering — before and after applying the Constellation design system</p>
+        <div class="cs-compare" role="img" aria-label="Before and after comparison of the table and filtering redesign. Drag the handle to compare." data-before="../images/constellation/Table_before.png" data-after="../images/constellation/Table_after.png" data-before-alt="Legacy table and filtering pattern before Constellation — inconsistent column structure, filter controls, and data density" data-after-alt="Redesigned table and filtering after Constellation — unified column structure, consistent filter controls, standardized data density"></div>
+        <p class="cs-image-caption">Table filtering — before and after applying the Constellation design system</p>
       </div>
 
-
-<!-- Settings before/after slider -->
       <div class="cs-image-block fade-up">
-<div
-  class="cs-compare"
-  role="img"
-  aria-label="Before and after comparison of the settings redesign. Left side shows the legacy settings layout; right side shows the redesigned version using the Constellation design system. Drag the handle to compare."
-  data-before="../images/constellation/Settings_before.png"
-  data-after="../images/constellation/Settings_after.png"
-  data-before-alt="Legacy settings layout before the Constellation redesign — showing inconsistent structure, spacing, and visual hierarchy that accumulated across different settings areas over time"
-  data-after-alt="Redesigned settings after applying the Constellation design system — showing consistent layout structure, unified visual hierarchy, and standardized spacing across all settings surfaces"
-></div>
-  <p class="cs-image-caption">Settings — before and after applying the Constellation design system</p>
+        <div class="cs-compare" role="img" aria-label="Before and after comparison of the settings redesign. Drag the handle to compare." data-before="../images/constellation/Settings_before.png" data-after="../images/constellation/Settings_after.png" data-before-alt="Legacy settings layout before Constellation — inconsistent structure, spacing, and visual hierarchy" data-after-alt="Redesigned settings after Constellation — consistent layout structure, unified visual hierarchy, standardized spacing"></div>
+        <p class="cs-image-caption">Settings — before and after applying the Constellation design system</p>
       </div>
-
-
     </section>
 
-    <!-- IDENTIFYING GAPS -->
     <section id="section-gaps" class="cs-section fade-up" aria-labelledby="kicker-gaps">
       <span class="section-kicker" id="kicker-gaps">Identifying gaps</span>
       <p class="cs-body">As we worked through redesigning the whole platform, gaps surfaced that weren't visible during initial system design.</p>
@@ -416,14 +243,13 @@ footer p { font-size: 0.75rem; color: #555; }
       <p class="cs-body">The team documented these insights and, through weekly meetings where we would discuss what needed to change or evolve, we established what updates to components and interaction patterns needed to be applied before broader rollout.</p>
 
       <div class="cs-image-block fade-up">
-        <div role="img" aria-label="Design specification sheet for a card component showing states, dimensions, spacing rules, and interaction behaviors that evolved during the Constellation project" style="width: 100%; aspect-ratio: 16/10; overflow-y: scroll; overflow-x: hidden; border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
-          <img src="../images/constellation/Card_Specs.png" alt="Card component design specification: shows component states, layout dimensions, padding rules, interaction behaviors, and accessibility requirements — an example of how system components were documented and refined based on real usage during Constellation rollout" style="width: 100%; height: auto; display: block;">
+        <div role="img" aria-label="Design specification sheet for a card component showing states, dimensions, spacing rules, and interaction behaviors" style="width: 100%; aspect-ratio: 16/10; overflow-y: scroll; overflow-x: hidden; border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+          <img src="../images/constellation/Card_Specs.png" alt="Card component design specification: component states, layout dimensions, padding rules, interaction behaviors, and accessibility requirements" style="width: 100%; height: auto; display: block;">
         </div>
         <p class="cs-image-caption">Example of design specs for a component that evolved during the project</p>
       </div>
     </section>
 
-    <!-- CROSS-TEAM ALIGNMENT -->
     <section id="section-alignment" class="cs-section fade-up" aria-labelledby="kicker-alignment">
       <span class="section-kicker" id="kicker-alignment">Cross-team alignment</span>
       <p class="cs-body">Constellation required tight coordination across design, product, and engineering.</p>
@@ -431,7 +257,6 @@ footer p { font-size: 0.75rem; color: #555; }
       <p class="cs-body">Product Managers collaborated closely with design to conduct UAT and make sure every component and interaction had been correctly implemented.</p>
     </section>
 
-    <!-- OUTCOMES -->
     <section id="section-outcomes" class="cs-section fade-up" aria-labelledby="kicker-outcomes">
       <span class="section-kicker" id="kicker-outcomes">Outcomes</span>
       <p class="cs-body">Constellation delivered a cohesive redesign across Drata's platform while strengthening the design system before it scaled.</p>
@@ -446,7 +271,6 @@ footer p { font-size: 0.75rem; color: #555; }
       </ul>
     </section>
 
-    <!-- REFLECTION -->
     <section id="section-reflection" class="cs-section fade-up" aria-labelledby="kicker-reflection">
       <span class="section-kicker" id="kicker-reflection">Reflection</span>
       <p class="cs-body">It was really meaningful to be part of this project. Out of a team of eight designers, four of us were responsible for applying the system across the platform, while two had dedicated months prior to building its foundation.</p>
@@ -458,15 +282,13 @@ footer p { font-size: 0.75rem; color: #555; }
     </section>
 
   </main>
-</div><!-- /.cs-layout -->
+</div>
 
-<!-- ── LIGHTBOX ──────────────────────────────────────────────────────── -->
 <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded image view" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close expanded image">✕</button>
   <img id="lightbox-img" src="" alt="">
 </div>
 
-<!-- ── NEXT CASE STUDY ───────────────────────────────────────────────── -->
 <nav class="cs-next" aria-label="Case study navigation">
   <div>
     <p class="cs-next-label">Previous case study</p>
@@ -474,7 +296,6 @@ footer p { font-size: 0.75rem; color: #555; }
   </div>
 </nav>
 
-<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
 <footer role="contentinfo">
   <p>© 2026 Marcela Espinosa</p>
   <ul class="footer-links" aria-label="Contact links">
@@ -484,16 +305,12 @@ footer p { font-size: 0.75rem; color: #555; }
 </footer>
 
 <script>
-  // ── FADE-UP ──────────────────────────────────────────────────────────
   document.querySelectorAll('.fade-up').forEach(el => el.classList.add('js-ready'));
   const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
   }, { threshold: 0.05 });
   document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
 
-  // ── ANCHOR NAV ───────────────────────────────────────────────────────
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.cs-anchor-nav a');
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -507,17 +324,14 @@ footer p { font-size: 0.75rem; color: #555; }
   }, { rootMargin: '-30% 0px -60% 0px' });
   sections.forEach(s => sectionObserver.observe(s));
 
-  // ── BEFORE / AFTER SLIDER ────────────────────────────────────────────
   function initCompare(container) {
-    const beforeSrc   = container.dataset.before;
-    const afterSrc    = container.dataset.after;
-    const beforeAlt   = container.dataset.beforeAlt || 'Before';
-    const afterAlt    = container.dataset.afterAlt  || 'After';
+    const beforeSrc = container.dataset.before;
+    const afterSrc  = container.dataset.after;
+    const beforeAlt = container.dataset.beforeAlt || 'Before';
+    const afterAlt  = container.dataset.afterAlt  || 'After';
 
-    // Build DOM
     const imgAfter = document.createElement('img');
-    imgAfter.src = afterSrc; imgAfter.alt = afterAlt;
-    imgAfter.className = 'img-after';
+    imgAfter.src = afterSrc; imgAfter.alt = afterAlt; imgAfter.className = 'img-after';
 
     const imgBefore = document.createElement('img');
     imgBefore.src = beforeSrc; imgBefore.alt = beforeAlt;
@@ -536,10 +350,7 @@ footer p { font-size: 0.75rem; color: #555; }
     handle.setAttribute('aria-valuemin', '0');
     handle.setAttribute('aria-valuemax', '100');
     handle.setAttribute('aria-valuenow', '50');
-    handle.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M7 4L2 10L7 16" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M13 4L18 10L13 16" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`;
+    handle.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 4L2 10L7 16" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 4L18 10L13 16" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
     const labelBefore = document.createElement('span');
     labelBefore.className = 'cs-compare-label label-before';
@@ -558,28 +369,23 @@ footer p { font-size: 0.75rem; color: #555; }
     container.appendChild(labelBefore);
     container.appendChild(labelAfter);
 
-    // Set container height once the after image loads
     imgAfter.onload = () => {
       const ratio = imgAfter.naturalHeight / imgAfter.naturalWidth;
       container.style.height = (container.offsetWidth * ratio) + 'px';
     };
 
-    // Update position
     function setPosition(pct) {
       pct = Math.max(0, Math.min(100, pct));
       beforeWrap.style.width = pct + '%';
       line.style.left = pct + '%';
       handle.style.left = pct + '%';
       handle.setAttribute('aria-valuenow', Math.round(pct));
-      // Hide "Before" badge when slider is near the left edge
       labelBefore.style.opacity = pct < 12 ? '0' : '1';
-      // Hide "After" badge when slider is near the right edge
-      labelAfter.style.opacity = pct > 88 ? '0' : '1';
+      labelAfter.style.opacity  = pct > 88 ? '0' : '1';
     }
 
     setPosition(50);
 
-    // Mouse drag
     let dragging = false;
     handle.addEventListener('mousedown', e => { e.preventDefault(); dragging = true; });
     document.addEventListener('mousemove', e => {
@@ -589,7 +395,6 @@ footer p { font-size: 0.75rem; color: #555; }
     });
     document.addEventListener('mouseup', () => { dragging = false; });
 
-    // Touch drag
     handle.addEventListener('touchstart', e => { e.preventDefault(); dragging = true; }, { passive: false });
     document.addEventListener('touchmove', e => {
       if (!dragging) return;
@@ -598,7 +403,6 @@ footer p { font-size: 0.75rem; color: #555; }
     }, { passive: true });
     document.addEventListener('touchend', () => { dragging = false; });
 
-    // Keyboard — arrow keys
     handle.addEventListener('keydown', e => {
       const current = parseFloat(handle.getAttribute('aria-valuenow'));
       if (e.key === 'ArrowLeft')  { e.preventDefault(); setPosition(current - 2); }
@@ -607,35 +411,26 @@ footer p { font-size: 0.75rem; color: #555; }
       if (e.key === 'End')        { e.preventDefault(); setPosition(100); }
     });
 
-    // Resize: recalculate height
     new ResizeObserver(() => {
       if (imgAfter.naturalWidth) {
         const ratio = imgAfter.naturalHeight / imgAfter.naturalWidth;
         container.style.height = (container.offsetWidth * ratio) + 'px';
-        // Re-apply current position
-        const pct = parseFloat(handle.getAttribute('aria-valuenow'));
-        setPosition(pct);
+        setPosition(parseFloat(handle.getAttribute('aria-valuenow')));
       }
     }).observe(container);
   }
 
   document.querySelectorAll('.cs-compare').forEach(initCompare);
 
-  // ── LIGHTBOX ─────────────────────────────────────────────────────────
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   function openLightbox(wrap) {
     const img = wrap.querySelector('img');
     lightboxImg.src = img.src; lightboxImg.alt = img.alt;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    lightbox.classList.add('open'); document.body.style.overflow = 'hidden';
   }
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
-
 </body>
 </html>

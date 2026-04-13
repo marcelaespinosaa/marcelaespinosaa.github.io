@@ -4,363 +4,524 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcela Espinosa — Senior Product Designer</title>
+<meta name="description" content="Marcela Espinosa is a Senior Product Designer specializing in AI-assisted experiences and enterprise systems at Drata.">
+<meta name="author" content="Marcela Espinosa">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --bg: #F4F2EE; --white: #FFFFFF; --border: #E0DDD7;
-  --ink: #111111; --muted: #3D3A35; --soft: #9A948A;
-  --display: 'Lora', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
+  --bg:      #F5F2EC;
+  --ink:     #1A1816;
+  --warm:    #494037;
+  --soft:    #A67E55;
+  --rule:    #E2DDD6;
+  --accent:  #8B6F5C;
+  --display: 'Lora', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
+  --col:     min(840px, 90vw);
 }
-html, body { height: 100%; }
-body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow: hidden; }
-.shell { display: grid; grid-template-columns: 40% 60%; height: 100vh; padding: 0 12vw; }
-.sidebar {
-  height: 100vh; overflow-y: auto; overflow-x: hidden;
-  scrollbar-width: none; -ms-overflow-style: none;
-  padding: 3.5rem 3rem 3.5rem 0;
-  display: flex; flex-direction: column; gap: 2rem;
-  border-right: 1px solid var(--border);
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
-.sidebar::-webkit-scrollbar { display: none; }
-.main {
-  height: 100vh; overflow-y: auto; overflow-x: hidden;
-  scrollbar-width: none; -ms-overflow-style: none;
-  padding: 0 0 3.5rem 3rem;
+
+/* ── FIXED NAV ───────────────────────────────────────────────────────── */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem calc((100vw - var(--col)) / 2);
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
 }
-.main::-webkit-scrollbar { display: none; }
-.sidebar-avatar { width: 100%; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
-.sidebar-avatar img { width: 100%; height: auto; display: block; object-fit: cover; }
-.sidebar-name { font-family: var(--display); font-size: 1.85rem; font-weight: 700; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-.sidebar-title { font-size: 0.88rem; color: var(--ink); font-weight: 500; line-height: 1.55; }
-.sidebar-bio { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
-.sidebar-section-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); font-weight: 600; margin-bottom: 0.75rem; }
-.sidebar-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.sidebar-skill { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--muted); background: var(--white); border: 1px solid var(--border); padding: 0.28rem 0.7rem; border-radius: 4px; }
-.sidebar-links { display: flex; flex-direction: column; gap: 0.5rem; }
-.sidebar-link { font-size: 0.8rem; color: var(--muted); text-decoration: none; font-weight: 400; transition: color 0.2s; }
-.sidebar-link:hover { color: var(--ink); }
-.sidebar-cta { display: inline-block; padding: 0.7rem 1.25rem; background: var(--ink); color: var(--white); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; transition: opacity 0.2s; text-align: center; cursor: pointer; border: none; font-family: var(--sans); width: fit-content; }
-.sidebar-cta:hover { opacity: 0.85; }
-.main-tabs { display: flex; border-bottom: 1.5px solid var(--border); margin-bottom: 2.5rem; position: sticky; top: 0; background: var(--bg); z-index: 10; padding-top: 1.25rem; }
-.main-tab { font-size: 1rem; font-weight: 500; color: var(--soft); padding: 0.85rem 0; margin-right: 2.25rem; border-bottom: 2.5px solid transparent; margin-bottom: -1.5px; transition: color 0.2s, border-color 0.2s; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--sans); letter-spacing: 0.01em; }
-.main-tab.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 600; }
-.main-tab:hover { color: var(--ink); }
-.main-subheading { font-size: 0.95rem; color: var(--ink); margin-bottom: 1.5rem; font-weight: 500; }
-.cs-list { display: flex; flex-direction: column; gap: 12px; background: transparent; border: none; }
-.cs-card { background: var(--white); display: grid; grid-template-columns: 20px 1fr; text-decoration: none; color: inherit; transition: background 0.15s; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(17,17,17,0.03); }
-.cs-card:hover { background: #FAFAF8; box-shadow: 0 4px 14px rgba(17,17,17,0.05); }
-.cs-card-strip { width: 100%; height: 100%; min-height: 90px; }
-.cs-card-body { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0; }
-.cs-card-top-row { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.65rem; }
-.cs-card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; flex: 1; }
-.cs-card-tag { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding: 0.2rem 0.55rem; border-radius: 4px; }
-.cs-card-arrow { font-size: 1rem; color: var(--soft); flex-shrink: 0; transition: transform 0.2s; }
-.cs-card:hover .cs-card-arrow { transform: translateX(3px); }
-.cs-card-title { font-family: var(--display); font-size: 1rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.55rem; }
-.cs-card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-.about-body { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.25rem; }
-.resume-download { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; background: var(--ink); color: var(--white); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; transition: opacity 0.2s; width: fit-content; margin-bottom: 2.5rem; cursor: pointer; border: none; font-family: var(--sans); }
-.resume-download:hover { opacity: 0.85; }
-.resume-page { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-.resume-header { grid-column: 1 / -1; padding-bottom: 1.5rem; border-bottom: 1.5px solid var(--ink); margin-bottom: 0.5rem; }
-.resume-header h1 { font-family: var(--display); font-size: 1.7rem; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.35rem; }
-.resume-header p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
-.resume-contact { font-size: 0.78rem; color: var(--soft); margin-top: 0.4rem; }
-.resume-col { display: flex; flex-direction: column; gap: 2rem; }
-.resume-section-title { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--soft); margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
-.resume-job { margin-bottom: 1.5rem; }
-.resume-job:last-child { margin-bottom: 0; }
-.resume-job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem; flex-wrap: wrap; gap: 0.25rem; }
-.resume-job-title { font-weight: 600; color: var(--ink); font-size: 0.88rem; }
-.resume-job-date { font-size: 0.75rem; color: var(--soft); }
-.resume-job-company { font-size: 0.82rem; color: var(--muted); font-weight: 500; margin-bottom: 0.5rem; }
-.resume-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-.resume-bullets li { font-size: 0.82rem; color: var(--muted); padding-left: 1rem; position: relative; line-height: 1.65; }
-.resume-bullets li::before { content: ''; position: absolute; left: 0; top: 0.58em; width: 4px; height: 4px; border-radius: 50%; background: var(--border); }
-.resume-edu { margin-bottom: 1.25rem; }
-.resume-edu-school { font-weight: 600; color: var(--ink); font-size: 0.875rem; margin-bottom: 0.15rem; }
-.resume-edu-degree { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.1rem; }
-.resume-edu-date { font-size: 0.75rem; color: var(--soft); }
-.resume-skills-list { display: flex; flex-direction: column; gap: 0.3rem; }
-.resume-skills-list span { font-size: 0.82rem; color: var(--muted); }
-.resume-pub { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
-.resume-pub strong { color: var(--ink); display: block; margin-bottom: 0.2rem; font-size: 0.85rem; }
-.resume-pub a { color: var(--muted); }
-.form-group { margin-bottom: 1.1rem; }
-.form-group label { display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 0.45rem; }
-.form-group input, .form-group textarea { width: 100%; background: var(--white); border: 1px solid var(--border); padding: 0.7rem 0.9rem; font-family: var(--sans); font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--ink); }
-.form-group textarea { height: 110px; resize: none; }
-.form-submit { display: inline-block; padding: 0.7rem 1.75rem; background: var(--ink); color: var(--white); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; border: none; cursor: pointer; font-family: var(--sans); transition: opacity 0.2s; }
-.form-submit:hover { opacity: 0.85; }
-.form-success { display: none; padding: 0.9rem 1.25rem; background: #E8F2E8; border: 1px solid #C2D9C2; font-size: 0.875rem; color: #3D6B3D; margin-top: 0.75rem; }
-@media (max-width: 900px) {
-  body { overflow: auto; }
-  .shell { grid-template-columns: 1fr; height: auto; padding: 0 5vw; }
-  .sidebar { height: auto; overflow: visible; border-right: none; border-bottom: 1px solid var(--border); padding: 2.5rem 0 2rem; }
-  .main { height: auto; overflow: visible; padding: 2rem 0; }
-  .main-tabs { position: static; padding-top: 0; margin-top: 0; }
-  .cs-card { grid-template-columns: 12px 1fr; }
-  .resume-page { grid-template-columns: 1fr; }
-  .resume-header { grid-column: 1; }
+.site-nav.scrolled { border-color: var(--rule); }
+.nav-name {
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+/* ── CENTERED COLUMN ────────────────────────────────────────────────── */
+.col {
+  width: var(--col);
+  margin: 0 auto;
+}
+
+/* ── HERO ────────────────────────────────────────────────────────────── */
+.hero {
+  /* reduced top/bottom padding by ~50% from 11rem/4rem */
+  padding: 6rem 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Photo — 2:3 ratio */
+.hero-photo {
+  position: sticky;
+  top: 6rem;
+  width: 100%;
+}
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-radius: 2px;
+  filter: sepia(6%) contrast(1.02);
+}
+
+/* Text — right column */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-name {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--warm);
+  margin-bottom: 1.25rem;
+}
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  color: var(--warm);
+  line-height: 1.75;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero-bio {
+  font-size: 0.88rem;
+  color: var(--warm);
+  line-height: 1.9;
+  font-weight: 400;
+}
+.hero-bio p + p { margin-top: 1rem; }
+
+/* ── WORK LIST ───────────────────────────────────────────────────────── */
+.work-section {
+  padding: 3.5rem 0 8rem;
+}
+
+.work-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.work-list { list-style: none; }
+
+.work-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  align-items: start;
+  gap: 0 1.5rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.work-item:last-child { border-bottom: 1px solid var(--rule); }
+
+.work-num {
+  font-family: var(--display);
+  font-size: 1rem;
+  color: var(--warm);
+  font-style: italic;
+  font-weight: 600;
+  padding-top: 0.25rem;
+}
+
+.work-body { display: flex; flex-direction: column; }
+
+.work-title {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  transition: color 0.2s;
+  margin-bottom: 0.45rem;
+}
+
+.work-desc {
+  font-size: 0.82rem;
+  color: var(--warm);
+  line-height: 1.7;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.work-tags {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.work-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  font-weight: 700;
+}
+.work-tag + .work-tag::before {
+  content: ' · ';
+  margin: 0 0.25rem;
+}
+
+.work-arrow {
+  font-size: 0.85rem;
+  color: var(--rule);
+  transition: color 0.2s, transform 0.2s;
+  padding-top: 0.25rem;
+}
+
+.work-item:hover .work-title { color: var(--accent); }
+.work-item:hover .work-arrow { color: var(--accent); transform: translateX(4px); }
+
+/* ── ABOUT ───────────────────────────────────────────────────────────── */
+.about-wrap {
+  padding: 10rem 0 8rem;
+}
+
+.about-headline {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+.about-body {
+  font-size: 0.9rem;
+  color: var(--warm);
+  line-height: 1.9;
+  font-weight: 400;
+  margin-bottom: 1.1rem;
+}
+
+.about-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  margin: 2rem 0;
+}
+.about-detail-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--soft);
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.about-detail-value {
+  font-size: 0.82rem;
+  color: var(--warm);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.about-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.about-link {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.2rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.about-link:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── FOOTER ──────────────────────────────────────────────────────────── */
+.site-footer {
+  padding: 2rem 0;
+  width: var(--col);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy, .footer-right {
+  font-size: 0.68rem;
+  color: var(--soft);
+  letter-spacing: 0.04em;
+}
+
+/* ── SECTIONS ────────────────────────────────────────────────────────── */
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── FADE IN ─────────────────────────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  :root { --col: 88vw; }
+  .site-nav { padding: 1rem 6vw; }
+  .hero { grid-template-columns: 1fr; padding: 6rem 0 2rem; gap: 2rem; }
+  .hero-photo { position: static; }
+  .work-item { grid-template-columns: 1.5rem 1fr auto; gap: 0 1rem; }
 }
 </style>
 </head>
+
 <body>
-<div class="shell">
-  <aside class="sidebar">
-    <div class="sidebar-avatar"><img src="images/marcela.jpeg" alt="Marcela Espinosa"></div>
-<div>
-      <h1 class="sidebar-name">Marcela Espinosa</h1>
-      <p class="sidebar-title">Senior Product Designer · AI-assisted experiences &amp; enterprise systems</p>
-</div>
-    <p class="sidebar-bio">I design complex software systems and AI-assisted experiences that help teams navigate technical workflows. My work combines research, systems thinking, and product strategy to turn complex processes into intuitive tools.</p>
-    <div>
-      <p class="sidebar-section-label">Skills</p>
-      <div class="sidebar-skills">
-        <span class="sidebar-skill">AI &amp; Agent Design</span>
-        <span class="sidebar-skill">Enterprise SaaS</span>
-        <span class="sidebar-skill">Design Systems</span>
-        <span class="sidebar-skill">User Research</span>
-        <span class="sidebar-skill">Workflow Automation</span>
-        <span class="sidebar-skill">Interaction Design</span>
-        <span class="sidebar-skill">Cross-functional</span>
-        <span class="sidebar-skill">Figma</span>
-      </div>
-    </div>
-    <div>
-      <p class="sidebar-section-label">Contact</p>
-      <div class="sidebar-links">
-        <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="sidebar-link">marcela.espinosaallende@gmail.com</a>
-        <a href="https://www.linkedin.com/in/marcelaespinosaallende/" target="_blank" class="sidebar-link">↗ LinkedIn</a>
-      </div>
-    </div>
-  </aside>
 
-  <main class="main" id="main-scroll">
-    <nav class="main-tabs">
-      <button class="main-tab active" onclick="showTab('work')">Work</button>
-      <button class="main-tab" onclick="showTab('about')">About</button>
-      <button class="main-tab" onclick="showTab('resume')">Resume</button>
-    </nav>
+<!-- ── NAV ───────────────────────────────────────────────────────────── -->
+<header class="site-nav" id="site-nav" role="banner">
+  <a href="#" class="nav-name" onclick="showSection('home'); return false;">Marcela Espinosa</a>
+  <nav aria-label="Main navigation">
+    <ul class="nav-links">
+      <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <div id="tab-work">
-      <p class="main-subheading">5 case studies across AI design, enterprise systems, and platform strategy</p>
-      <div class="cs-list">
-        <a href="tprm-agent/" class="cs-card">
-          <div class="cs-card-strip" style="background:#F0E8E0;"></div>
-          <div class="cs-card-body">
-            <div class="cs-card-top-row">
-              <div class="cs-card-tags"><span class="cs-card-tag" style="background:#F0E8E0;color:#C96A35;">AI Agent Design</span><span class="cs-card-tag" style="background:#F0E8E0;color:#C96A35;">Enterprise AI UX</span></div>
-              <span class="cs-card-arrow">→</span>
-            </div>
-            <h3 class="cs-card-title">TPRM Agent</h3>
-            <p class="cs-card-desc">Designing Drata's first AI-assisted workflow — transforming vendor risk reviews from a manual, days-long process into an automated, transparent experience.</p>
-          </div>
-        </a>
-        <a href="evidence-library/" class="cs-card">
-          <div class="cs-card-strip" style="background:#E0F0ED;"></div>
-          <div class="cs-card-body">
-            <div class="cs-card-top-row">
-              <div class="cs-card-tags"><span class="cs-card-tag" style="background:#E0F0ED;color:#2A7D6F;">Enterprise Systems</span><span class="cs-card-tag" style="background:#E0F0ED;color:#2A7D6F;">Information Architecture</span></div>
-              <span class="cs-card-arrow">→</span>
-            </div>
-            <h3 class="cs-card-title">Evidence Library</h3>
-            <p class="cs-card-desc">From scattered uploads to a single source of compliance truth — a centralized evidence system that changed how the platform manages and reuses documentation.</p>
-          </div>
-        </a>
-        <a href="notifications/" class="cs-card">
-          <div class="cs-card-strip" style="background:#E8EAF6;"></div>
-          <div class="cs-card-body">
-            <div class="cs-card-top-row">
-              <div class="cs-card-tags"><span class="cs-card-tag" style="background:#E8EAF6;color:#3949AB;">UX Strategy</span><span class="cs-card-tag" style="background:#E8EAF6;color:#3949AB;">Systems Thinking</span></div>
-              <span class="cs-card-arrow">→</span>
-            </div>
-            <h3 class="cs-card-title">Notifications</h3>
-            <p class="cs-card-desc">A platform-wide notification system that had outgrown its infrastructure — and a research-driven process that shaped the decision powering Drata's next phase of growth.</p>
-          </div>
-        </a>
-        <a href="trust-center&CRM-integration/" class="cs-card">
-          <div class="cs-card-strip" style="background:#F5E8EC;"></div>
-          <div class="cs-card-body">
-            <div class="cs-card-top-row">
-              <div class="cs-card-tags"><span class="cs-card-tag" style="background:#F5E8EC;color:#7D3F52;">CRM Integrations</span><span class="cs-card-tag" style="background:#F5E8EC;color:#7D3F52;">Automation</span></div>
-              <span class="cs-card-arrow">→</span>
-            </div>
-            <h3 class="cs-card-title">Trust Center & CRM Integration</h3>
-            <p class="cs-card-desc">Turning a compliance document portal into an automated, insight-driven sales and security tool through three interconnected capabilities.</p>
-          </div>
-        </a>
-        <a href="constellation/" class="cs-card">
-          <div class="cs-card-strip" style="background:#E8F2E8;"></div>
-          <div class="cs-card-body">
-            <div class="cs-card-top-row">
-              <div class="cs-card-tags"><span class="cs-card-tag" style="background:#E8F2E8;color:#3D6B3D;">Design Systems</span><span class="cs-card-tag" style="background:#E8F2E8;color:#3D6B3D;">Platform Redesign</span></div>
-              <span class="cs-card-arrow">→</span>
-            </div>
-            <h3 class="cs-card-title">Constellation</h3>
-            <p class="cs-card-desc">Applying a new design system across Drata's platform — pressure-testing patterns against real enterprise workflows and raising the quality bar for 8,000+ customers.</p>
-          </div>
-        </a>
-      </div>
-    </div>
+<!-- ── HOME ──────────────────────────────────────────────────────────── -->
+<div id="section-home" class="section active">
+  <main>
+    <div class="col">
 
-    <div id="tab-about" style="display:none;">
-      <p class="about-body">I'm a Senior Product Designer focused on shaping complex systems into intuitive, scalable experiences.</p>
-      <p class="about-body">My work sits at the intersection of enterprise systems, workflow automation, and emerging AI interactions, where I enjoy turning messy, undefined problems into structured, usable solutions. I'm particularly drawn to designing experiences that reduce manual effort, support decision-making, and fit naturally into how people already work.</p>
-      <p class="about-body">I'm a highly collaborative designer who works closely with product and engineering partners to bring ideas to life. I'm known for strong communication, attention to detail, and creating clear, implementation-ready designs that help teams move quickly without losing quality.</p>
-      <p class="about-body">I approach design with a systems mindset — thinking beyond individual screens to ensure consistency, scalability, and long-term impact across the product.</p>
-      <p class="about-body">Outside of work, I'm bilingual (Spanish/English), spend time with my dog and cats, and practice pottery as a way to slow down and recharge. I also care deeply about mental health and try to bring empathy and intention into both my work and the teams I'm part of.</p>
-    </div>
+      <!-- HERO -->
+      <section class="hero" aria-label="Introduction">
 
-    <div id="tab-resume" style="display:none;">
-      <button class="resume-download" onclick="downloadResume()">↓ Download resume</button>
-      <div class="resume-page">
-        <div class="resume-header">
-          <h1>Marcela Espinosa</h1>
-          <p>Senior Product Designer focused on AI-assisted products and enterprise SaaS platforms. Experienced in designing scalable systems that simplify complex workflows through research-driven product design.</p>
-          <p class="resume-contact">Tijuana, Baja California, Mexico · marcela.espinosaallende@gmail.com</p>
+        <div class="hero-photo fade-in">
+          <img src="images/marcela.jpeg" alt="Marcela Espinosa, Senior Product Designer">
         </div>
-        <div class="resume-col">
-          <div>
-            <p class="resume-section-title">Experience</p>
-            <div class="resume-job">
-              <div class="resume-job-header"><span class="resume-job-title">Senior Product Designer</span><span class="resume-job-date">Aug 2022 – Present</span></div>
-              <p class="resume-job-company">Drata</p>
-              <ul class="resume-bullets">
-                <li>Designed enterprise product experiences for a compliance automation platform, collaborating with 10+ product managers and up to 10 engineering pods across the organization.</li>
-                <li>Delivered Drata's first Vendor Risk Management AI Agent, a guided AI-assisted experience that evaluates vendor risk and generates structured assessment summaries.</li>
-                <li>Partnered with 6 enterprise customers to validate agent workflows and refine the experience prior to broader release.</li>
-                <li>Established foundational AI UX patterns, guidelines and design principles for AI features at Drata, shaping early standards for agentic and conversational experiences across the platform.</li>
-                <li>Led research and product design for Evidence Library, enabling compliance evidence to be reused across multiple controls and automatically synced with engineering tools such as Jira, ServiceNow, and Asana.</li>
-                <li>Conducted 50+ customer interviews and usability sessions across initiatives to identify workflow pain points and guide the design of automation and AI-driven product capabilities.</li>
-                <li>Helped deliver Constellation, a platform-wide redesign that reimagined the entire Drata product experience and implemented a new design system across the platform.</li>
-                <li>Authored design specifications for design system components to support engineering implementation.</li>
-                <li>Delivered new Trust Center capabilities, including an analytics dashboard and a Salesforce integration that automates document access approvals using CRM data.</li>
-                <li>Led research synthesis and platform evaluation for Drata's notifications infrastructure, contributing to the decision to migrate vendors.</li>
-              </ul>
-            </div>
-            <div class="resume-job">
-              <div class="resume-job-header"><span class="resume-job-title">Product Designer</span><span class="resume-job-date">Sep 2021 – Jul 2022</span></div>
-              <p class="resume-job-company">HealthCare.com</p>
-              <ul class="resume-bullets">
-                <li>Designed user experiences for an online health insurance marketplace, collaborating closely with a dedicated research team.</li>
-                <li>Conducted moderated user interviews and usability testing across the insurance quoting journey.</li>
-                <li>Synthesized research insights to identify usability and trust issues impacting plan selection and conversion.</li>
-                <li>Redesigned landing pages, quoting flows, and checkout experiences to improve clarity and user confidence.</li>
-                <li>Introduced clearer information architecture and comparison features to help users navigate complex insurance options.</li>
-              </ul>
-            </div>
-            <div class="resume-job">
-              <div class="resume-job-header"><span class="resume-job-title">UX/UI Designer</span><span class="resume-job-date">Dec 2020 – Sep 2021</span></div>
-              <p class="resume-job-company">Strut Learning</p>
-              <ul class="resume-bullets">
-                <li>Designed digital learning experiences for Emojo, an adaptive learning platform supporting academic and emotional development.</li>
-                <li>Designed UX and interface components for a personalized learning platform used by both teachers and students.</li>
-                <li>Collaborated with product and engineering teams to deliver adaptive learning experiences and curriculum features.</li>
-                <li>Conducted iterative design exploration and usability testing to improve engagement and accessibility.</li>
-              </ul>
-            </div>
+
+        <div class="hero-text">
+          <p class="hero-name fade-in">Hi, I'm Marce 🌸</p>
+          <p class="hero-subtitle fade-in">Senior Product Designer focused on AI-first experiences and how products evolve with them.</p>
+          <div class="hero-bio">
+            <p class="fade-in">I design systems for complex enterprise workflows, focusing on clarity, trust, and structure. My work sits at the intersection of research, strategy, collaboration, and craft — helping teams turn ambiguity into usable, scalable solutions.</p>
+            <p class="fade-in">I care a lot about how I work with others. I value clear communication, strong partnerships, and mutual respect in the way teams build together.</p>
           </div>
         </div>
-        <div class="resume-col">
-          <div>
-            <p class="resume-section-title">Education</p>
-            <div class="resume-edu">
-              <p class="resume-edu-school">Cetys Universidad</p>
-              <p class="resume-edu-degree">Master's degree, Engineering and Innovation</p>
-              <p class="resume-edu-date">2018 – 2020</p>
-            </div>
-            <div class="resume-edu">
-              <p class="resume-edu-school">Cetys Universidad</p>
-              <p class="resume-edu-degree">Bachelor's degree, Mechatronics</p>
-              <p class="resume-edu-date">2010 – 2014</p>
-              <p class="resume-edu-degree" style="margin-top:0.2rem;font-size:0.78rem;">International Exchange: Università degli Studi di Bergamo, Italia</p>
-            </div>
-          </div>
-          <div>
-            <p class="resume-section-title">Skills &amp; Languages</p>
-            <div class="resume-skills-list">
-              <span>Product Design &amp; UX Strategy</span>
-              <span>AI &amp; Agent Experience Design</span>
-              <span>Enterprise SaaS</span>
-              <span>User Research &amp; Usability Testing</span>
-              <span>Workflow Automation</span>
-              <span>Design Systems</span>
-              <span>Interaction Design</span>
-              <span>Cross-functional Collaboration</span>
-              <span>Figma · Dovetail</span>
-            </div>
-            <div style="margin-top:1rem;"><span style="font-size:0.82rem;color:var(--muted);">Spanish — Native &nbsp;·&nbsp; English — Native proficiency</span></div>
-          </div>
-          <div>
-            <p class="resume-section-title">Publications</p>
-            <div class="resume-pub">
-              <strong>Designing Support Tools for Young Adults with Autism to Self-Manage Stress and Anxiety</strong>
-              Published in ACM Digital Library, Nov 2021 · <a href="https://dl.acm.org/doi/abs/10.1145/3488392.3488394" target="_blank">dl.acm.org</a>
-              <ul class="resume-bullets" style="margin-top:0.5rem;">
-                <li>Conducted HCI research using user-centered and participatory design methods.</li>
-                <li>Designed and tested low- and high-fidelity prototypes with stakeholder evaluation.</li>
-                <li>Explored interaction design approaches for mental health support tools.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      </section>
+
+      <!-- WORK -->
+      <section class="work-section" aria-label="Selected work">
+        <p class="work-label fade-in">Selected work</p>
+        <ol class="work-list" aria-label="Case studies">
+
+          <li>
+            <a class="work-item fade-in" href="tprm-agent/" aria-label="TPRM Agent case study">
+              <span class="work-num">01</span>
+              <div class="work-body">
+                <span class="work-title">TPRM Agent</span>
+                <span class="work-desc">Drata's first AI-assisted workflow — transforming vendor risk reviews from a manual, days-long process into an automated, transparent experience built on explainability and progressive autonomy.</span>
+                <div class="work-tags">
+                  <span class="work-tag">AI Agent Design</span>
+                  <span class="work-tag">Enterprise AI UX</span>
+                  <span class="work-tag">0-to-1</span>
+                </div>
+              </div>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="work-item fade-in" href="evidence-library/" aria-label="Evidence Library case study">
+              <span class="work-num">02</span>
+              <div class="work-body">
+                <span class="work-title">Evidence Library</span>
+                <span class="work-desc">From scattered uploads to a single source of compliance truth — a centralized evidence system that changed how the platform manages, versions, and reuses documentation.</span>
+                <div class="work-tags">
+                  <span class="work-tag">Platform Design</span>
+                  <span class="work-tag">Information Architecture</span>
+                  <span class="work-tag">Enterprise Systems</span>
+                </div>
+              </div>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="work-item fade-in" href="notifications/" aria-label="Notifications case study">
+              <span class="work-num">03</span>
+              <div class="work-body">
+                <span class="work-title">Notifications</span>
+                <span class="work-desc">A research-driven process that turned fragmented notification behaviors into a product requirements model — shaping the infrastructure decision powering Drata's next phase of growth.</span>
+                <div class="work-tags">
+                  <span class="work-tag">UX Strategy</span>
+                  <span class="work-tag">Systems Thinking</span>
+                  <span class="work-tag">Infrastructure</span>
+                </div>
+              </div>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="work-item fade-in" href="trust-center&CRM-integration/" aria-label="Trust Center and CRM Integration case study">
+              <span class="work-num">04</span>
+              <div class="work-body">
+                <span class="work-title">Trust Center &amp; CRM Integration</span>
+                <span class="work-desc">Turning a compliance document portal into an automated, insight-driven sales and security tool — connecting Salesforce context, NDA logic, and analytics into a single workflow.</span>
+                <div class="work-tags">
+                  <span class="work-tag">CRM Integration</span>
+                  <span class="work-tag">Automation</span>
+                  <span class="work-tag">Sales Enablement</span>
+                </div>
+              </div>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="work-item fade-in" href="constellation/" aria-label="Constellation case study">
+              <span class="work-num">05</span>
+              <div class="work-body">
+                <span class="work-title">Constellation</span>
+                <span class="work-desc">Applying and pressure-testing a design system across Drata's platform — resolving design debt, validating patterns against real workflows, and enabling rollout to 8,000+ customers.</span>
+                <div class="work-tags">
+                  <span class="work-tag">Design Systems</span>
+                  <span class="work-tag">Platform Redesign</span>
+                  <span class="work-tag">Systems Thinking</span>
+                </div>
+              </div>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+        </ol>
+      </section>
+
     </div>
-
-    
-
   </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <span class="footer-copy">© 2026 Marcela Espinosa</span>
+    <span class="footer-right">Tijuana · San Diego</span>
+  </footer>
+</div>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────────────── -->
+<div id="section-about" class="section">
+  <main>
+    <div class="col">
+      <div class="about-wrap">
+
+        <h1 class="about-headline fade-in">Welcome, a bit more about me...</h1>
+
+        <p class="about-body fade-in">I'm a Senior Product Designer focused on shaping complex systems into intuitive, scalable experiences.</p>
+
+        <p class="about-body fade-in">My work sits at the intersection of enterprise systems, workflow automation, and emerging AI interactions, where I enjoy turning messy, undefined problems into structured, usable solutions. I'm particularly drawn to designing experiences that reduce manual effort, support decision-making, and fit naturally into how people already work.</p>
+
+        <p class="about-body fade-in">I'm a highly collaborative designer who works closely with product and engineering partners to bring ideas to life. I'm known for strong communication, attention to detail, and creating clear, implementation-ready designs that help teams move quickly without losing quality. </p>
+
+        <p class="about-body fade-in">I approach design with a systems mindset — thinking beyond individual screens to ensure consistency, scalability, and long-term impact across the product.</p>
+
+        <p class="about-body fade-in">Outside of work, I truly enjoy starting my day with a hot cup of coffee, brings me a lot of joy. I love to spend time with my dog and cats and practice pottery as a way to slow down and recharge. I also care deeply about mental health and try to bring empathy and intention into both my work and the teams I'm part of. I've published research in HCI on designing tools that support young adults with autism in managing stress and anxiety — work I'm still proud of, and that shapes how I think about designing for real human context. The thought of getting a PhD combining AI, psychology, and HCI is really exciting to me! Hopefully it's a goal I can one day achieve while I continue to work in this ever-evolving field.</p>
+
+        <div class="about-details fade-in">
+          <div>
+            <p class="about-detail-label">Currently</p>
+            <p class="about-detail-value">Senior Product Designer<br>at Drata</p>
+          </div>
+          <div>
+            <p class="about-detail-label">Based in</p>
+            <p class="about-detail-value">Tijuana, MX<br>San Diego area</p>
+          </div>
+          <div>
+            <p class="about-detail-label">Background</p>
+            <p class="about-detail-value">Mechatronics Eng.<br>M.S. Engineering &amp; Innovation</p>
+          </div>
+          <div>
+            <p class="about-detail-label">Languages</p>
+            <p class="about-detail-value">Spanish — Native<br>English — Fluent</p>
+          </div>
+        </div>
+
+        <div class="about-links fade-in">
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="about-link">Email</a>
+          <a href="https://www.linkedin.com/in/marcelaespinosaallende/" target="_blank" rel="noopener noreferrer" class="about-link">LinkedIn ↗</a>
+          <a href="MarcelaEspinosa_resume.pdf" target="_blank" class="about-link">Resume ↗</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <span class="footer-copy">© 2026 Marcela Espinosa</span>
+    <span class="footer-right">Tijuana · San Diego</span>
+  </footer>
 </div>
 
 <script>
-var PDF_DATA = 'MarcelaEspinosa_resume.pdf';
-
-function showTab(tab) {
-  var tabs = ['work', 'about', 'resume'];
-  for (var i = 0; i < tabs.length; i++) {
-    var el = document.getElementById('tab-' + tabs[i]);
-    if (el) el.style.display = (tabs[i] === tab) ? 'block' : 'none';
+  function showSection(name) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + name).classList.add('active');
+    window.scrollTo(0, 0);
+    setTimeout(triggerFades, 50);
   }
-  var btns = document.querySelectorAll('.main-tab');
-  for (var j = 0; j < btns.length; j++) {
-    if (tabs[j] === tab) {
-      btns[j].classList.add('active');
-    } else {
-      btns[j].classList.remove('active');
-    }
+
+  function triggerFades() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.04 });
+    document.querySelectorAll('.section.active .fade-in:not(.visible)').forEach(el => observer.observe(el));
   }
-  var main = document.getElementById('main-scroll');
-  if (main) main.scrollTop = 0;
-}
 
-function downloadResume() {
-  var a = document.createElement('a');
-  a.href = PDF_DATA;
-  a.download = 'Marcela_Espinosa_Resume.pdf';
-  a.target = '_blank';
-  a.click();
-}
+  window.addEventListener('scroll', () => {
+    document.getElementById('site-nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
 
-function submitForm(e) {
-  e.preventDefault();
-  var name = document.querySelector('[name="name"]').value;
-  var email = document.querySelector('[name="email"]').value;
-  var message = document.querySelector('[name="message"]').value;
-  var subject = encodeURIComponent('Portfolio inquiry from ' + name);
-  var body = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
-  window.location.href = 'mailto:marcela.espinosaallende@gmail.com?subject=' + subject + '&body=' + body;
-  document.getElementById('form-success').style.display = 'block';
-}
-
-try {
-  var savedTab = sessionStorage.getItem('tab');
-  if (savedTab) { showTab(savedTab); sessionStorage.removeItem('tab'); }
-} catch(e) {}
+  triggerFades();
 </script>
+
 </body>
 </html>
