@@ -261,6 +261,22 @@ body {
   font-weight: 300;
 }
 
+.contact-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  padding: 0.6rem 1.25rem;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+.contact-btn:hover { background: var(--ink); color: var(--bg); }
+
 .about-links {
   display: flex;
   gap: 1.5rem;
@@ -346,6 +362,7 @@ body {
           <div class="hero-bio">
             <p class="fade-in">I design systems for complex enterprise workflows, focusing on clarity, trust, and structure. My work sits at the intersection of research, strategy, collaboration, and craft — helping teams turn ambiguity into usable, scalable solutions.</p>
             <p class="fade-in">I care a lot about how I work with others. I value clear communication, strong partnerships, and mutual respect in the way teams build together.</p>
+            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="contact-btn fade-in" aria-label="Email Marcela Espinosa">Get in touch</a>
           </div>
         </div>
 
@@ -357,8 +374,24 @@ body {
         <ol class="work-list" aria-label="Case studies">
 
           <li>
-            <a class="work-item fade-in" href="tprm-agent/" aria-label="TPRM Agent case study">
+            <a class="work-item fade-in" href="mapping-agent/" aria-label="Mapping Agent case study">
               <span class="work-num">01</span>
+              <div class="work-body">
+                <span class="work-title">Mapping Agent</span>
+                <span class="work-desc">Turning a 6-week manual compliance onboarding process into a self-serve AI recommendation workflow — built on transparency, user control, and phased autonomy.</span>
+                <div class="work-tags">
+                  <span class="work-tag">AI Agent Design</span>
+                  <span class="work-tag">Enterprise AI UX</span>
+                  <span class="work-tag">0-to-1</span>
+                </div>
+              </div>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="work-item fade-in" href="tprm-agent/" aria-label="TPRM Agent case study">
+              <span class="work-num">02</span>
               <div class="work-body">
                 <span class="work-title">TPRM Agent</span>
                 <span class="work-desc">Drata's first AI-assisted workflow — transforming vendor risk reviews from a manual, days-long process into an automated, transparent experience built on explainability and progressive autonomy.</span>
@@ -374,7 +407,7 @@ body {
 
           <li>
             <a class="work-item fade-in" href="evidence-library/" aria-label="Evidence Library case study">
-              <span class="work-num">02</span>
+              <span class="work-num">03</span>
               <div class="work-body">
                 <span class="work-title">Evidence Library</span>
                 <span class="work-desc">From scattered uploads to a single source of compliance truth — a centralized evidence system that changed how the platform manages, versions, and reuses documentation.</span>
@@ -390,7 +423,7 @@ body {
 
           <li>
             <a class="work-item fade-in" href="notifications/" aria-label="Notifications case study">
-              <span class="work-num">03</span>
+              <span class="work-num">04</span>
               <div class="work-body">
                 <span class="work-title">Notifications</span>
                 <span class="work-desc">A research-driven process that turned fragmented notification behaviors into a product requirements model — shaping the infrastructure decision powering Drata's next phase of growth.</span>
@@ -406,7 +439,7 @@ body {
 
           <li>
             <a class="work-item fade-in" href="trust-center&CRM-integration/" aria-label="Trust Center and CRM Integration case study">
-              <span class="work-num">04</span>
+              <span class="work-num">05</span>
               <div class="work-body">
                 <span class="work-title">Trust Center &amp; CRM Integration</span>
                 <span class="work-desc">Turning a compliance document portal into an automated, insight-driven sales and security tool — connecting Salesforce context, NDA logic, and analytics into a single workflow.</span>
@@ -422,7 +455,7 @@ body {
 
           <li>
             <a class="work-item fade-in" href="constellation/" aria-label="Constellation case study">
-              <span class="work-num">05</span>
+              <span class="work-num">06</span>
               <div class="work-body">
                 <span class="work-title">Constellation</span>
                 <span class="work-desc">Applying and pressure-testing a design system across Drata's platform — resolving design debt, validating patterns against real workflows, and enabling rollout to 8,000+ customers.</span>
@@ -523,6 +556,9 @@ body {
   });
 
   triggerFades();
+
+  // Handle direct links to About from case study pages
+  if (window.location.hash === '#about') showSection('about');
 </script>
 
 </body>

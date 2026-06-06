@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO META TAGS ══════════════════════════════════════════════════ -->
+<title>Mapping Agent — Marcela Espinosa, Senior Product Designer</title>
+<meta name="description" content="Designing Drata's AI-first recommendation experience, turning a 6-week manual onboarding process into a self-serve workflow built on transparency, user control, and phased autonomy.">
+<meta name="author" content="Marcela Espinosa">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="AI agent design, senior product designer, enterprise UX, compliance, mapping agent, AI recommendations, interaction design, 0-to-1, Drata">
+<link rel="canonical" href="https://marcelaespinosaa.github.io/mapping-agent/">
+<meta property="og:title" content="Mapping Agent — Marcela Espinosa, Senior Product Designer">
+<meta property="og:description" content="Turning a 6-week manual compliance onboarding process into a self-serve AI recommendation workflow built on transparency, user control, and phased autonomy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marcelaespinosaa.github.io/mapping-agent/">
+<meta property="og:image" content="https://marcelaespinosaa.github.io/images/mapping-agent/Recommendations_page_structure.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mapping Agent — Marcela Espinosa">
+<meta name="twitter:description" content="Turning a 6-week manual compliance onboarding into a self-serve AI recommendation workflow — transparency, user control, phased autonomy.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F4F2EE; --white: #FFFFFF; --border: #D9CBBB; --border-light: #C7B5A9;
+  --ink: #111111; --muted: #636058; --accent: #8B6F5C; --accent-pale: #F0E8E0;
+  --display: 'Lora', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
+  --nav-h: 3.4rem;
+  --gap: 3rem;
+  --nav-col: calc(16vw + 180px);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow-x: hidden; width: 100%; }
+
+/* ── NAV ─────────────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem 16vw; background: var(--bg); border-bottom: 1px solid transparent; transition: border-color 0.3s;
+}
+nav.scrolled { border-color: var(--border); }
+.nav-logo { font-size: 0.9rem; font-weight: 600; color: var(--ink); text-decoration: none; font-family: var(--display); letter-spacing: 0.01em; }
+.nav-right { display: flex; gap: 2rem; list-style: none; }
+.nav-right a { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-right a:hover { color: var(--ink); }
+
+/* ── HERO ────────────────────────────────────────────────────────────── */
+.cs-hero { padding: 5.75rem 16vw 4.125rem; background: var(--white); }
+.cs-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.cs-tag { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--accent); background: var(--accent-pale); padding: 0.3rem 0.85rem; border-radius: 4px; }
+.cs-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.05; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+.cs-title .accent { color: var(--accent); }
+.cs-subtitle { font-size: 1rem; color: #3D3A35; font-weight: 400; line-height: 1.75; max-width: 860px; }
+
+/* ── META BAR ────────────────────────────────────────────────────────── */
+.cs-meta {
+  display: flex; flex-wrap: wrap;
+  column-gap: 3rem; row-gap: 0;
+  padding: 0.75rem 16vw;
+  background: var(--white); border-bottom: 1.5px solid var(--border);
+}
+.cs-meta-item { padding: 0.5rem 0; }
+.cs-meta-item label { display: block; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; font-weight: 500; }
+.cs-meta-item span { font-size: 0.9rem; color: var(--ink); font-weight: 400; }
+
+/* ── PAGE LAYOUT ─────────────────────────────────────────────────────── */
+.cs-layout {
+  display: grid;
+  grid-template-columns: var(--nav-col) 1fr;
+  gap: 0;
+  align-items: start;
+  padding-top: var(--gap);
+}
+
+/* ── ANCHOR NAV ──────────────────────────────────────────────────────── */
+.cs-anchor-nav {
+  position: sticky;
+  top: calc(var(--nav-h) + var(--gap));
+  padding: 0 2rem 0 16vw;
+  align-self: start;
+  z-index: 50;
+}
+.cs-anchor-nav-label {
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #7A7670; margin-bottom: 0.75rem; padding-left: 0.75rem; display: block;
+}
+.cs-anchor-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.cs-anchor-nav li a {
+  display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted);
+  text-decoration: none; padding: 0.45rem 0.75rem; border-left: 2px solid var(--border-light);
+  transition: color 0.2s, border-color 0.2s; line-height: 1.4; letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.cs-anchor-nav li a:hover,
+.cs-anchor-nav li a.active { color: var(--accent); border-left-color: var(--accent); }
+
+/* ── CONTENT SHELL ───────────────────────────────────────────────────── */
+.cs-content { padding: 0 16vw 8rem 3rem; }
+.cs-section { margin-bottom: 5.5rem; }
+section[id] { scroll-margin-top: calc(var(--nav-h) + var(--gap)); }
+
+.section-kicker {
+  display: inline-block; font-size: 1.05rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.85rem;
+}
+.cs-body { font-size: 0.9rem; color: #3D3A35; font-weight: 400; line-height: 1.85; margin-bottom: 1.25rem; }
+.cs-body strong { color: var(--ink); font-weight: 500; }
+
+h3.cs-h3 {
+  font-family: var(--sans); font-size: 1rem; font-weight: 500;
+  color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-top: 3.5rem; margin-bottom: 1rem;
+}
+#section-decisions h3.cs-h3 { margin-top: 1.25rem; }
+
+h4.cs-h4 {
+  font-family: var(--sans); font-size: 0.9rem; font-weight: 600;
+  color: var(--ink); letter-spacing: 0.01em;
+  margin-top: 2.5rem; margin-bottom: 0.75rem;
+}
+
+/* ── PULL QUOTE ──────────────────────────────────────────────────────── */
+.cs-pullquote { font-size: 1.05rem; color: var(--ink); font-weight: 500; padding: 1rem 1.5rem; border-left: 3px solid var(--accent); margin: 1.5rem 0; line-height: 1.75; }
+
+/* ── LISTS ───────────────────────────────────────────────────────────── */
+.cs-list, .outcomes-list, .refinement-list, .tradeoff-list {
+  list-style: none; margin: 0.75rem 0 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;
+}
+.cs-list li, .outcomes-list li, .refinement-list li, .tradeoff-list li {
+  font-size: 0.9rem; color: #3D3A35; padding-left: 1.25rem; position: relative; line-height: 1.8;
+}
+.cs-list li::before, .outcomes-list li::before, .refinement-list li::before, .tradeoff-list li::before {
+  content: ''; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+}
+.cs-list li strong, .outcomes-list li strong, .refinement-list li strong { color: var(--ink); font-weight: 600; }
+
+/* ── BLOCKQUOTE ──────────────────────────────────────────────────────── */
+.cs-blockquote {
+  font-size: 0.9rem; color: #3D3A35; font-style: italic;
+  padding: 1.25rem 1.5rem; border-left: 3px solid var(--border-light);
+  margin: 1rem 0 0.5rem; line-height: 1.75;
+}
+.cs-blockquote cite {
+  display: block; font-style: normal; font-size: 0.8rem;
+  color: var(--muted); margin-top: 0.5rem; font-weight: 500;
+}
+
+/* ── WORKFLOW STEPS ──────────────────────────────────────────────────── */
+.step-block {
+  display: grid; grid-template-columns: 3rem 1fr;
+  background: var(--white); border: 1px solid var(--border-light);
+  border-radius: 8px; margin-bottom: 2.5rem;
+}
+.step-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 2.5rem; }
+.step-group .step-block { margin-bottom: 0; }
+.step-num { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--border-light); padding: 1.25rem 0 1.25rem 1.25rem; line-height: 1; }
+.step-body { padding: 1.25rem 1.5rem; }
+.step-body strong { display: block; font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+.step-body p { font-size: 0.9rem; color: #3D3A35; line-height: 1.7; }
+
+/* ── BEHAVIOR STRIP ──────────────────────────────────────────────────── */
+.behavior-strip { display: flex; flex-direction: column; gap: 1px; background: var(--border-light); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; margin: 1.75rem 0; }
+.behavior-card { background: var(--white); padding: 1.5rem 1.75rem; border-left: 3px solid var(--accent); }
+.behavior-card strong { display: block; font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
+.behavior-card p { font-size: 0.9rem; color: #3D3A35; line-height: 1.75; }
+
+/* ── IMAGES ──────────────────────────────────────────────────────────── */
+.cs-image-block { margin: 2.5rem 0; }
+.cs-image-wrap { position: relative; overflow: hidden; cursor: pointer; }
+.cs-image-wrap img { width: 100%; height: auto; display: block; transition: opacity 0.15s; }
+.cs-image-wrap:hover img { opacity: 0.95; }
+.cs-image-hint {
+  position: absolute; bottom: 0.65rem; right: 0.65rem;
+  background: rgba(17,17,17,0.65); color: #F4F2EE;
+  font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.25rem 0.6rem; border-radius: 3px;
+  pointer-events: none; opacity: 0; transition: opacity 0.2s;
+}
+.cs-image-wrap:hover .cs-image-hint { opacity: 1; }
+.cs-image-wrap.expandable { cursor: zoom-in; }
+.cs-image-caption { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
+
+/* ── LIGHTBOX ────────────────────────────────────────────────────────── */
+.lightbox-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(17,17,17,0.9); align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-overlay img { max-width: 92vw; max-height: 92vh; object-fit: contain; display: block; }
+.lightbox-close {
+  position: absolute; top: 1.25rem; right: 1.5rem;
+  color: #fff; font-size: 1.5rem; cursor: pointer;
+  background: none; border: none; line-height: 1; opacity: 0.7; transition: opacity 0.2s;
+}
+.lightbox-close:hover { opacity: 1; }
+
+/* ── VIDEOS ──────────────────────────────────────────────────────────── */
+.cs-video-block { margin: 2.5rem 0; }
+.cs-video-wrap video { width: 100%; height: auto; display: block; }
+.cs-video-caption { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; }
+
+/* ── NEXT / FOOTER ───────────────────────────────────────────────────── */
+.cs-next { border-top: 1.5px solid var(--border); padding: 3rem 16vw; display: flex; justify-content: space-between; align-items: center; background: var(--white); position: static; }
+.cs-next-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
+.cs-next-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; transition: color 0.2s; }
+.cs-next-title:hover { color: var(--accent); }
+footer { background: var(--ink); padding: 1.75rem 16vw; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 0.75rem; color: #555; }
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a { font-size: 0.75rem; color: #555; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: #999; }
+
+/* ── FADE-UP ─────────────────────────────────────────────────────────── */
+.fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .cs-layout { grid-template-columns: 1fr; padding-top: 0; }
+  .cs-anchor-nav { display: none; }
+  .cs-content { padding: 2rem 5vw 8rem; }
+  .cs-hero { padding: 4rem 5vw 3rem; }
+  .cs-meta { padding: 0.75rem 5vw; }
+}
+@media (max-width: 900px) {
+  nav, .cs-next, footer { padding-left: 5vw; padding-right: 5vw; }
+  .cs-meta { column-gap: 1.5rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ── NAVIGATION ───────────────────────────────────────────────────── -->
+<nav id="cs-nav" role="navigation" aria-label="Site navigation">
+  <a href="../index.html" class="nav-logo" aria-label="Marcela Espinosa — back to home">Marcela Espinosa</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────── -->
+<header class="cs-hero">
+  <div class="cs-tags" role="list" aria-label="Project tags">
+    <span class="cs-tag" role="listitem">AI Agent Design</span>
+    <span class="cs-tag" role="listitem">Enterprise AI UX</span>
+    <span class="cs-tag" role="listitem">0-to-1</span>
+    <span class="cs-tag" role="listitem">Interaction Design</span>
+  </div>
+  <h1 class="cs-title">Mapping <span class="accent">Agent</span></h1>
+  <p class="cs-subtitle">Designing Drata's AI-first recommendation experience, turning a 6-week manual onboarding process into a self-serve workflow built on transparency, user control, and phased autonomy.</p>
+</header>
+
+<!-- ── META BAR ─────────────────────────────────────────────────────── -->
+<div class="cs-meta" role="complementary" aria-label="Project details">
+  <div class="cs-meta-item"><label>Role</label><span>Senior AI Product Designer</span></div>
+  <div class="cs-meta-item"><label>Team</label><span>VP of AI, Engineering</span></div>
+  <div class="cs-meta-item"><label>Timeline</label><span>October 2025 – May 2026</span></div>
+</div>
+
+<!-- ── LAYOUT WRAPPER ────────────────────────────────────────────────── -->
+<div class="cs-layout">
+
+  <!-- ANCHOR NAV ──────────────────────────────────────────────────── -->
+  <aside class="cs-anchor-nav" aria-label="Page sections">
+    <span class="cs-anchor-nav-label" aria-hidden="true">Page content</span>
+    <ul>
+      <li><a href="#section-opportunity">The opportunity</a></li>
+      <li><a href="#section-impact">Ownership &amp; impact</a></li>
+      <li><a href="#section-role">AI's autonomy baseline</a></li>
+      <li><a href="#section-research">Research insights</a></li>
+      <li><a href="#section-workflow">The workflow</a></li>
+      <li><a href="#section-scaling">Scaling the model</a></li>
+      <li><a href="#section-decisions">Key decisions &amp; tradeoffs</a></li>
+      <li><a href="#section-ahead">Looking ahead</a></li>
+      <li><a href="#section-reflection">Reflection</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT ────────────────────────────────────────────────── -->
+  <main id="main-content" class="cs-content">
+
+    <!-- THE OPPORTUNITY -->
+    <section id="section-opportunity" class="cs-section fade-up" aria-labelledby="kicker-opportunity">
+      <span class="section-kicker" id="kicker-opportunity">The opportunity</span>
+      <p class="cs-body">In compliance, controls are the specific security and operational requirements an organization must meet. Drata provides out-of-the-box controls mapped to tests, evidence, policies, risks, and framework requirements that automate the work of proving compliance. Enterprise customers often came to Drata with their own compliance program already in place. They had worked with auditors to build custom control sets. Connecting their custom control set to Drata's automation engine (tests, evidence, policies, risks, requirements) is essential to getting value from the platform during onboarding and throughout our customers' compliance journey. Customers continuously added new controls throughout their compliance journey, meaning the ability to map custom objects quickly and accurately had ongoing impact across the customer lifecycle.</p>
+      <p class="cs-body">The problem was that doing this wasn't self-serve. Customers had to engage Drata's Compliance Advisory (CA) team, share a spreadsheet of their custom controls, wait for the team to run it through an internal AI tool, review a recommended mapping sheet, and then wait again while the CA team executed every mapping manually in the customer's tenant. The whole process took approximately <strong>6 weeks</strong>, 6 weeks before a customer could even begin seeing compliance coverage or automation value from Drata.</p>
+      <p class="cs-body">The Mapping Agent was designed to give customers back that time and remove the dependency entirely. Customers would upload their custom controls directly, receive <strong>AI-generated mapping recommendations</strong> grouped by object type and labeled by confidence level, and review, accept, or deny them on their own schedule, without ever needing to involve a Drata team member.</p>
+      <p class="cs-body">This was also a <strong>0-to-1 initiative</strong> for Drata: a new surface, a new interaction model, and one of five core agents the company was planning to release as part of its broader AI roadmap.</p>
+    </section>
+
+    <!-- OWNERSHIP & IMPACT -->
+    <section id="section-impact" class="cs-section fade-up" aria-labelledby="kicker-impact">
+      <span class="section-kicker" id="kicker-impact">Ownership &amp; impact</span>
+      <p class="cs-body">I was the sole designer on this initiative, leading end-to-end from discovery through final designs, partnering closely with the VP of AI across both research and design.</p>
+      <ul class="cs-list" aria-label="Key contributions and outcomes">
+        <li><strong>Led 6 moderated research sessions with enterprise customers</strong> using an interactive prototype, translating findings into the interaction requirements and patterns that would govern how recommendations were surfaced, reviewed, and acted on.</li>
+        <li><strong>Established trust patterns</strong> for agentic experiences, defining also specific guidelines through this project for how recommendations should be surfaced, labeled, explained, and controlled. Trust patterns intended to apply across all agentic capabilities planned for the platform.</li>
+        <li><strong>Designed the phased delivery model</strong>, scoping the first release to custom controls to Drata objects, while advancing designs for custom risks and custom frameworks ahead of engineering commitment.</li>
+        <li><strong>Pushed for a new AI settings model</strong> as part of this project, moving Drata from a single global AI toggle to granular, feature-level AI controls, which was a prerequisite for introducing auto-approval rules for the mapping agent.</li>
+        <li><strong>Explored entry point designs</strong> within the broader Drata AI vision, contributing explorations for how the mapping experience would live within a unified AI home page designed to hold all of Drata's agentic workflows.</li>
+      </ul>
+    </section>
+
+    <!-- AI'S AUTONOMY BASELINE -->
+    <section id="section-role" class="cs-section fade-up" aria-labelledby="kicker-role">
+      <span class="section-kicker" id="kicker-role">AI's autonomy baseline</span>
+      <p class="cs-body">As part of establishing Drata's AI design foundation, I defined the Trust Arc, a product vision based on a four-stage AI personality model I established during a previous project I worked on: the first Agent Drata launched, a TPRM Agent. The Trust Arc described how AI shows up at different levels of autonomy. The four personalities (Sentinel, Advisor, Collaborator, and Operator) each represent a different relationship between the system and the user, progressing from observation and reporting toward fully independent action as trust is earned. Before designing the Mapping Agent, we needed to establish which personality was the right starting point.</p>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Trust Arc — four AI personality levels: Sentinel, Advisor, Collaborator, and Operator" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Trust_Arc.png" alt="Trust Arc: four AI personality levels (Sentinel, Advisor, Collaborator, Operator) progressing from observation toward fully independent action" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Trust Arc — four autonomy levels, each representing a different relationship between the system and the user</p>
+      </div>
+
+      <p class="cs-body">These mappings directly affect compliance posture. An incorrect mapping, such as a test connected to a control it doesn't actually satisfy, can create false confidence and compliance posture, scaling to audit risk if not addressed. That made <strong>Advisor</strong> our best starting point: AI that guides, shows its work, and leaves every decision to the user to build enough trust to then progress to a higher autonomy experience, enabling auto-approval rules and moving toward <strong>Collaborator</strong> behavior where the AI executes with user approval at key checkpoints.</p>
+      <p class="cs-body">To build that trust, I grounded the experience in a set of <strong>transparency guidelines</strong> I established for AI-powered recommendation experiences at Drata:</p>
+
+      <div class="behavior-strip" aria-label="Transparency guidelines for AI recommendations">
+        <div class="behavior-card">
+          <strong>Every recommendation had to show context</strong>
+          <p>Users needed to see which object was being recommended, which object it was being mapped to, the confidence level of that recommendation (high or medium), and the rationale behind it as a persistent, visible part of the review surface.</p>
+        </div>
+        <div class="behavior-card">
+          <strong>User control had to be granular and always available</strong>
+          <p>Users could accept or deny recommendations individually or in bulk. They could later modify accepted recommendations.</p>
+        </div>
+        <div class="behavior-card">
+          <strong>Confidence had to be honest</strong>
+          <p>High confidence meant language similarity and signal strength met a higher threshold. Medium meant a reasonable match that warranted closer review. No recommendations were auto-applied without explicit user action or permission.</p>
+        </div>
+      </div>
+
+      <p class="cs-body">These guidelines became part of the foundational <strong>patterns</strong> I documented for Drata's design org to be applied consistently across agentic recommendation experiences on the platform.</p>
+    </section>
+
+    <!-- RESEARCH INSIGHTS -->
+    <section id="section-research" class="cs-section fade-up" aria-labelledby="kicker-research">
+      <span class="section-kicker" id="kicker-research">Research insights</span>
+      <p class="cs-body">I ran <strong>6 moderated research sessions</strong> with enterprise customers using an interactive prototype. The VP of AI joined every session. The goal was to understand how customers reasoned about AI recommendations, what information they needed to act on them confidently, and where the original design assumptions held up against real user behavior.</p>
+      <p class="cs-body">The first version of the experience presented a 1:1 relationship to map custom controls to Drata's OOTB controls. Drata controls are pre-mapped to tests, evidence, policies, and other objects, so mapping through controls would unlock all of that downstream automation. If a custom control had multiple recommendations, the user would see multiple rows on the table for that control, each row representing a different Drata control being recommended.</p>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Research version — original 1:1 mapping model showing custom controls to Drata OOTB controls" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Research_version_1.png" alt="Research version: original mapping model showing a 1:1 relationship between custom controls and Drata OOTB controls, with multiple rows per control for multiple recommendations" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+      </div>
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Research version — detail view of the original 1:1 mapping model" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Research_version_2.png" alt="Research version detail: closer view of the original mapping model tested in moderated sessions" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Research version — original 1:1 mapping model tested in moderated sessions</p>
+      </div>
+
+      <p class="cs-body">The insights from this round of research shaped the design significantly, changing the fundamental structure of the experience.</p>
+
+      <p class="cs-body"><strong>The original mapping model didn't match how users thought about their work.</strong> We noticed users wanted to have more granular control on which specific tests, evidence, and policies would apply to their custom work, the objects that directly translated into compliance coverage and automation. Mapping to a Drata control first was an extra step that decreased the visibility of that granular control and added abstraction.</p>
+      <p class="cs-body">We pivoted the model: custom controls would map directly to Drata objects, bypassing the Drata controls layer. Instead of asking users to adapt to Drata's internal architecture, we adapted the experience to how users actually thought about their own compliance work.</p>
+
+      <blockquote class="cs-blockquote">"So I think it actually does help make a better decision if you're like, oh, this control, they're looking for a user access review and that's what the evidence is for my custom control."</blockquote>
+
+      <p class="cs-body"><strong>User control today is the foundation for AI autonomy tomorrow.</strong> Users weren't resistant to the idea of AI doing more over time, but they needed to build trust with it first. The research made clear that having control over which recommendations would get mapped was the condition under which users would be willing to engage with AI at all, and the foundation from which a more autonomous experience could be earned. So we designed the review and approval flow with a deliberate goal: build enough trust with customers that they would feel confident enabling auto-approval rules and delegating more to the system over time.</p>
+
+      <blockquote class="cs-blockquote">"I'm a little bit of a control freak, so I would want to ensure that everything looks matched correctly."</blockquote>
+
+      <p class="cs-body">After this round of research I iterated on our approach and designs to better align with our users mental model, presented in the following section.</p>
+    </section>
+
+    <!-- THE WORKFLOW -->
+    <section id="section-workflow" class="cs-section fade-up" aria-labelledby="kicker-workflow">
+      <span class="section-kicker" id="kicker-workflow">The workflow</span>
+      <p class="cs-body">The mapping experience was designed to support two complementary modes of review: a <strong>dedicated bulk review surface</strong> for processing many recommendations at once, and an <strong>in-context view</strong> embedded in individual control detail pages for reviewing one control at a time. Users could move between both based on their workflow and preference.</p>
+
+      <div class="step-block fade-up">
+        <span class="step-num" aria-hidden="true">01</span>
+        <div class="step-body">
+          <strong>Upload and parsing</strong>
+          <p>Users upload their custom set of controls as a structured file. The system parses the content and begins generating AI recommendations based on language similarity to Drata's existing objects.</p>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--muted); line-height:1.6;">One constraint worth noting: the upload step was built on Drata's existing integration with Flatfile, a bulk upload tool already embedded in the platform. The Flatfile experience wasn't ideal for this use case and introduced more friction than a purpose-built flow would have. But replacing it or building something new would have significantly delayed delivery, and the team aligned on the tradeoff: get the core mapping value to customers faster using what already existed, and improve the upload experience as a follow-on investment. Shipping something functional before shipping something perfect was decided based on how much was at stake for customers waiting on this capability.</p>
+        </div>
+      </div>
+      <div class="cs-video-block fade-up">
+        <div class="cs-video-wrap">
+          <video loop muted playsinline aria-label="Bulk upload: user uploads a custom controls file and the system parses content and begins generating AI recommendations">
+            <source src="../images/mapping-agent/Bulk_Upload.mp4" type="video/mp4">
+            This video shows the upload and parsing step.
+          </video>
+        </div>
+        <p class="cs-video-caption">Upload and parsing — the system ingests custom controls and begins generating AI-powered mapping recommendations</p>
+      </div>
+
+      <div class="step-block fade-up">
+        <span class="step-num" aria-hidden="true">02</span>
+        <div class="step-body">
+          <strong>Bulk review</strong>
+          <p>Moving away from a 1:1 relationship table for custom controls to Drata controls recommendations, the main review surface now presented a list of the uploaded custom controls and a summary of the objects recommended to each one. The view is organized by object type: all tests grouped together, all evidence grouped, all policies grouped. Each recommendation includes a confidence label (High or Medium), and the rationale behind the match. Users can accept, deny, or substitute individual recommendations, or act in bulk across an entire group.</p>
+        </div>
+      </div>
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Bulk review surface showing recommendations grouped by object type with confidence labels and rationale" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Recommendations_page_structure_1.png" alt="Bulk review surface: custom controls listed with AI-recommended objects grouped by type (tests, evidence, policies), each showing confidence level and rationale" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+      </div>
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Bulk review surface — detail view of confidence labels and rationale for individual recommendations" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Recommendations_page_structure_2.png" alt="Bulk review detail: confidence labels (High/Medium) and rationale shown for individual recommendations within the review surface" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Bulk review — recommendations organized by object type, with confidence labels and rationale visible at a glance</p>
+      </div>
+
+      <div class="step-block fade-up">
+        <span class="step-num" aria-hidden="true">03</span>
+        <div class="step-body">
+          <strong>In-context review</strong>
+          <p>Users who prefer to review recommendations individually within the context of a specific control can do so from that object's detail page. Recommendations surface inline with objects that might've already been mapped.</p>
+        </div>
+      </div>
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="In-context review showing AI recommendations surfaced inline within a control's detail page" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/In_Context_Review_1.png" alt="In-context review: AI mapping recommendations surfaced inline within the control detail page, alongside any objects already mapped" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+      </div>
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="In-context review — detail view of an individual recommendation with confidence label and rationale" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/In_Context_Review_2.png" alt="In-context review detail: individual recommendation shown with confidence label and rationale within the control detail page" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">In-context review — recommendations surfaced inline within the control detail page for one-at-a-time review</p>
+      </div>
+
+      <div class="step-block fade-up">
+        <span class="step-num" aria-hidden="true">04</span>
+        <div class="step-body">
+          <strong>Progress and collaboration</strong>
+          <p>Review progress is saved continuously, so users can complete the mapping across multiple sessions or collaborate with teammates without losing work. The stats at the top of the page keep track of remaining objects to review.</p>
+        </div>
+      </div>
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Progress stats bar showing review completion status across object types" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Progress_stats.png" alt="Progress stats: review completion tracker showing accepted, denied, and pending recommendations across object types" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Progress and collaboration — continuous save and a progress tracker so teams can pick up where they left off</p>
+      </div>
+    </section>
+
+    <!-- SCALING TO FRAMEWORKS AND RISKS -->
+    <section id="section-scaling" class="cs-section fade-up" aria-labelledby="kicker-scaling">
+      <span class="section-kicker" id="kicker-scaling">Scaling to frameworks and risks</span>
+      <p class="cs-body">The interaction model established for custom controls was designed from the start to extend to other object types. Once the core patterns were in place (the upload flow, grouped recommendations, confidence labels, rationale, bulk review, and individual in-context review) scaling to custom frameworks and custom risks was a matter of applying them to a new context rather than redesigning from scratch.</p>
+      <p class="cs-body">Custom framework requirements mapped to Drata controls (both OOTB and custom), and custom risks mapped to Drata controls following the same review and approval model. The experience felt consistent across all three because the underlying patterns held.</p>
+
+      <h3 class="cs-h3" id="risks-heading">Risks</h3>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Risks bulk review surface showing AI-recommended control mappings for custom risks" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Risks_BulkReview.png" alt="Risks bulk review: custom risks listed with AI-recommended Drata control mappings, grouped with confidence labels and rationale" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Risks bulk review — same interaction model applied to custom risk-to-control mapping</p>
+      </div>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Risks in-context review showing recommendations inline within a risk's detail page" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Risks_InContext_Review.png" alt="Risks in-context review: AI recommendations surfaced inline within the risk detail page" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Risks in-context review — recommendations inline within the risk detail page</p>
+      </div>
+
+      <h3 class="cs-h3" id="frameworks-heading">Frameworks</h3>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Frameworks bulk review surface showing AI-recommended control mappings for custom framework requirements" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Frameworks_BulkReview.png" alt="Frameworks bulk review: custom framework requirements listed with AI-recommended control mappings" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Frameworks bulk review — same model applied to custom framework requirement-to-control mapping</p>
+      </div>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Frameworks in-context review showing recommendations inline within a framework requirement's detail page" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Frameworks_InContext_Review.png" alt="Frameworks in-context review: AI recommendations surfaced inline within the framework requirement detail page" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Frameworks in-context review — recommendations inline within the framework requirement detail page</p>
+      </div>
+    </section>
+
+    <!-- KEY DECISIONS & TRADEOFFS -->
+    <section id="section-decisions" class="cs-section fade-up" aria-labelledby="kicker-decisions">
+      <span class="section-kicker" id="kicker-decisions">Key decisions &amp; tradeoffs</span>
+
+      <h4 class="cs-h4" id="phased-scope-heading">Phased scope to match model reliability</h4>
+      <p class="cs-body">One of the most important constraints was AI model quality. Recommendations are only valuable if the model is reliably surfacing accurate matches, and we knew quality would vary across object types. Since the CA team was stopping manual support for this process, the stakes of shipping a low-quality experience were high.</p>
+      <p class="cs-body">We decided to <strong>ship custom controls to Drata objects first</strong>, validate quality and real-world adoption, and then follow with custom frameworks to controls (including both Drata and custom controls). Custom risks to controls were descoped to a later phase.</p>
+      <p class="cs-body">This phasing allowed us to get the highest-confidence use case into customers' hands quickly, learn from actual usage before expanding scope, and de-risk the more complex mapping relationships.</p>
+
+      <h4 class="cs-h4" id="bulk-review-heading">Bulk review and in-context review as complementary surfaces</h4>
+      <p class="cs-body">The bulk review surface was built and released first as the fastest path to getting mapping capability into customers' hands. We knew both modes were needed, some users would approach mapping as a large batch operation, while others would want to review recommendations in context, within the detail page of a specific control or framework requirement, but waiting until both were ready would have delayed the core value significantly. The in-context view was designed in parallel and scoped as a close follow-up to the initial release rather than a dependency on it. Speed to value drove the sequencing.</p>
+
+      <h4 class="cs-h4" id="claude-prototype-heading">Using Claude to prototype the bulk review experience</h4>
+      <p class="cs-body">Because this was a genuinely new interaction model for Drata, no prior patterns to reference for a bulk AI recommendation review surface existed. I used Claude Code to rapidly generate and explore different structural approaches before committing to a direction. That exploration informed how recommendations were grouped, how confidence was surfaced, and how bulk actions were scoped. (Those early prototypes no longer exist, but the decisions they informed through exploration made it into the final designs.)</p>
+
+      <h4 class="cs-h4" id="auto-approval-heading">Auto-approval rules as the path toward greater autonomy</h4>
+      <p class="cs-body">The bulk review experience was built with a future state in mind: <strong>auto-approval rules</strong> that would allow users to automatically accept high or medium confidence recommendations without manual review.</p>
+      <p class="cs-body">Introducing auto-approvals also required rethinking Drata's AI settings model. At the time, AI was configured through a single global toggle. There was no way to enable or disable AI at the feature or capability level. We pushed for that settings enhancement as part of this project, moving toward a model where users could configure AI behavior per capability, which was needed to be able to enable auto-approvals rules for the mapping agent. This was fully designed but not yet shipped before I left.</p>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="AI settings model showing granular, feature-level AI controls including auto-approval rules for the mapping agent" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Settings_1.png" alt="AI settings: moving from a single global AI toggle to granular, feature-level controls — including auto-approval rules for the mapping agent" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+      </div>
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="AI settings — auto-approval rules configuration for the mapping agent" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/Settings_2.png" alt="AI settings detail: auto-approval rules configuration showing high and medium confidence thresholds for the mapping agent" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">AI settings model — granular, feature-level controls including auto-approval rules for the mapping agent</p>
+      </div>
+    </section>
+
+    <!-- LOOKING AHEAD -->
+    <section id="section-ahead" class="cs-section fade-up" aria-labelledby="kicker-ahead">
+      <span class="section-kicker" id="kicker-ahead">Looking ahead</span>
+      <p class="cs-body">The Mapping Agent was one of five core agents Drata had planned for its AI roadmap. As part of that broader strategy, a <strong>Drata AI home page</strong> was in design as a central hub for all agentic workflows and the intended entry point for a conversational AI experience across the platform.</p>
+      <p class="cs-body">I contributed explorations for how the mapping experience would be surfaced from that home page, including how customers would initiate a new mapping session as part of a unified AI-first entry point.</p>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap expandable" role="img" aria-label="Drata AI home page exploration showing a unified hub for all agentic workflows including the mapping agent" onclick="openLightbox(this)">
+          <img src="../images/mapping-agent/DrataAI_Home.png" alt="Drata AI home page exploration: a central hub for all agentic workflows, showing how the mapping experience would be surfaced as part of a unified AI-first entry point" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Drata AI home page — exploration of a unified entry point for all agentic workflows across the platform</p>
+      </div>
+
+      <p class="cs-body"><em>These explorations represent design work that was directionally aligned with the team but did not yet have engineering assigned at the time I transitioned out of the role.</em></p>
+    </section>
+
+    <!-- REFLECTION -->
+    <section id="section-reflection" class="cs-section fade-up" aria-labelledby="kicker-reflection">
+      <span class="section-kicker" id="kicker-reflection">Reflection</span>
+      <p class="cs-body">This project allowed me to go even deeper into the core patterns and guidelines of how Drata designs for AI. It also brought real challenges: balancing technical constraints, delivering value quickly, and building enough trust with users to drive adoption. The phasing decision wasn't only a product scope call. It was also about building trust with our users. Shipping the highest-confidence use case first, learning from real usage, and expanding from there was the right way to earn that trust incrementally.</p>
+      <p class="cs-body">Research shaped this project more fundamentally than I expected going in. The pivot from mapping to Drata controls to mapping directly to Drata objects was a complete structural change that came entirely from listening to how users thought about their own work. Drata controls had always been the centerpiece of our platform, so moving away from that challenged a core assumption about how the product operated. But it put customers' mental models ahead of our internal architecture, which is exactly what good product design requires.</p>
+      <p class="cs-body">Working within existing constraints was something Drata embraced, and this project was a good example of that in practice. Getting value to customers quickly and learning from real usage mattered more than waiting to make the experience perfect. Shipping something functional first allows us to iterate faster and with more confidence.</p>
+      <p class="cs-body">Pushing for the AI settings enhancement was a good example of how a single feature can surface a platform-level gap. Auto-approval rules needed a more sophisticated approach to how AI is configured across the product. Getting that change scoped as part of this project was an important milestone for the team. We introduced a new capability and raised the bar for how agentic features should handle AI configuration going forward.</p>
+      <p class="cs-body">This project reinforced that incremental, trust-first design and business impact go hand in hand, especially in an AI space that moves as fast as this one. Phasing scope, grounding decisions in research, building for user control before expanding autonomy are great practices I like to include in my projects.</p>
+    </section>
+
+  </main>
+</div><!-- /.cs-layout -->
+
+<!-- ── LIGHTBOX ──────────────────────────────────────────────────────── -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded image view" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close expanded image">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ── NEXT CASE STUDY ───────────────────────────────────────────────── -->
+<nav class="cs-next" aria-label="Case study navigation">
+  <div></div>
+  <div>
+    <p class="cs-next-label">Next case study</p>
+    <a href="../tprm-agent/" class="cs-next-title" aria-label="Next: TPRM Agent case study">TPRM Agent →</a>
+  </div>
+</nav>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <p>© 2026 Marcela Espinosa</p>
+  <ul class="footer-links" aria-label="Contact links">
+    <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" aria-label="Email Marcela Espinosa">Email</a></li>
+    <li><a href="https://www.linkedin.com/in/marcelaespinosaallende/" target="_blank" rel="noopener noreferrer" aria-label="Marcela Espinosa on LinkedIn (opens in new tab)">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<script>
+  // ── FADE-UP ON SCROLL ────────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── ANCHOR NAV ACTIVE STATE ──────────────────────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.cs-anchor-nav a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.cs-anchor-nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  // ── PLAY VIDEOS ONLY WHEN VISIBLE ───────────────────────────────────
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const video = e.target;
+      if (e.isIntersecting) {
+        video.currentTime = 0;
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, { threshold: 0.25 });
+
+  document.querySelectorAll('.cs-video-wrap video').forEach(video => {
+    videoObserver.observe(video);
+  });
+
+  // ── LIGHTBOX ─────────────────────────────────────────────────────────
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  function openLightbox(wrap) {
+    const img = wrap.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ── NAV SCROLL BORDER ────────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    document.getElementById('cs-nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
+</body>
+</html>
