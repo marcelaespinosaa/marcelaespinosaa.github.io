@@ -255,7 +255,7 @@ footer p { font-size: 0.75rem; color: #555; }
 <div class="cs-meta" role="complementary" aria-label="Project details">
   <div class="cs-meta-item"><label>Role</label><span>Senior AI Product Designer</span></div>
   <div class="cs-meta-item"><label>Team</label><span>AI Director &amp; PM, Engineering, TPRM Product team</span></div>
-  <div class="cs-meta-item"><label>Timeline</label><span>June 2025 – ongoing · Closed beta: April 2026</span></div>
+  <div class="cs-meta-item"><label>Timeline</label><span>June 2025 – April 2026 </span></div>
 </div>
 
 <!-- ── LAYOUT WRAPPER ────────────────────────────────────────────────── -->
@@ -282,10 +282,13 @@ footer p { font-size: 0.75rem; color: #555; }
     <!-- THE OPPORTUNITY -->
     <section id="section-opportunity" class="cs-section fade-up" aria-labelledby="kicker-opportunity">
       <span class="section-kicker" id="kicker-opportunity">The opportunity</span>
-      <p class="cs-body">As AI became embedded across enterprise tools, security teams began expecting their most manual workflows to benefit from it too. Third Party Risk Management (TPRM) was an ideal opportunity. It was time-consuming, repetitive, and nearly impossible to standardize across a growing vendor portfolio.</p>
-      <p class="cs-body">The TPRM team had done discovery on a new criteria-based assessment model, where organizations define the security requirements (criteria) vendors must meet rather than relying only on vendor-provided answers. The concept had been validated with a handful of customers. We, the AI team, partnering with the TPRM team, used the agent as the first implementation of that model, <strong>designing a workflow that could evaluate vendor documentation against those criteria and produce structured assessment results</strong>.</p>
-      <p class="cs-body">This was a <strong>0-to-1 initiative</strong>: Drata's first agent-driven experience, with no internal patterns to follow, no prior interaction models to reference. The design challenge was <strong>"what does AI-assisted work look like in Drata".</strong></p>
-      <p class="cs-body">What made this different from a standard feature launch: the agent was conceived as <strong>the foundation for a future standalone TPRM product, planned for August 2026</strong>. The design work here wasn't scoped to a single workflow, it had to be architected to carry a full product.</p>
+      <p class="cs-body">As AI became embedded across enterprise tools, security teams began expecting their most manual workflows to benefit from it too. Third Party Risk Management was one of the most painful. Every time an organization brings in a new vendor (a software tool, a service provider, a contractor with system access) they take on risk. TPRM is the process of evaluating that risk: understanding what security practices a vendor has in place, whether they meet the organization's requirements, and how much trust they can reasonably be given.
+The problem is that doing this well is incredibly time-consuming. Security teams have to collect documentation from each vendor, review it manually, and make judgment calls about whether the vendor's practices are acceptable. As vendor portfolios grow, the process becomes nearly impossible to scale.</p>
+
+      <p class="cs-body">At Drata, the TPRM team had been exploring a better model: criteria-based assessments. Organizations would define their own security requirements upfront (the criteria a vendor must meet) and evaluate vendors against those. The goal was to shift the process from vendor-provided answers and open-ended document review to a better structured and repeatable evaluation. The concept had been validated with a handful of customers and was ready for its first implementation. We, the AI team, partnering with the TPRM team, saw this as the right foundation for an agent-driven experience that could evaluate vendor documentation against defined criteria automatically and produce structured assessment results, turning a process that took days or weeks into one that could take hours.</strong>.</p>
+      
+<p class="cs-body">This was a <strong>0-to-1 initiative</strong>: Drata's first agent-driven experience, with no internal patterns to follow, no prior interaction models to reference. The design challenge was <strong>"what does AI-assisted work look like in Drata".</strong></p>
+      <p class="cs-body">What made this different from a standard feature launch: the agent was conceived as <strong>the foundation for a future standalone TPRM product, planned for August 2026</strong>. The design work here had to be architected to carry a full product.</p>
       <!-- PLACEHOLDER: Before publishing: add a commercial driver or customer quote here. Check Productboard under TPRM-tagged requests, or ask your PM. -->
     </section>
 
@@ -294,7 +297,7 @@ footer p { font-size: 0.75rem; color: #555; }
       <span class="section-kicker" id="kicker-impact">Ownership &amp; impact</span>
       <p class="cs-body">I led the design of Drata's first AI-assisted workflow, <strong>establishing the initial interaction model for agent-driven experiences within the product.</strong></p>
       <ul class="cs-list" aria-label="Key contributions and outcomes">
-        <li><strong>Established the initial patterns for how AI integrates into product workflows</strong> — partnering with the AI Director to translate early agent concepts into concrete interaction models, including explainability, autonomy, and communication patterns.</li>
+        <li><strong>Established the initial patterns for how AI integrates into product workflows</strong> — partnering with the VP of AI to translate early agent concepts into concrete interaction models, including explainability, autonomy, and communication patterns.</li>
         <li><strong>Designed a new class of workflow</strong> — an end-to-end agent experience embedded within vendor risk reviews, transforming a manual, document-heavy process into an AI-assisted system while preserving user control and trust.</li>
         <li><strong>De-risked a 0→1 product direction</strong> — Partnering with the AI PM, I led 5 moderated sessions to validate the concept, followed by 3 months of biweekly sessions with enterprise design partners, led by both the TPRM and the AI team.</li>
         <li><strong>Enabled a new product surface</strong> — The TPRM Agent serves as the foundation for a standalone TPRM product (roadmapped for August 2026), requiring design decisions that scale beyond a single feature.</li>
@@ -305,8 +308,9 @@ footer p { font-size: 0.75rem; color: #555; }
     <!-- DEFINING AI'S ROLE -->
     <section id="section-role" class="cs-section fade-up" aria-labelledby="kicker-role">
       <span class="section-kicker" id="kicker-role">Defining AI's role in the workflow</span>
-      <p class="cs-body">Before defining the experience, we needed to answer a foundational question: what role should AI play in this workflow, and how much autonomy should it have?</p>
-      <p class="cs-body">Because Third Party Risk Management involves high-stakes decisions that professionals must defend to leadership and auditors, an agent that does the analysis, shows its work, and preserves human judgment at every meaningful decision point and only acts autonomously when given permission to, seemed the best approach for this experience. Users need would always be in the loop reviewing AI outputs, signing off on decisions, and controlling how much autonomy the system has. The framing "AI as an assistive layer" became the organizing principle for every interaction decision that followed.</p>
+      <p class="cs-body">Before defining the experience, we needed to establish the role AI should play in this workflow and how much autonomy should it have.</p>
+      <p class="cs-body">Because Third Party Risk Management involves high-stakes decisions that professionals must defend to leadership and auditors, an agent that does the analysis, shows its work, and preserves human judgment at every meaningful decision point and only acts autonomously when given permission to, seemed the best approach for this experience. Users would always be in the loop reviewing AI outputs, signing off on decisions, and controlling how much autonomy the system has. The framing "AI as an assistive layer" became the organizing principle for every interaction decision that followed.</p>
+      <p class="cs-body">To define where AI could assist the user, we mapped the core user flows of this experience, highlighting where AI would bring meaningful value.</p>
 
       <div class="cs-image-block fade-up">
         <div class="cs-image-wrap expandable" role="img" aria-label="User flow wireframes showing existing vendor review workflow with and without the AI agent layer" onclick="openLightbox(this)">
@@ -316,6 +320,8 @@ footer p { font-size: 0.75rem; color: #555; }
         <p class="cs-image-caption">Review flows — existing workflow with and without the agent layer</p>
       </div>
 
+      <p class="cs-body">To allow our users to define how much autonomy the agent could act with, we define some basic settings the user could manage that would allow the agent to perform specific tasks automatically. </p>
+
       <div class="cs-image-block fade-up">
         <div class="cs-image-wrap expandable" role="img" aria-label="Settings wireframes showing configurable autonomy controls for the TPRM Agent" onclick="openLightbox(this)">
           <img src="../images/tprm/Settings_wireframes.png" alt="Settings wireframes showing configurable autonomy controls — organizations can tune how much responsibility the agent takes on within the workflow" loading="lazy">
@@ -324,10 +330,10 @@ footer p { font-size: 0.75rem; color: #555; }
         <p class="cs-image-caption">Organizations can tune how much responsibility the agent takes on within the workflow.</p>
       </div>
 
-      <p class="cs-body">As part of this initiative, I partnered with the AI Director, AI PM, and TPRM designer to define Drata's AI design principles and personality model (levels of presence and autonomy) from the ground up. We synthesized themes from working sessions into a cohesive framework, which I later refined and translated into final language. These principles now guide AI feature development across the platform.</p>
 
       <h3 class="cs-h3" id="principles-heading">AI Design principles</h3>
-      <p class="cs-body">These are the 4 design principles, out of 6, that were most important for this project</p>
+      <p class="cs-body">As part of this initiative, I partnered with the AI Director, AI PM, and TPRM designer to do a small workshop to define Drata's AI design principles and personality model (levels of presence and autonomy) from the ground up. We synthesized themes from working sessions into a cohesive framework, which I later refined and translated into final language. These principles now guide AI feature development across the platform.</p>
+      <p class="cs-body">These are the 4 design principles, out of 6, that were most important for this project.</p>
 
       <div class="cs-image-block fade-up">
         <div class="cs-image-wrap" role="img" aria-label="Six AI design principles: 1. User first, 2. Transparency and trust, 3. Progressive autonomy, 4. Always learning, 5. Set up for success, 6. Reliable and safe by design">
@@ -336,8 +342,8 @@ footer p { font-size: 0.75rem; color: #555; }
         <p class="cs-image-caption">AI design principles — synthesized from cross-team working sessions, now applied across all AI features at Drata</p>
       </div>
 
-      <h3 class="cs-h3" id="personalities-heading">Personalities</h3>
-      <p class="cs-body">TPRM Agent operates primarily at the Collaborator level — helping users complete tasks step by step with approval required at key moments. For vendors with a Trust Center in Drata, limited Autonomous behavior is permitted through configurable autonomy settings: users can give the agent permission to request access to a vendor's Trust Center, collect documents automatically, and run the assessment.</p>
+      <h3 class="cs-h3" id="personalities-heading">Personalities Model</h3>
+      <p class="cs-body">TPRM Agent operates primarily at the Collaborator level, helping users complete tasks step by step with approval required at key moments. For vendors with a Trust Center in Drata, limited Operator behavior is permitted through configurable autonomy settings: users can give the agent permission to request access to a vendor's Trust Center, collect documents automatically, and run the assessment.</p>
 
       <div class="cs-image-block fade-up">
         <div class="cs-image-wrap" role="img" aria-label="Four AI agent personality levels: Sentinel, Advisor, Collaborator (TPRM Agent level, highlighted), and Operator">
@@ -350,14 +356,14 @@ footer p { font-size: 0.75rem; color: #555; }
     <!-- DESIGNING THE INTERACTION MODEL -->
     <section id="section-interaction" class="cs-section fade-up" aria-labelledby="kicker-interaction">
       <span class="section-kicker" id="kicker-interaction">Designing the interaction model</span>
-      <p class="cs-body"><strong>The core structural decision was to introduce a dedicated AI surface on top of the existing vendor review workflow, rather than replace the manual process altogether.</strong> This gave users a clear place to interact with the agent while preserving the familiar underlying workflow. Teams with stricter policies around AI could still rely on the manual path, while others could adopt AI assistance progressively.</p>
+      <p class="cs-body"><strong>The core structural decision was to introduce a dedicated AI surface on top of the existing vendor review workflow without replace the manual existing process.</strong> This gave users a clear place to interact with the agent while preserving the familiar underlying workflow. Teams with stricter policies around AI could still rely on the manual path, while others could adopt AI assistance progressively.</p>
       <p class="cs-body">The workflow runs in five stages:</p>
 
       <div class="step-block fade-up">
         <span class="step-num" aria-hidden="true">01</span>
         <div class="step-body">
           <strong>Criteria configuration</strong>
-          <p>Users upload an existing questionnaire; the system parses it into structured evaluation criteria. Organizations keep their mental model — the agent makes it machine-readable.</p>
+          <p>Users upload an existing questionnaire; the system parses it into structured evaluation criteria. Organizations keep their mental model while the agent adapts it to the new criteria model.</p>
         </div>
       </div>
       <div class="cs-video-block fade-up">
@@ -374,7 +380,7 @@ footer p { font-size: 0.75rem; color: #555; }
         <span class="step-num" aria-hidden="true">02</span>
         <div class="step-body">
           <strong>Agent entry point</strong>
-          <p>An initiation surface within the vendor profile allows users to start a review when needed, without disrupting the default workflow.</p>
+          <p>An initiation surface within the vendor profile allows users to start a review with the agent without disrupting the default workflow.</p>
         </div>
       </div>
       <div class="cs-image-block fade-up">
@@ -390,14 +396,14 @@ footer p { font-size: 0.75rem; color: #555; }
           <span class="step-num" aria-hidden="true">03</span>
           <div class="step-body">
             <strong>Evidence collection</strong>
-            <p>The agent processes vendor documentation. For vendors using Drata's Trust Centers, documentation can be retrieved automatically, removing one of the most manual steps in the process. The experience was designed to support future expansion to additional Trust Center providers.</p>
+            <p>For vendors using Drata's Trust Centers, the agent collects and processes vendor documentation, removing one of the most manual steps in the process. For vendors without a Drata Trust Center, for the first iteration users had to provide documents and the agent would process them. The experience was designed to support future expansion to additional Trust Center providers to allow automatic document collection for those vendors as well.</p>
           </div>
         </div>
         <div class="step-block">
           <span class="step-num" aria-hidden="true">04</span>
           <div class="step-body">
             <strong>AI assessment</strong>
-            <p>The agent evaluates documentation against each criterion and returns: Met, Not Met, or Inconclusive — with supporting explanations and evidence references.</p>
+            <p>The agent evaluates documentation against each criterion and returns: Met, Not Met, or Inconclusive, with supporting explanations and evidence references.</p>
           </div>
         </div>
       </div>
@@ -424,7 +430,7 @@ footer p { font-size: 0.75rem; color: #555; }
         <span class="step-num" aria-hidden="true">05</span>
         <div class="step-body">
           <strong>Review and iteration</strong>
-          <p>Users review the agent's outputs, adjust results where needed, and validate the assessment before proceeding. For criteria marked as <em>Not Met</em> or <em>Inconclusive</em>, the agent generates a follow-up questionnaire to request additional information from the vendor. Once responses are received, the agent re-runs the assessment and highlights any changes, allowing users to iteratively refine the evaluation.</p>
+          <p>This is where the agent passes the baton to the user for them to review the outputs, adjust results where needed, and validate the assessment before proceeding. For criteria marked as <em>Not Met</em> or <em>Inconclusive</em>, the agent generates a follow-up questionnaire to request additional information from the vendor. Once responses are received, the agent re-runs the assessment and highlights any changes, allowing users to iteratively refine the evaluation.</p>
         </div>
       </div>
       <div class="cs-image-block fade-up">
@@ -439,7 +445,7 @@ footer p { font-size: 0.75rem; color: #555; }
         <span class="step-num" aria-hidden="true">06</span>
         <div class="step-body">
           <strong>Risk creation and reporting</strong>
-          <p>Observations can be flagged as potential risks. The agent generates a structured report — executive summary, criteria results, evidence references, observations flagged as risks — exportable as PDF.</p>
+          <p>Observations can be flagged as potential risks. The agent generates a structured report exportable as PDF with an executive summary, criteria results, evidence references, and observations flagged as risks.</p>
         </div>
       </div>
       <div class="cs-video-block fade-up">
@@ -462,7 +468,7 @@ footer p { font-size: 0.75rem; color: #555; }
         </div>
         <div class="behavior-card">
           <strong>Explainability at multiple levels</strong>
-          <p>Users can inspect not just the final assessment, but the reasoning behind it — including requirement-level status and supporting evidence.</p>
+          <p>Users can inspect not just the final assessment, but the reasoning behind it, including requirement-level status and supporting evidence.</p>
         </div>
         <div class="behavior-card">
           <strong>User control and overrides</strong>
@@ -490,8 +496,8 @@ footer p { font-size: 0.75rem; color: #555; }
       <p class="cs-body">Participants worked through interactive prototypes, completing tasks such as initiating a review, uploading documentation, and evaluating AI-generated results.</p>
       <p class="cs-body">The sessions confirmed the criteria concept was sound and surfaced the core condition for adoption: users were open to AI-assisted assessments if the system made its reasoning visible and kept them in control of final decisions.</p>
 
-      <h3 class="cs-h3 phase-label" id="phase2-heading">Phase 2: Design partner refinement (6 months, biweekly sessions)</h3>
-      <p class="cs-body">Starting in mid-December 2025, 6 enterprise design partner organizations joined biweekly sessions and tested the agent using their own vendor criteria and real documentation, not simulated scenarios.</p>
+      <h3 class="cs-h3 phase-label" id="phase2-heading">Phase 2: Design partner refinement (3 months, biweekly sessions)</h3>
+      <p class="cs-body">Starting in mid-December 2025, 6 enterprise design partner organizations joined biweekly sessions and tested the agent using their own vendor criteria and real documentation.</p>
       <p class="cs-body">This phase was less about validating the concept and more about calibrating the experience for real-world use. Design partners helped us refine three critical parts of the model:</p>
 
       <ul class="refinement-list" aria-label="Key refinements from design partner sessions">
@@ -507,7 +513,7 @@ footer p { font-size: 0.75rem; color: #555; }
           <img src="../images/tprm/Criteriarequirements_breakdown.png" alt="Criteria panel with requirement-level status breakdown and assessment table including the new Partially Met state" loading="lazy">
           <span class="cs-image-hint" aria-hidden="true">click to expand</span>
         </div>
-        <p class="cs-image-caption">Each result surfaces the AI's reasoning — because users need to defend assessments to leadership. Any AI-generated result can be overridden — human judgment always has final authority.</p>
+        <p class="cs-image-caption">Each result surfaces the AI's reasoning because users need to defend assessments to leadership. Any AI-generated result can be overridden, human judgment always has final authority.</p>
       </div>
     </section>
 
@@ -516,8 +522,7 @@ footer p { font-size: 0.75rem; color: #555; }
       <span class="section-kicker" id="kicker-decisions">Key decisions &amp; tradeoffs</span>
 
       <h3 class="cs-h3" id="guided-vs-conversational-heading">Guided experience vs. conversational AI</h3>
-      <p class="cs-body">We chose to design a guided, structured workflow rather than an open-ended conversational experience.</p>
-      <p class="cs-body">This was partly a resource constraint — building a robust conversational system would have required significantly more technical investment — but more importantly, it was a strategic decision.</p>
+      <p class="cs-body">We chose to design a guided, structured workflow rather than an open-ended conversational experience. This was partly a resource constraint, given that building a robust conversational system would have required significantly more technical investment, but it was also a strategic decision.</p>
       <p class="cs-body">This was a new interaction model for our users. Introducing AI into a high-stakes workflow meant we needed to reduce ambiguity. A conversational interface would have created too much variability in how users interacted with the system, making outcomes harder to predict, debug, and trust.</p>
       <p class="cs-body">The guided experience allowed us to:</p>
       <ul class="tradeoff-list" aria-label="Benefits of choosing a guided workflow approach">
@@ -525,21 +530,21 @@ footer p { font-size: 0.75rem; color: #555; }
         <li>Constrain the experience to clear, repeatable workflows</li>
         <li>Set users up for success by making expectations and system behavior explicit</li>
       </ul>
-      <p class="cs-body">At the same time, we designed this as a <strong>stepping stone toward a more flexible, conversational experience</strong>. The interaction model, patterns, and system behaviors established here were intentionally structured to support that evolution — allowing us to learn from real usage before introducing more open-ended interactions.</p>
+      <p class="cs-body">At the same time, we designed this as a <strong>stepping stone toward a more flexible, conversational experience</strong>. The interaction model, patterns, and system behaviors established here were intentionally structured to support that evolution, allowing us to learn from real usage before introducing more open-ended interactions.</p>
     </section>
 
     <!-- OUTCOMES -->
     <section id="section-outcomes" class="cs-section fade-up" aria-labelledby="kicker-outcomes">
       <span class="section-kicker" id="kicker-outcomes">Outcomes</span>
       <ul class="outcomes-list" aria-label="Project outcomes">
-        <li><strong>Strong validation from enterprise design partners</strong> — All 6 Agent design partners were converted into TPRM Standalone design partners, indicating those design partners are also being used to shape the broader TPRM platform</li>
+        <li><strong>Strong validation from enterprise design partners</strong> — All 6 Agent design partners saw a promising future and were converted into TPRM Standalone design partners, meaning they would partner to shape the broader TPRM platform.</li>
         <li>
-          <strong>Positive qualitative feedback and adoption signals</strong> — Design partners highlighted that the agent aligns closely with how their teams already operate, with feedback reinforcing its value in reducing manual effort and improving consistency
+          <strong>Positive qualitative feedback and adoption signals</strong> — Design partners highlighted that the agent aligns closely with how their teams already operate, with feedback reinforcing its value in reducing manual effort and improving consistency.
           <blockquote class="cs-blockquote">"Third-party risk is one of the most pressing challenges for every CISO. Drata's Agentic TPRM Assessment will fundamentally change how organizations operationalize third-party risk management — bringing rigor, consistency, and scale. Using Agentic AI, security teams can run assessments in minutes, achieve a more accurate risk posture across the supply chain, and operate at AI speed."
             <cite>— CISO, Enterprise customer</cite>
           </blockquote>
         </li>
-        <li><strong>Projected efficiency gains of ~75%</strong> — Based on testing with design partners, vendor assessments that typically take days can be completed in hours through automated evidence analysis and structured evaluation</li>
+        <li><strong>Projected efficiency gains of ~75%</strong> — Based on testing with design partners, vendor assessments that typically take days can be completed in hours through automated evidence analysis and structured evaluation.</li>
       </ul>
     </section>
 
@@ -550,7 +555,7 @@ footer p { font-size: 0.75rem; color: #555; }
       <p class="cs-body">A key focus throughout the project was defining what users needed in order to trust the TPRM Agent to ensure users felt confident that the system could support a high-stakes, manual process and produce reliable, high-quality assessments. Trust became a central design constraint, shaping decisions around explainability, control, and transparency.</p>
       <p class="cs-body">Working closely with design partners was especially valuable. Their willingness to engage, provide feedback, and test the agent in a controlled environment gave us direct visibility into how TPRM workflows actually operate. This made it easier to identify gaps, refine the experience, and validate whether our approach held up in real scenarios.</p>
  	<p class="cs-body">This project also highlighted the importance of strong cross-team collaboration. Two independent teams (AI and TPRM) were building this experience together. Early on, we had to establish clearer ownership, align on goals, and improve how we communicated changes. As we did, the collaboration became more effective and ultimately strengthened the outcome.</p>
- 	<p class="cs-body">Another important takeaway was how critical it was to embed the agent within existing workflows. We intentionally designed AI as a layer on top of users’ current mental models, rather than replacing them. This made the experience feel more approachable and reduced the perceived risk of adopting AI in a high-stakes process.</p>
+ 	<p class="cs-body">Another important takeaway was how critical it was to embed the agent within existing workflows. We intentionally designed AI as a layer on top of users’ current mental models. This made the experience feel more approachable and reduced the perceived risk of adopting AI in a high-stakes process.</p>
  	<p class="cs-body">The scope of the work also pushed me to think beyond the immediate feature. This agent is the first step toward a standalone product, and the first agentic experience at Drata. That meant the patterns we defined needed to scale for future AI work across the platform. It made thinking about what would hold as the system expanded critical.</p>
  	<p class="cs-body">I continue to apply these learnings in my work on AI-first features, especially in finding the right balance between system capability and user trust in high-risk workflows.</p>
 

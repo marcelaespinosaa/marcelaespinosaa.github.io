@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://marcelaespinosaa.github.io/images/evidence-library/Evidence_Library_thumbnail.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Evidence Library — Marcela Espinosa">
-<meta name="twitter:description" content="Designing a reusable evidence system for compliance — shifting Drata from fragmented documentation to a scalable platform capability.">
+<meta name="twitter:description" content="Designing a reusable evidence system for compliance, shifting Drata from fragmented documentation to a scalable platform capability.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,7 +193,7 @@ footer p { font-size: 0.75rem; color: #555; }
     <section id="section-opportunity" class="cs-section fade-up" aria-labelledby="kicker-opportunity">
       <span class="section-kicker" id="kicker-opportunity">The opportunity</span>
       <p class="cs-body">Compliance workflows rely on evidence; documentation that demonstrates security controls are operating effectively. To meet frameworks such as SOC 2, ISO 27001, and HIPAA, organizations must provide supporting documentation across dozens or hundreds of controls.</p>
-      <p class="cs-body">In Drata, this evidence was historically managed at the control level, where artifacts were uploaded and maintained independently across dozens or hundreds of controls, which created a structural problem:</p>
+      <p class="cs-body">In Drata, this evidence was historically managed at the control level, where artifacts were uploaded and maintained independently separately across all controls, which created a structural problem:</p>
       <ul class="cs-list">
         <li>The same evidence often applied to multiple controls and every update required manually tracking down and replacing each instance</li>
         <li>Updates required manual duplication across every instance</li>
@@ -201,7 +201,7 @@ footer p { font-size: 0.75rem; color: #555; }
       </ul>
       <p class="cs-body">As customers scaled to larger frameworks and audits, this model became increasingly fragile. Evidence management was inefficient and introduced risk.</p>
       <p class="cs-pullquote">"When I upload the same evidence to more than one control, I have to remember all the places I put it and replace it everywhere."</p>
-      <p class="cs-body">This project was an opportunity to redefine how evidence is represented and managed across the platform, shifting from a fragmented model to a reusable system.</p>
+      <p class="cs-body">This project was an opportunity to redefine how evidence is represented and managed across the platform to transform Drata's evidence model into a reusable system.</p>
     </section>
 
     <section id="section-impact" class="cs-section fade-up" aria-labelledby="kicker-impact">
@@ -211,10 +211,9 @@ footer p { font-size: 0.75rem; color: #555; }
         <li><strong>Redefined the evidence model across the platform</strong> — Enabled evidence to be created once and applied across multiple controls, reducing duplication and ensuring consistency across compliance requirements.</li>
         <li><strong>Established a foundation for long-term evidence management</strong> — Introduced versioning and audit-aware behaviors that allow teams to maintain historical records while updating evidence over time.</li>
         <li><strong>Extended the system beyond static documentation</strong> — Designed integrations that convert operational work (tickets) into compliance evidence, connecting external ticketing providers into the evidence lifecycle.</li>
-        <li><strong>Shaped a platform capability, not just a feature</strong> — Evidence Library became a core system used across compliance workflows, influencing how evidence is generated, maintained, and audited across the product.</li>
+        <li><strong>Shaped a platform capability</strong> — Evidence Library became a core system used across compliance workflows, influencing how evidence is generated, maintained, and audited across the product.</li>
       </ul>
-      <p class="cs-body">We moved to a new model where evidence exists independently and can be linked across controls. This shift changed the system from:</p>
-      <p class="cs-shift">Control-centric → Evidence-centric</p>
+      <p class="cs-body">We moved to a new model where evidence exists independently and can be linked across controls, changing the system from control-centric to evidence-centric.</p>
 
       <div class="cs-image-block fade-up">
         <div class="cs-image-wrap expandable" role="img" aria-label="Before and after diagram showing the shift from control-centric to evidence-centric model" onclick="openLightbox(this)">
@@ -227,39 +226,12 @@ footer p { font-size: 0.75rem; color: #555; }
 
     <section id="section-interaction" class="cs-section fade-up" aria-labelledby="kicker-interaction">
       <span class="section-kicker" id="kicker-interaction">Designing the interaction model</span>
-      <p class="cs-body">The initial version of Evidence Library introduced a simple shift: Evidence is no longer tied to a single control, it becomes a reusable entity across the system.</p>
-      <p class="cs-body">Instead of attaching documents independently within each control, users could store evidence once and link it across multiple controls. This change introduced a dual-model system to balance structure and flexibility:</p>
+      <p class="cs-body">The initial version of Evidence Library introduced a simple change: Evidence is no longer tied to a single control, it becomes a reusable entity across the system. Instead of attaching documents independently within each control, users could store evidence once and link it across multiple controls. This change introduced a dual-model system combining reusable evidence with control-specific evidence to balance structure and flexibility:</p>
 
       <h4 class="cs-h4" id="reusable-evidence">Reusable evidence (system-level)</h4>
       <p class="cs-body">Evidence is created and stored in Evidence Library, then linked across multiple controls. Updates propagate automatically, ensuring consistency across the system.</p>
 
-      <h4 class="cs-h4" id="control-specific-evidence">Control-specific evidence (local flexibility)</h4>
-      <p class="cs-body">Users can still attach evidence directly to a control when needed for ad hoc documentation or control-specific context.</p>
-      <p class="cs-body">This hybrid model allowed us to introduce structure without breaking existing workflows.</p>
-
-      <div class="cs-image-block fade-up">
-        <div class="cs-image-wrap half-width expandable" role="img" aria-label="Evidence architecture diagram showing reusable and control-specific evidence models" onclick="openLightbox(this)">
-          <img src="../images/evidence-library/Evidence_architecture_diagram.png" alt="Evidence architecture diagram showing the two-model system: reusable evidence stored in Evidence Library and linked across controls, and control-specific evidence attached locally" loading="lazy">
-          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
-        </div>
-        <p class="cs-image-caption">Evidence architecture — dual-model system balancing platform-wide reuse with local flexibility</p>
-      </div>
-
-      <p class="cs-body">Existing functionality of uploading individual pieces of evidence to a control was renamed to miscellaneous evidence.</p>
-
-      <div class="cs-video-block fade-up">
-        <div class="cs-video-wrap">
-          <video loop muted playsinline aria-label="Adding miscellaneous evidence: user uploads a piece of evidence relevant to a single control from the control details drawer">
-            <source src="../images/evidence-library/Adding_miscellaneous_evidence.mp4" type="video/mp4">
-            This video shows adding miscellaneous evidence to a control.
-          </video>
-        </div>
-        <p class="cs-video-caption">Flow shows user uploading a piece of evidence relevant to a single control from the control details drawer.</p>
-      </div>
-
-      <p class="cs-body">Adding evidence to Evidence Library and linking multiple controls to it.</p>
-
-      <div class="cs-video-block fade-up">
+  <div class="cs-video-block fade-up">
         <div class="cs-video-wrap">
           <video loop muted playsinline aria-label="Evidence upload from Evidence Library: user uploads a single piece of evidence, links it to multiple controls, and confirms it in the control details drawer">
             <source src="../images/evidence-library/Evidence_upload_from_evidence_library.mp4" type="video/mp4">
@@ -269,10 +241,35 @@ footer p { font-size: 0.75rem; color: #555; }
         <p class="cs-video-caption">Flow shows user uploading a single piece of evidence to Evidence Library, linking it to multiple controls, and then confirming it being reflected in the control details drawer.</p>
       </div>
 
+      <h4 class="cs-h4" id="control-specific-evidence">Control-specific evidence (local flexibility)</h4>
+      <p class="cs-body">Users can still attach evidence directly to a control when needed for ad-hoc documentation or control-specific context. This existing functionality was renamed to miscellaneous evidence.</p>
+
+
+  <div class="cs-video-block fade-up">
+        <div class="cs-video-wrap">
+          <video loop muted playsinline aria-label="Adding miscellaneous evidence: user uploads a piece of evidence relevant to a single control from the control details drawer">
+            <source src="../images/evidence-library/Adding_miscellaneous_evidence.mp4" type="video/mp4">
+            This video shows adding miscellaneous evidence to a control.
+          </video>
+        </div>
+        <p class="cs-video-caption">Flow shows user uploading a piece of evidence relevant to a single control from the control details drawer.</p>
+      </div>
+
+    <p class="cs-body">This hybrid model allowed us to introduce structure without breaking existing workflows.</p>
+
+      <div class="cs-image-block fade-up">
+        <div class="cs-image-wrap half-width expandable" role="img" aria-label="Evidence architecture diagram showing reusable and control-specific evidence models" onclick="openLightbox(this)">
+          <img src="../images/evidence-library/Evidence_architecture_diagram.png" alt="Evidence architecture diagram showing the two-model system: reusable evidence stored in Evidence Library and linked across controls, and control-specific evidence attached locally" loading="lazy">
+          <span class="cs-image-hint" aria-hidden="true">click to expand</span>
+        </div>
+        <p class="cs-image-caption">Evidence architecture — dual-model system balancing platform-wide reuse with local flexibility</p>
+      </div>
+  
+
+
+
       <h4 class="cs-h4" id="bidirectional-workflows">Bi-directional workflows</h4>
-      <p class="cs-body">A key consideration was that not all users work from the same entry point.</p>
-      <p class="cs-body">While some personas (e.g. compliance managers) operate from Evidence Library, others (e.g. control owners) primarily work within controls. The system needed to support both.</p>
-      <p class="cs-body">We introduced a bi-directional workflow between controls and Evidence Library:</p>
+      <p class="cs-body">A key consideration was that not all users work from the same entry point. While some personas (e.g. compliance managers) operate from Evidence Library, others (e.g. control owners) primarily work within controls. The system needed to support both, so we introduced a bi-directional workflow between controls and Evidence Library:</p>
       <ul class="cs-list">
         <li>Users can <strong>link existing evidence from Evidence Library</strong> directly within a control</li>
         <li>Users can also <strong>create new evidence from a control</strong> and add it to Evidence Library</li>
@@ -312,7 +309,7 @@ footer p { font-size: 0.75rem; color: #555; }
       <p class="cs-body">This research directly informed versioning behavior, audit-aware downloads, and system expectations for historical accuracy.</p>
 
       <h3 class="cs-h3" id="designing-for-change">Iteration 1 — Designing for change over time</h3>
-      <p class="cs-body">Compliance evidence is not static, it evolves. After launching v1, research revealed a critical gap: Users needed to update evidence without losing historical context. This led to the introduction of <strong>versioning as a core system behavior</strong>.</p>
+      <p class="cs-body">Compliance evidence is not static, it evolves. After launching v1, research revealed that users needed to update evidence without losing historical context. This led to the introduction of <strong>versioning as a core system behavior</strong>.</p>
 
       <h4 class="cs-h4" id="versioning-system">Versioning system</h4>
       <ul class="cs-list">
@@ -320,7 +317,7 @@ footer p { font-size: 0.75rem; color: #555; }
         <li>Previous versions remain accessible for audit and record-keeping</li>
         <li>Audit downloads include both current and historical evidence when relevant</li>
       </ul>
-      <p class="cs-body">This transformed Evidence Library from a storage system into a time-aware system aligned with audit workflows. The system interprets the customer's audit period to surface only relevant evidence — pulling from both current and historical versions — while restricting access from auditors to out-of-scope files.</p>
+      <p class="cs-body">This transformed Evidence Library from a storage system into a time-aware system aligned with audit workflows. The system interprets the customer's audit period to surface only relevant evidence, pulling from both current and historical versions while restricting access from auditors to out-of-scope files.</p>
 
       <div class="cs-video-block fade-up">
         <div class="cs-video-wrap">
@@ -333,14 +330,13 @@ footer p { font-size: 0.75rem; color: #555; }
       </div>
 
       <h3 class="cs-h3" id="extending-beyond-documents">Iteration 2 — Extending the system beyond documents</h3>
-      <p class="cs-body">Once the core model was established, the next opportunity was reducing manual documentation work. Compliance teams were already tracking work in tools like Jira, Asana, and ServiceNow, but still had to manually replicate that work in Drata.</p>
-      <p class="cs-body">We extended Evidence Library to support <strong>ticket-based evidence generation</strong>.</p>
+      <p class="cs-body">Once the core model was established, the next opportunity was reducing manual documentation work. Compliance teams were already tracking work in tools like Jira, Asana, and ServiceNow, but still had to manually replicate that work in Drata. We extended Evidence Library to support <strong>ticket-based evidence generation</strong>.</p>
 
       <h4 class="cs-h4" id="ticketing-integration">Ticketing integration workflow</h4>
       <ul class="cs-list">
         <li>Users provide a ticket URL</li>
         <li>Drata retrieves structured ticket data</li>
-        <li>The ticket is converted into an evidence record — ticket status is reflected in the platform</li>
+        <li>The ticket is converted into an evidence record to reflect its status in the platform</li>
         <li>The evidence can be linked to controls and included in audits</li>
       </ul>
       <p class="cs-body">This connected operational systems directly into the compliance workflow, reducing duplication and improving traceability.</p>
@@ -356,7 +352,7 @@ footer p { font-size: 0.75rem; color: #555; }
 
     <section id="section-outcomes" class="cs-section fade-up" aria-labelledby="kicker-outcomes">
       <span class="section-kicker" id="kicker-outcomes">Outcomes</span>
-      <p class="cs-body">Evidence Library saw strong adoption across the platform, with <strong>72% of customers activating the feature and 41% integrating it into their ongoing compliance workflows — representing thousands of customers using the system in production.</strong></p>
+      <p class="cs-body">Evidence Library saw strong adoption across the platform, with <strong>72% of customers activating the feature and 41% integrating it into their ongoing compliance workflows, representing thousands of customers using the system in production.</strong></p>
       <ul class="outcomes-list" aria-label="Project outcomes">
         <li><strong>Reduced manual duplication and update effort</strong> — Evidence can be created once and reused across controls, eliminating the need to track and update the same document in multiple places</li>
         <li><strong>Improved consistency and audit readiness</strong> — Versioning and centralized evidence management ensure documentation remains accurate, traceable, and defensible over time</li>
@@ -368,10 +364,10 @@ footer p { font-size: 0.75rem; color: #555; }
     <section id="section-reflection" class="cs-section fade-up" aria-labelledby="kicker-reflection">
       <span class="section-kicker" id="kicker-reflection">Reflection</span>
       <p class="cs-body">This project challenged me to think beyond individual features and design for a system that works across multiple entry points, personas, and workflows.</p>
-      <p class="cs-body">One of the most complex aspects was balancing structure with flexibility. Evidence could be created and managed from different parts of the product, depending on the user's role, and ensuring those experiences felt connected rather than fragmented required careful thinking around system relationships and information architecture.</p>
-      <p class="cs-body">Early on, I explored more complex approaches to tracking changes, but research showed that what customers actually needed was much simpler: a clear, reliable history of their evidence. Shifting to a straightforward version log made the system easier to understand while still meeting audit requirements.</p>
+      <p class="cs-body">One of the most complex aspects was balancing structure with flexibility. Evidence could be created and managed from different parts of the product, depending on the user's role, and ensuring those experiences felt connected required deep understanding of our users' mental models and our platform capabilities, thinking carefully around system relationships and information architecture.</p>
+      <p class="cs-body">Early on, I explored more complex approaches to tracking changes and version history, but research showed that customers needed a simpler and clearer process to just keep a log of their evidence. Shifting to a straightforward version log made the system easier to understand while still meeting audit requirements.</p>
       <p class="cs-body">This project also reinforced the importance of early cross-functional alignment. Evidence touches multiple areas of the product: controls, audits, and integrations, and collaborating closely with those teams early on was critical to ensuring the system worked cohesively across the platform.</p>
-      <p class="cs-body">Finally, one of the most important decisions was knowing when to ship. We focused on validating the core model enough to release a V1, then used real customer usage to iterate and refine the system over time. That shift, from trying to solve everything upfront to designing for evolution, is something I've carried into subsequent projects.</p>
+      <p class="cs-body">Finally, one of the most important decisions was knowing when to ship. We focused on validating the core model enough to release a V1, then used real customer usage to iterate and refine the system over time. Delivering value incrementally to learn from our users is something I've carried into subsequent projects.</p>
     </section>
 
   </main>
