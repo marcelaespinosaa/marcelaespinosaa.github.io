@@ -41,9 +41,9 @@ body {
 .site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1.25rem calc((100vw - var(--col)) / 2);
+  padding: 1.25rem 16vw;
   background: var(--bg);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--rule);
   transition: border-color 0.3s;
 }
 .site-nav.scrolled { border-color: var(--rule); }
