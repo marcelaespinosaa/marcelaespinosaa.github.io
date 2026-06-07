@@ -156,8 +156,7 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
 
     <section id="section-opportunity" class="cs-section fade-up" aria-labelledby="kicker-opportunity">
       <span class="section-kicker" id="kicker-opportunity">The opportunity</span>
-      <p class="cs-body">Notifications were embedded across nearly every major workflow in Drata's product: compliance tasks, system alerts, vendor reviews, Trust Center requests, and collaboration activity.</p>
-      <p class="cs-body">As the platform expanded, notification behavior had been implemented with a rigid, one-size-fits-all approach. Most notifications were triggered by predefined system events and delivered primarily via email, with limited flexibility for customization. Users had little control over how notifications were configured or delivered.</p>
+      <p class="cs-body">Notifications were embedded across nearly every major workflow in Drata's product: compliance tasks, system alerts, vendor reviews, Trust Center requests, and collaboration activity. As the platform expanded, notification behavior had been implemented with a rigid, one-size-fits-all approach. Most notifications were triggered by predefined system events and delivered primarily via email, with limited flexibility for customization. Users had little control over how notifications were configured or delivered.</p>
       <p class="cs-body">At the same time, upcoming initiatives were expected to increase both the volume and complexity of notifications across the platform. Drata needed a more flexible and scalable model for how notifications should behave across the platform.</p>
     </section>
 
@@ -165,9 +164,9 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
       <span class="section-kicker" id="kicker-impact">Ownership &amp; impact</span>
       <p class="cs-body">I led the product and UX side of this initiative in close partnership with the Group Product Manager and Staff Engineer, helping turn an ambiguous infrastructure question into a clear set of product requirements.</p>
       <ul class="cs-list" aria-label="Key contributions and impact">
-        <li><strong>Translated fragmented insights into a product requirements model</strong> — Synthesized customer feedback and internal signals into a clear definition of how notifications should behave across workflows</li>
+        <li><strong>Translated fragmented insights into a product requirements model</strong> — Synthesized customer feedback and internal signals into a clear definition of how notifications should behave across workflows.</li>
         <li><strong>Defined the workflows the infrastructure needed to support</strong> — Mapped representative scenarios across compliance, Trust Center, and collaboration experiences to make platform gaps visible and concrete.</li>
-        <li><strong>Extended the problem beyond delivery channels</strong> — Identified that notifications were also a collaboration and context issue, not just a transport issue, which expanded the requirements for the infrastructure decision.</li>
+        <li><strong>Extended the problem beyond delivery channels</strong> — Identified that notifications were also a collaboration and context issue, which expanded the requirements for the infrastructure decision.</li>
         <li><strong>Helped drive a platform migration decision</strong> — The work informed the recommendation to move Drata's notification infrastructure to a new provider better aligned with product requirements and long-term scale.</li>
       </ul>
     </section>
@@ -187,9 +186,8 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
       <p class="cs-body">As a result, notifications did not adapt to how organizations actually operate. Instead, users had to adapt their workflows to the system, making it hard to scale future workflows that would satisfy our customers' needs.</p>
 
       <h3 class="cs-h3" id="section-requirements">Requirements model</h3>
-      <p class="cs-body">The first step was making the problem legible.</p>
-      <p class="cs-body">I synthesized feedback gathered over several months from Productboard, prior research conversations, and internal product and support discussions. I organized them into themes that exposed where the platform was failing users and where future needs were likely to grow.</p>
-      <p class="cs-body">That synthesis became the basis for a requirements model: a product-level view of what notification infrastructure would need to support.</p>
+      <p class="cs-body">The first step was making the problem legible. I synthesized feedback gathered over several months from Productboard, prior research conversations, and internal product and support discussions. I organized them into themes that exposed where the platform was failing users and where future needs were likely to grow.</p>
+      <p class="cs-body">That synthesis became the basis for the requirements of what notification infrastructure would need to support.</p>
       <p class="cs-body">Representative customer feedback included:</p>
       <p class="cs-pullquote">"Would be nice to have ability to customize notification behavior... Every moment must be clear who is the owner and have some SLAs for progress."</p>
       <p class="cs-pullquote">"Combining Slack integration with different notification customization... based on the type of task and how far in advance we receive the notification."</p>
@@ -199,13 +197,13 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
           <img src="../images/notifications/Research_synthesis_board.png" alt="Research synthesis board: thematic clusters organizing months of Productboard feedback, research conversations, and internal discussions into actionable patterns" loading="lazy">
           <span class="cs-image-hint" aria-hidden="true">click to expand</span>
         </div>
-        <p class="cs-image-caption">Research synthesis board — thematic clusters of customer feedback and internal product insights</p>
+        <p class="cs-image-caption">Research synthesis board. Thematic clusters of customer feedback and internal product insights</p>
       </div>
 
       <h3 class="cs-h3" id="section-workflows">Representative workflows</h3>
-      <p class="cs-body">To move from insight to decision-making, I worked with the Group Product Manager to define representative workflows that expressed the kinds of notification behaviors the platform needed to support.</p>
-      <p class="cs-body">We defined a set of representative workflows to capture the range of notification behaviors the system needed to support. These included core notification scenarios, as well as an extended case that introduced collaboration patterns.</p>
-      <p class="cs-body">These workflows covered:</p>
+      <p class="cs-body">To move from insight to decision-making, I worked with the Group Product Manager to define representative workflows that expressed the kinds of notification behaviors the platform needed to support. We defined a set of representative workflows to capture the range of notification behaviors the system needed to support. These workflows covered:</p>
+
+   
       <ul class="cs-list" aria-label="Representative workflow scenarios">
         <li>Core notification scenarios
           <ul style="list-style:none; margin-top:0.4rem; display:flex; flex-direction:column; gap:0.4rem;">
@@ -253,35 +251,32 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
         <p class="cs-image-caption">This scenario extends the core task assignment workflow by introducing in-app collaboration (comments, mentions, shared context), highlighting additional requirements beyond notification delivery.</p>
       </div>
 
-      <p class="cs-body">This work helped the team evaluate notification behavior as a system rather than as a set of disconnected edge cases.</p>
-      <p class="cs-body">These workflows also became a key tool in vendor evaluation. We used them directly in conversations with infrastructure providers to communicate the types of behaviors, interactions, and flexibility the system needed to support.</p>
+      <p class="cs-body">This work helped the team evaluate notification behavior as a system rather than as a set of disconnected cases. It also became a key tool in vendor evaluation. We used them directly in conversations with infrastructure providers to communicate the types of behaviors, interactions, and flexibility the system needed to support.</p>
       <p class="cs-body">Rather than discussing features in isolation, these scenarios grounded the conversation in real product needs, making it easier to assess how each platform would handle complex, real-world workflows.</p>
 
       <h3 class="cs-h3" id="section-collaboration">Collaboration requirements</h3>
-      <p class="cs-body">As the flows were mapped, another layer of the problem became clear: notifications were increasingly intertwined with collaboration behavior.</p>
-      <p class="cs-body">We explored patterns such as:</p>
+      <p class="cs-body">As the flows were mapped, another layer of the problem became clear: notifications were tightly intertwined with collaboration behavior. To account for this, we explored patterns such as:</p>
       <ul class="cs-list" aria-label="Collaboration patterns explored">
         <li>Internal notes and comments</li>
         <li>User mentions</li>
         <li>Threaded communication</li>
         <li>Shared context between users working on the same workstream</li>
       </ul>
-      <p class="cs-body">This mattered because future notification infrastructure would need to support more than system-generated alerts. It also needed to support evolving communication patterns inside the product.</p>
-      <p class="cs-body">This insight expanded the evaluation criteria beyond notification delivery, requiring the system to support richer interaction patterns and evolving collaboration behaviors across the platform.</p>
+      <p class="cs-body">Future notification infrastructure would need to support more than system-generated alerts. It also needed to support evolving communication patterns inside the product. This insight expanded the evaluation criteria beyond notification delivery, requiring the system to support richer interaction patterns and evolving collaboration behaviors across the platform.</p>
 
       <div class="cs-image-block fade-up">
         <div class="cs-image-wrap expandable" role="img" aria-label="Collaboration exploration showing interaction design concepts for internal notes, mentions, threaded communication, and shared task context" onclick="openLightbox(this)">
           <img src="../images/notifications/Collaboration_exploration.png" alt="Collaboration exploration: interaction design concepts for internal notes, @mentions, threaded comments, and shared task context" loading="lazy">
           <span class="cs-image-hint" aria-hidden="true">click to expand</span>
         </div>
-        <p class="cs-image-caption">Collaboration exploration — interaction patterns and their intersection with notification requirements</p>
+        <p class="cs-image-caption">Collaboration exploration: interaction patterns and their intersection with notification requirements</p>
       </div>
     </section>
 
     <section id="section-evaluation" class="cs-section fade-up" aria-labelledby="kicker-evaluation">
       <span class="section-kicker" id="kicker-evaluation">Infrastructure evaluation</span>
       <p class="cs-body">With requirements and workflows defined, the Group Product Manager, Staff Engineer, and I moved into a structured evaluation process.</p>
-      <p class="cs-body">We began with exploratory calls across multiple notification infrastructure providers to understand the landscape and narrow down options. From there, we focused on two providers — the existing solution and a potential replacement — and conducted a series of weekly working sessions to evaluate both platforms in depth.</p>
+      <p class="cs-body">We began with exploratory calls across multiple notification infrastructure providers to understand the landscape and narrow down options. From there, we focused on two providers (the existing solution and a potential replacement) and conducted a series of weekly working sessions to evaluate both platforms in depth.</p>
       <p class="cs-body">The evaluation process included:</p>
       <ul class="cs-list" aria-label="Evaluation process steps">
         <li>Reviewing platform capabilities against our defined workflows and requirements</li>
@@ -289,8 +284,7 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
         <li>Engineering validation using existing templates and triggers</li>
         <li>Customer reference calls to understand real-world usage</li>
       </ul>
-      <p class="cs-body">We not only assessed current functionality, but we evaluated how well each platform could evolve with Drata's product over time.</p>
-      <p class="cs-body">The evaluation focused on:</p>
+      <p class="cs-body">We not only assessed current functionality, but we evaluated how well each platform could evolve with Drata's product over time to cover:</p>
       <ul class="cs-list" aria-label="Evaluation criteria">
         <li>Multi-channel delivery (email, Slack, Teams, future channels)</li>
         <li>In-app collaboration</li>
@@ -303,10 +297,10 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
 
     <section id="section-outcomes" class="cs-section fade-up" aria-labelledby="kicker-outcomes">
       <span class="section-kicker" id="kicker-outcomes">Outcomes</span>
-      <p class="cs-body">This work did not produce a customer-facing feature on its own. It produced something more foundational: the decision framework that guided Drata's next notification infrastructure.</p>
+      <p class="cs-body">This work produced the decision framework that guided Drata's next notification infrastructure.</p>
       <ul class="outcomes-list" aria-label="Project outcomes">
         <li>Converted fragmented insights into a structured requirements model for platform decision-making</li>
-        <li>Clarified how notifications should behave across multiple product surfaces, not just individual features</li>
+        <li>Clarified how notifications should behave across multiple product surfaces</li>
         <li>Expanded the definition of the problem to include collaboration patterns and white-labeled experiences</li>
         <li>Helped drive the decision to migrate to a new provider better suited to Drata's future notification needs</li>
       </ul>
@@ -314,11 +308,11 @@ footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
 
     <section id="section-reflection" class="cs-section fade-up" aria-labelledby="kicker-reflection">
       <span class="section-kicker" id="kicker-reflection">Reflection</span>
-      <p class="cs-body">This project pushed me into a different kind of design work — one where the challenge wasn't designing a complex interface, but making sense of a fragmented system and helping define how it should scale.</p>
-      <p class="cs-body">One of the hardest parts was consolidating insights. Customer feedback around notifications existed across multiple sources — Productboard, research transcripts, internal discussions — but wasn't structured in a way that made it easy to reason about. A significant part of my work involved going back to raw inputs, piecing together patterns, and turning scattered signals into something the team could act on.</p>
-      <p class="cs-body">This project also gave me deeper exposure to how product, engineering, and vendor relationships intersect. I worked closely with the PM and Staff Engineer to evaluate infrastructure providers, joining calls where vendors presented their capabilities and early implementations. My role was to assess how those systems could support the product experience we were defining — from flexibility and customization to how well they could integrate into Drata's existing workflows, and fit our customers mental models.</p>
+
+      <p class="cs-body">This project focused more on research synthesis and understanding the gaps of a fragmented system to define how it should scale. Consolidating insights was one of the hardest parts. Customer feedback around notifications existed across multiple sources (Productboard, research transcripts, internal discussions) but wasn't structured in a way that made it easy to reason about. A significant part of my work involved going back to raw inputs, piecing together patterns, and turning scattered signals into something the team could act on.</p>
+      <p class="cs-body">This project also gave me deeper exposure to how product, engineering, and vendor relationships intersect. I worked closely with the Group Product Manager and Staff Engineer to evaluate infrastructure providers, joining calls where vendors presented their capabilities and early implementations. My role was to assess how those systems could support the product experience we were defining and how they would fit our customers mental models.</p>
       <p class="cs-body">Being part of a decision that would lead to migrating notification infrastructure across the platform made the impact of this work very tangible. It reinforced how much influence product and design can have on technical direction when grounded in clear requirements and user needs.</p>
-      <p class="cs-body">More broadly, this project shifted how I think about infrastructure decisions. Notifications are not just a delivery mechanism — they shape how users understand responsibility, urgency, and collaboration across the product. Defining those behaviors upfront proved just as important as the technology used to implement them.</p>
+      <p class="cs-body">More broadly, this project shifted how I think about infrastructure decisions. Notifications shape how users understand responsibility, urgency, and collaboration across the product. Defining those behaviors upfront proved just as important as the technology used to implement them.</p>
     </section>
 
   </main>
