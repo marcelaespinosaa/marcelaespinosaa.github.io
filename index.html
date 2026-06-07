@@ -239,9 +239,9 @@ body {
 }
 
 .about-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   padding-top: 2rem;
   border-top: 1px solid var(--rule);
   margin: 2rem 0;
@@ -276,10 +276,25 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 .contact-btn:hover { background: var(--ink); color: var(--bg); }
+.tertiary-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.2s, color 0.2s;
+}
+.tertiary-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 .about-links {
   display: flex;
   gap: 1.5rem;
+  margin-top: 4rem;
 }
 .about-link {
   font-size: 0.72rem;
@@ -296,14 +311,11 @@ body {
 
 /* ── FOOTER ──────────────────────────────────────────────────────────── */
 .site-footer {
-  padding: 2rem 0;
-  width: var(--col);
-  margin: 0 auto;
+  padding: 1.75rem 16vw;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-.footer-copy, .footer-right {
+.footer-copy {
   font-size: 0.68rem;
   color: var(--soft);
   letter-spacing: 0.04em;
@@ -362,7 +374,10 @@ body {
           <div class="hero-bio">
             <p class="fade-in">I design systems for complex enterprise workflows, focusing on clarity, trust, and structure. My work combines AI UX, systems thinking, and research-driven product design. I focus on helping users understand what the system can do and building interaction patterns that remain trustworthy as products scale in complexity.</p>
             <p class="fade-in">I value clear communication, strong partnerships, and mutual respect in the way teams build together.</p>
-            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="contact-btn fade-in" aria-label="Email Marcela Espinosa">Get in touch</a>
+            <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+              <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#99;&#101;&#108;&#97;&#46;&#101;&#115;&#112;&#105;&#110;&#111;&#115;&#97;&#97;&#108;&#108;&#101;&#110;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="contact-btn fade-in" aria-label="Email Marcela Espinosa">Get in touch</a>
+              <a href="https://www.linkedin.com/in/marcelaespinosaallende/" target="_blank" rel="noopener noreferrer" class="tertiary-btn fade-in">LinkedIn ↗</a>
+            </div>
           </div>
         </div>
 
@@ -477,7 +492,6 @@ body {
 
   <footer class="site-footer" role="contentinfo">
     <span class="footer-copy">© 2026 Marcela Espinosa</span>
-    <span class="footer-right">Tijuana · San Diego</span>
   </footer>
 </div>
 
@@ -506,7 +520,7 @@ body {
           </div>
           <div>
             <p class="about-detail-label">Based in</p>
-            <p class="about-detail-value">Tijuana, MX<br>San Diego area</p>
+            <p class="about-detail-value">Tijuana, MX<br>San Diego, USA</p>
           </div>
           <div>
             <p class="about-detail-label">Background</p>
@@ -530,7 +544,6 @@ body {
 
   <footer class="site-footer" role="contentinfo">
     <span class="footer-copy">© 2026 Marcela Espinosa</span>
-    <span class="footer-right">Tijuana · San Diego</span>
   </footer>
 </div>
 
